@@ -1,6 +1,8 @@
 # Peaks and Troughs
 ## A Beginners Guide to Investing
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 ### Admin Steps
 
 1. Clone Repository
