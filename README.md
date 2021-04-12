@@ -31,6 +31,7 @@ $ pre-commit install
 5. Set-Up Flask
 ```
 $ pip install python-dotenv
+$ pip install flask-wtf
 ```
 6. Set up Python Environment
 - Create folder .vscode
@@ -38,6 +39,7 @@ $ pip install python-dotenv
 - Add the following entry, replacing XXX with the correct username to direct to your virtual envronment
 ```
 {
-    "python.pythonPath": "/Users/XXX/opt/miniconda3/envs/peaks-env/bin/python"
+    "python.pythonPath": "/Users/XXX/opt/miniconda3/envs/peaks-env/bin/python",
+    "editor.rulers": [ 100 ]
 }
 ```
