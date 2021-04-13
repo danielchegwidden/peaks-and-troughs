@@ -1,5 +1,12 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block html_attribs %} lang="en"{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }} - Peaks and Troughs{% else %}{{ ('Welcome to Peaks and Troughs') }}{% endif %}
 {% endblock %}
@@ -30,5 +37,11 @@
 {% endblock %}
 
 {% block content %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container-fluid" id="jumboBox">
+            <h1 class="display-4 text-center" id="jumboText">Welcome to my site</h1>
+            <p class="lead text-center">Glad you could join us!</p>
+        </div>
+    </div>
     {% block app_content %}{% endblock %}
 {% endblock %}
