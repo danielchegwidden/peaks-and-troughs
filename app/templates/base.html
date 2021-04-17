@@ -20,7 +20,7 @@
             </button>
         	<div class="collapse navbar-collapse" id="navbarResponsive">
           		<ul class="navbar-nav ml-auto">
-            		<li class="nav-item active">
+            		<li class="nav-item">
               			<a class="nav-link" href="{{ url_for('index') }}">Home
                     		<span class="sr-only">(current)</span>
                 		</a>
@@ -28,9 +28,11 @@
             		<li class="nav-item">
               			<a class="nav-link" href="#">!About</a>
             		</li>
+					{% if not current_user.is_anonymous %}
             		<li class="nav-item">
-              			<a class="nav-link" href="#">!Services</a>
+              			<a class="nav-link" href="{{ url_for('learn') }}">Learn</a>
             		</li>
+					{% endif %}
             		{% if current_user.is_anonymous %}
 					<li class="nav-item">
 						<a class="nav-link" href="{{ url_for('login') }}">{{ ('Login') }}</a>
@@ -91,14 +93,6 @@
 			</a>
    		</div>
   	</header>
-
-    <!-- Page Content -->
-    <section class="py-5">
-      	<div class="container">
-        	<h1 class="font-weight-light">Half Page Image Slider</h1>
-        	<p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
-      	</div>
-    </section>
 
     {% block app_content %}{% endblock %}
 {% endblock %}
