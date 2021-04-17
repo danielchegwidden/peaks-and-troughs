@@ -1,3 +1,52 @@
 {% extends "base.html" %}
 
-{% block app_content %}{% endblock %}
+{% block app_content %}
+    <section class="py-3">
+        <div class="container">
+            <h1 class="font-weight-light">Hi, {{ current_user.username }}!</h1>
+            <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <p>What would you like to learn about next?</p>
+            <ul class="nav nav-tabs" id="learn_navigation">
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_stocks">Stocks</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_bonds">Bonds</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_derivatives">Derivatives</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_commodities">Commodities</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_real_estate">Real Estate</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_cash">Cash</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" class="nav-link" href="#learn_risks">Risks</a>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade" id="learn_stocks">STOCKS</div>
+                <div class="tab-pane fade" id="learn_bonds">BONDS</div>
+                <div class="tab-pane fade" id="learn_derivatives">DERIVATIVES</div>
+                <div class="tab-pane fade" id="learn_commodities">COMMODITIES</div>
+                <div class="tab-pane fade" id="learn_real_estate">REAL ESTATE</div>
+                <div class="tab-pane fade" id="learn_cash">CASH</div>
+                <div class="tab-pane fade" id="learn_risks">RISK</div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock %}
