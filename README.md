@@ -29,6 +29,12 @@ $ git clone https://github.com/danielchegwidden/peaks-and-troughs.git
 $ conda create -n peaks-env python=3.9
 ```
 3. Activate Environment and Install Packages
+The packages can be installed as follows:
+```
+$ conda activate peaks-env
+$ pip install -r requirements.txt
+```
+or individually as follows:
 ```
 $ conda activate peaks-env
 $ pip install Flask
