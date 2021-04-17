@@ -1,11 +1,23 @@
 # Peaks and Troughs
 ## A Beginners Guide to Investing
+<hr>
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 [Flask Guide](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 
+### Admin Details
+<hr>
+
+**Test User:**
+**username:** test-user
+**password:** test123
+
+**Test Admin:**
+TBC
+
 ### Admin Steps
+<hr>
 
 1. Clone Repository
 ```
@@ -17,6 +29,12 @@ $ git clone https://github.com/danielchegwidden/peaks-and-troughs.git
 $ conda create -n peaks-env python=3.9
 ```
 3. Activate Environment and Install Packages
+The packages can be installed as follows:
+```
+$ conda activate peaks-env
+$ pip install -r requirements.txt
+```
+or individually as follows:
 ```
 $ conda activate peaks-env
 $ pip install Flask
