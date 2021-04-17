@@ -12,36 +12,93 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="{{ url_for('index') }}">Peaks and Troughs</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if current_user.is_anonymous %}
-                    <li><a href="{{ url_for('login') }}">{{ ('Login') }}</a></li>
-                    {% else %}
-                    <li><a href="{{ url_for('logout') }}">{{ ('Logout') }}</a></li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      	<div class="container">
+        	<a class="navbar-brand" href="#">Peaks and Troughs</a>
+       		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              	<span class="navbar-toggler-icon"></span>
+            </button>
+        	<div class="collapse navbar-collapse" id="navbarResponsive">
+          		<ul class="navbar-nav ml-auto">
+            		<li class="nav-item active">
+              			<a class="nav-link" href="{{ url_for('index') }}">Home
+                    		<span class="sr-only">(current)</span>
+                		</a>
+            		</li>
+            		<li class="nav-item">
+              			<a class="nav-link" href="#">!About</a>
+            		</li>
+            		<li class="nav-item">
+              			<a class="nav-link" href="#">!Services</a>
+            		</li>
+            		{% if current_user.is_anonymous %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('login') }}">{{ ('Login') }}</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="{{ url_for('logout') }}">{{ ('Logout') }}</a>
+					</li>
+					{% endif %}
+         		 </ul>
+        	</div>
+      	</div>
     </nav>
 {% endblock %}
 
 {% block content %}
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container-fluid" id="jumboBox">
-            <h1 class="display-4 text-center" id="jumboText">Welcome to my site</h1>
-            <p class="lead text-center">Glad you could join us!</p>
-        </div>
-    </div>
+  	<header>
+    	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      		<ol class="carousel-indicators">
+        		<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        		<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        		<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      		</ol>
+      		<div class="carousel-inner" role="listbox">
+
+				<!-- Slide One - Set the background image for this slide in the line below -->
+				<div class="carousel-item active" style="background-image: url('https://miro.medium.com/max/2158/1*AD8C13rOIlAk9KqhsUv72g.jpeg')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3 class="display-4">First Slide</h3>
+						<p class="lead">Welcome to the our website!</p>
+					</div>
+				</div>
+
+				<!-- Slide Two - Set the background image for this slide in the line below -->
+				<div class="carousel-item" style="background-image: url('https://images.squarespace-cdn.com/content/v1/558d1a22e4b01a87e8a17fa0/1450261979835-0V6TV964OT8UGQJQCEFJ/ke17ZwdGBToddI8pDm48kD94eEmDKCT4eedKeXQpH_4UqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYxCRW4BPu10St3TBAUQYVKc4D78qtjQIaXnJxCd6DXhh9Ifz76m0vY_Dov-37YwogZW47de4EDOU_LgyQDjUyTm/investment.jpg?format=2500w')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3 class="display-4">Second Slide</h3>
+						<p class="lead">This is a description for the second slide.</p>
+					</div>
+				</div>
+
+				<!-- Slide Three - Set the background image for this slide in the line below -->
+				<div class="carousel-item" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOBJCXmXbgx9Qa3Fs4yxNSzNyALVHkj3gW4OH9bN22rRMDEmc0V1iQEyDg4Fslly1oPGo&usqp=CAU')">
+					<div class="carousel-caption d-none d-md-block">
+						<h3 class="display-4">Third Slide</h3>
+						<p class="lead">This is a description for the third slide.</p>
+					</div>
+				</div>
+			</div>
+
+			<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+			<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+   		</div>
+  	</header>
+
+    <!-- Page Content -->
+    <section class="py-5">
+      	<div class="container">
+        	<h1 class="font-weight-light">Half Page Image Slider</h1>
+        	<p class="lead">The background images for the slider are set directly in the HTML using inline CSS. The images in this snippet are from <a href="https://unsplash.com">Unsplash</a>!</p>
+      	</div>
+    </section>
+
     {% block app_content %}{% endblock %}
 {% endblock %}
