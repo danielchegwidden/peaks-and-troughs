@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import User
 
@@ -27,3 +27,32 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError("Please use a different email address.")
+
+
+class AttemptForm(FlaskForm):
+    question_1_ans = SelectField(
+        u"Question 1",
+        choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
+        validators=[DataRequired()],
+    )
+    question_2_ans = SelectField(
+        u"Question 2",
+        choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
+        validators=[DataRequired()],
+    )
+    question_3_ans = SelectField(
+        u"Question 3",
+        choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
+        validators=[DataRequired()],
+    )
+    question_4_ans = SelectField(
+        u"Question 4",
+        choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
+        validators=[DataRequired()],
+    )
+    question_5_ans = SelectField(
+        u"Question 5",
+        choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
+        validators=[DataRequired()],
+    )
+    submit = SubmitField("Submit Attempt")

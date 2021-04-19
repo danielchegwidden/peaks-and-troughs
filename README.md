@@ -16,6 +16,23 @@
 **Test Admin:**
 TBC
 
+### Update Steps
+<hr>
+
+```
+$ git checkout main
+$ git fetch
+$ git pull origin main
+$ git checkout <dev-branch>
+$ git merge main
+$ git push origin <dev-branch>
+```
+Repeat the last 3 steps for as many dev- branches as required to ensures that the amount of merge conflicts are keps to a minimum. This should be done on a regular basis in addition to staging and commiting changes
+```
+$ git add <file/s>
+$ git commit -m "<commit message>"
+```
+
 ### Admin Steps
 <hr>
 
