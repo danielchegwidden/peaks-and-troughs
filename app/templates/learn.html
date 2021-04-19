@@ -1,52 +1,228 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+    <script>
+    function show_high_Risk(){
+        let high_risk_element = document.getElementById('high_Risk')
+        if (high_risk_element.style.display === 'none'){
+            high_risk_element.style.display='block'
+        }else{
+            high_risk_element.style.display='none'
+        }
+    };
+
+    function show_low_Risk(){
+        let high_low_element = document.getElementById('low_Risk')
+        if (high_low_element.style.display === 'none'){
+            high_low_element.style.display='block'
+        }else{
+            high_low_element.style.display='none'
+        }
+    };
+
+    </script>
+
     <section class="py-3">
         <div class="container">
-            <h1 class="font-weight-light">Hi, {{ current_user.username }}!</h1>
+            <h1 class="font-weight-light Testing_style">Hi, {{ current_user.username }}!</h1>
             <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
         </div>
     </section>
 
-    <section>
+    <section class="page-section portfolio" id="portfolio">
         <div class="container">
-            <p>What would you like to learn about next?</p>
-            <ul class="nav nav-tabs" id="learn_navigation">
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_stocks">Stocks</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_bonds">Bonds</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_derivatives">Derivatives</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_commodities">Commodities</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_real_estate">Real Estate</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_cash">Cash</a>
-                </li>
-                <li class="nav-item">
-                    <a data-toggle="tab" class="nav-link" href="#learn_risks">Risks</a>
-                </li>
-            </ul>
-
-            <div class="tab-content">
-                <div class="tab-pane fade" id="learn_stocks">STOCKS</div>
-                <div class="tab-pane fade" id="learn_bonds">BONDS</div>
-                <div class="tab-pane fade" id="learn_derivatives">DERIVATIVES</div>
-                <div class="tab-pane fade" id="learn_commodities">COMMODITIES</div>
-                <div class="tab-pane fade" id="learn_real_estate">REAL ESTATE</div>
-                <div class="tab-pane fade" id="learn_cash">CASH</div>
-                <div class="tab-pane fade" id="learn_risks">RISK</div>
+            <!-- Portfolio Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Content</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            <!-- Portfolio Grid Items-->
+            <div class="row justify-content-center">
+                <!-- Portfolio Item 1-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <img class="img-fluid" src="static/images/content/stock.jpeg" alt="..." onclick="show_high_Risk()"/>
+                </div>
+                <!-- Portfolio Item 2-->
+                <div class="col-md-6 col-lg-4 mb-5">
+                    <img class="img-fluid" src="static/images/content/stock.jpeg" alt="..." onclick="show_low_Risk()"/>
+                </div>
             </div>
         </div>
     </section>
+    <section>
+        <div class="container" style="display: none" id="high_Risk">
+            <!-- <p>What would you like to learn about next?</p> -->
+            <ul class="nav nav-tabs" id="learn_navigation">
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#stocks">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        <a data-toggle="tab" class="nav-link" href="#learn_stocks">Stocks</a>
+                    </div>
+                </div>
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#derivatives">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        <a data-toggle="tab" class="nav-link" href="#learn_stocks">Derivatives</a>
+                    </div>
+                </div>
+            </ul>
 
+        </div>
 
+        <div class="container" style="display: none" id="low_Risk">
+            <ul class="nav nav-tabs" id="learn_navigation">
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#commodities">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        <a data-toggle="tab" class="nav-link">Commodities</a>
+                    </div>
+                </div>
+                <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#cash">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                        <a data-toggle="tab" class="nav-link">Cash</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </section>
 
+    <div class="portfolio-modal modal fade" id="stocks" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Stocks</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="static/images/content/stock.jpeg" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Content</p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="derivatives" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Derivatives</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="static/images/content/stock.jpeg" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Content</p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="commodities" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Commodities</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="static/images/content/stock.jpeg" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Content</p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-modal modal fade" id="cash" tabindex="-1" role="dialog" aria-labelledby="portfolioModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document">
+            <div class="modal-content">
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                </button>
+                <div class="modal-body text-center">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <!-- Portfolio Modal - Title-->
+                                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="portfolioModal1Label">Cash</h2>
+                                <!-- Icon Divider-->
+                                <div class="divider-custom">
+                                    <div class="divider-custom-line"></div>
+                                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                    <div class="divider-custom-line"></div>
+                                </div>
+                                <!-- Portfolio Modal - Image-->
+                                <img class="img-fluid rounded mb-5" src="static/images/content/stock.jpeg" alt="..." />
+                                <!-- Portfolio Modal - Text-->
+                                <p class="mb-5"> Content</p>
+                                <button class="btn btn-primary" data-dismiss="modal">
+                                    <i class="fas fa-times fa-fw"></i>
+                                    Close Window
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
