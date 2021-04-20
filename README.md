@@ -14,7 +14,8 @@
 **password:** test123
 
 **Test Admin:**
-TBC
+**username:** test-admin
+**password:** test321
 
 ### Update Steps
 <hr>
