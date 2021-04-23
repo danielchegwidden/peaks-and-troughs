@@ -1,3 +1,17 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
 
-{% block app_content %}{% endblock %}
+{% block app_content %}
+
+<section>
+    <div class="container">
+        <h1 class="text-center">{{ ('Complete Assessment') }}</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

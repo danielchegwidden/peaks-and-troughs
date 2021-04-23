@@ -1,11 +1,41 @@
 # Peaks and Troughs
 ## A Beginners Guide to Investing
+<hr>
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 [Flask Guide](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)
 
+### Admin Details
+<hr>
+
+**Test User:**
+**username:** test-user
+**password:** test123
+
+**Test Admin:**
+**username:** test-admin
+**password:** test321
+
+### Update Steps
+<hr>
+
+```
+$ git checkout main
+$ git fetch
+$ git pull origin main
+$ git checkout <dev-branch>
+$ git merge main
+$ git push origin <dev-branch>
+```
+Repeat the last 3 steps for as many dev- branches as required to ensures that the amount of merge conflicts are keps to a minimum. This should be done on a regular basis in addition to staging and commiting changes
+```
+$ git add <file/s>
+$ git commit -m "<commit message>"
+```
+
 ### Admin Steps
+<hr>
 
 1. Clone Repository
 ```
@@ -17,6 +47,12 @@ $ git clone https://github.com/danielchegwidden/peaks-and-troughs.git
 $ conda create -n peaks-env python=3.9
 ```
 3. Activate Environment and Install Packages
+The packages can be installed as follows:
+```
+$ conda activate peaks-env
+$ pip install -r requirements.txt
+```
+or individually as follows:
 ```
 $ conda activate peaks-env
 $ pip install Flask
@@ -53,4 +89,8 @@ $ pip install flask-bootstrap4
 ```
 $ flask db migrate -m "users table"
 $ flask db upgrade
+```
+8. Development Environment
+```
+$ export FLASK_ENV=development
 ```
