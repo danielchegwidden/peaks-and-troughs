@@ -90,3 +90,7 @@ $ pip install flask-bootstrap4
 $ flask db migrate -m "users table"
 $ flask db upgrade
 ```
+8. Development Environment
+```
+$ export FLASK_ENV=development
+```
