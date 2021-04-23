@@ -14,7 +14,8 @@
 **password:** test123
 
 **Test Admin:**
-TBC
+**username:** test-admin
+**password:** test321
 
 ### Update Steps
 <hr>
@@ -88,4 +89,8 @@ $ pip install flask-bootstrap4
 ```
 $ flask db migrate -m "users table"
 $ flask db upgrade
+```
+8. Development Environment
+```
+$ export FLASK_ENV=development
 ```
