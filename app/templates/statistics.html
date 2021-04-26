@@ -2,24 +2,61 @@
 
 {% block app_content %}
 
-<section class="py-3">
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Admin Status</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for u in users %}
-                <tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Username</th>
+						<th scope="col">Email</th>
+						<th scope="col">Admin Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for u in users %}
+					<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for p in progress %}
+					<tr><td>{{ p.user_id }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">Bracket</th>
+						<th scope="col">Score</th>
+						<th scope="col">Timestamp</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for a in attempts %}
+					<tr><td>{{ a.user_id }}</td><td>{{ a.bracket }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
 
 {% endblock %}

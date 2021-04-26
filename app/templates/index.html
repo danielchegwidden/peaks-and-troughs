@@ -2,5 +2,27 @@
 
 {% block app_content %}
 
+    <section>
+        <div class="container text-center">
+            {% if not current_user.is_anonymous %}
+            <a href="{{ url_for('learn') }}">
+                <button type="button" class="btn btn-primary btn-lg">Learn</button>
+            </a>
+            <a href="{{ url_for('assessment') }}">
+                <button type="button" class="btn btn-primary btn-lg">Assessment</button>
+            </a>
+            <a href="{{ url_for('feedback') }}">
+                <button type="button" class="btn btn-primary btn-lg">Feedback</button>
+            </a>
+            {% endif %}
+        </div>
+    </section>
+
+    <section class="py-3">
+        <div class="container">
+            <h1 class="font-weight-light Testing_style">Hi, {{ user.username }}!</h1>
+            <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
+        </div>
+    </section>
 
 {% endblock %}
