@@ -2,24 +2,84 @@
 
 {% block app_content %}
 
-<section class="py-3">
-    <div class="container">
-        <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Username</th>
-                <th scope="col">Email</th>
-                <th scope="col">Admin Status</th>
-              </tr>
-            </thead>
-            <tbody>
-                {% for u in users %}
-                <tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-</section>
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Username</th>
+						<th scope="col">Email</th>
+						<th scope="col">Admin Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for u in users %}
+					<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for p in progress %}
+					<tr><td>{{ p.user_id }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">Category</th>
+						<th scope="col">Score</th>
+						<th scope="col">Timestamp</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for a in attempts %}
+					<tr><td>{{ a.user_id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">Questions</th>
+						<th scope="col">A</th>
+						<th scope="col">B</th>
+						<th scope="col">C</th>
+						<th scope="col">D</th>
+						<th scope="col">Answer</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for q in questions %}
+					<tr><td>{{ q.question_id }}</td><td>{{ q.question_text }}</td><td>{{ q.answer_1 }}</td><td>{{ q.answer_2 }}</td><td>{{ q.answer_3 }}</td><td>{{ q.answer_4 }}</td><td>{{ q.correct_answer }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
 
 {% endblock %}

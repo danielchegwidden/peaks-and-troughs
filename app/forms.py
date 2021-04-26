@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
-from app.models import User
+from app.models import Users
 
 
 class LoginForm(FlaskForm):
@@ -19,38 +19,38 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField("Register")
 
     def validate_username(self, username):
-        user = User.query.filter_by(username=username.data).first()
+        user = Users.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError("Please use a different username.")
 
     def validate_email(self, email):
-        user = User.query.filter_by(email=email.data).first()
+        user = Users.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError("Please use a different email address.")
 
 
 class AttemptForm(FlaskForm):
-    question_1_ans = SelectField(
+    answer_1 = SelectField(
         u"Question 1",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_2_ans = SelectField(
+    answer_2 = SelectField(
         u"Question 2",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_3_ans = SelectField(
+    answer_3 = SelectField(
         u"Question 3",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_4_ans = SelectField(
+    answer_4 = SelectField(
         u"Question 4",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_5_ans = SelectField(
+    answer_5 = SelectField(
         u"Question 5",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],

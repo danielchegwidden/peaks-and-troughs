@@ -56,7 +56,11 @@
 
 		<div class="container py-5">
 	  		<header class="text-center text-white py-5">
-				<h1 class="display-4 font-weight-bold mb-4">Welcome to Peaks and Trough!</h1>
+				{% if not current_user.is_anonymous %}
+				<h1 class="display-4 font-weight-bold mb-4">Welcome to Peaks and Troughs, {{ current_user.username }}!</h1>
+				{% else %}
+				<h1 class="display-4 font-weight-bold mb-4">Welcome to Peaks and Troughs!</h1>
+				{% endif %}
 				<p class="font-italic">Here is some basic information about different types of investment.</p>
 				<!-- <p class="font-italic">Snippet By <a href="https://bootstrapious.com" class="text-white">
 					<u>Bootstrapious</u></a> -->
