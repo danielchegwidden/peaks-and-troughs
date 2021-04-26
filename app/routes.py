@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app
 from app import db
-from app.models import Users, LearnProgress, Attempt
+from app.models import Users, LearnProgress, Attempt, Questions
 from app.forms import LoginForm, RegistrationForm, AttemptForm
 from flask_login import current_user, login_user, login_required
 from flask_login import logout_user
@@ -108,8 +108,14 @@ def statistics():
     users = Users.query.all()
     progress = LearnProgress.query.all()
     attempts = Attempt.query.all()
+    questions = Questions.query.all()
     if current_user.is_authenticated and current_user.is_admin:
         return render_template(
-            "statistics.html", title="Statistics", users=users, progress=progress, attempts=attempts
+            "statistics.html",
+            title="Statistics",
+            users=users,
+            progress=progress,
+            attempts=attempts,
+            questions=questions,
         )
     return redirect(url_for("index"))

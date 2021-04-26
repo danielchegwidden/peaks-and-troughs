@@ -59,4 +59,27 @@
 		</div>
 	</section>
 
+	<section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">Questions</th>
+						<th scope="col">A</th>
+						<th scope="col">B</th>
+						<th scope="col">C</th>
+						<th scope="col">D</th>
+						<th scope="col">Answer</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for q in questions %}
+					<tr><td>{{ q.question_id }}</td><td>{{ q.question_text }}</td><td>{{ q.answer_1 }}</td><td>{{ q.answer_2 }}</td><td>{{ q.answer_3 }}</td><td>{{ q.answer_4 }}</td><td>{{ q.correct_answer }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
 {% endblock %}

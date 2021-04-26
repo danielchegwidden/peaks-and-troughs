@@ -116,4 +116,4 @@ class Questions(BaseModel):
         return "{}".format(self.question_id)
 
     def correct(self, question_id):
-        return self.correct_answer
+        return self.query.get(question_id).correct_answer
