@@ -42,10 +42,14 @@ class LearnProgress(UserMixin, BaseModel):
     """
 
     user_id = db.Column(db.Integer, primary_key=True)
-    stocks_a = db.Column(db.Boolean(), index=True, default=False)
-    stocks_b = db.Column(db.Boolean(), index=True, default=False)
-    deriv_a = db.Column(db.Boolean(), index=True, default=False)
-    deriv_b = db.Column(db.Boolean(), index=True, default=False)
+    high_a = db.Column(db.Boolean(), index=True, default=False)
+    high_b = db.Column(db.Boolean(), index=True, default=False)
+    high_c = db.Column(db.Boolean(), index=True, default=False)
+    high_d = db.Column(db.Boolean(), index=True, default=False)
+    low_a = db.Column(db.Boolean(), index=True, default=False)
+    low_b = db.Column(db.Boolean(), index=True, default=False)
+    low_c = db.Column(db.Boolean(), index=True, default=False)
+    low_d = db.Column(db.Boolean(), index=True, default=False)
 
     def __repr__(self):
         return "UserID: {}".format(self.user_id)
@@ -57,34 +61,26 @@ class Attempt(UserMixin, BaseModel):
     """
 
     user_id = db.Column(db.Integer, primary_key=True)
-    result = db.Column(db.Float, default=0.0)
-
-    question_1_ans = db.Column(db.String(64), index=True)
-    question_2_ans = db.Column(db.String(64), index=True)
-    question_3_ans = db.Column(db.String(64), index=True)
-    question_4_ans = db.Column(db.String(64), index=True)
-    question_5_ans = db.Column(db.String(64), index=True)
-
-    question_1_score = db.Column(db.Boolean(), index=True, default=False)
-    question_2_score = db.Column(db.Boolean(), index=True, default=False)
-    question_3_score = db.Column(db.Boolean(), index=True, default=False)
-    question_4_score = db.Column(db.Boolean(), index=True, default=False)
-    question_5_score = db.Column(db.Boolean(), index=True, default=False)
+    category = db.Column(db.String(64), index=True)
+    score = db.Column(db.Integer, default=0)
+    question_1 = db.Column(db.Boolean(), index=True)
+    question_2 = db.Column(db.Boolean(), index=True)
+    question_3 = db.Column(db.Boolean(), index=True)
+    question_4 = db.Column(db.Boolean(), index=True)
+    question_5 = db.Column(db.Boolean(), index=True)
+    timestamp = db.Column(db.DateTime(), index=True)
 
     def __repr__(self):
         return "UserID: {}".format(self.user_id)
 
-    def post_score(self, question, score):
-        self.question = score
-
     def generate_score(
         self,
         scores=[
-            question_1_score,
-            question_2_score,
-            question_3_score,
-            question_4_score,
-            question_5_score,
+            question_1,
+            question_2,
+            question_3,
+            question_4,
+            question_5,
         ],
     ):
-        self.result = sum(scores) / len(scores)
+        self.result = sum(scores)
