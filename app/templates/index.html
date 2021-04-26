@@ -20,8 +20,10 @@
 
     <section class="py-3">
         <div class="container">
+            {% if not current_user.is_anonymous %}
             <h1 class="font-weight-light Testing_style">Hi, {{ user.username }}!</h1>
             <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
+            {% endif %}
         </div>
     </section>
 

@@ -11,14 +11,17 @@ from werkzeug.urls import url_parse
 @app.route("/")
 @app.route("/index")
 def index():
-    user = Users.query.filter_by(username=current_user.username).first()
+    try:
+        user = Users.query.filter_by(username=current_user.username).first()
+    except:
+        user = ""
     return render_template("index.html", title="Home", user=user)
 
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if current_user.is_authenticated:
-        return redirect(url_for("learn"))
+        return redirect(url_for("index"))
     form = LoginForm()
     if form.validate_on_submit():
         user = Users.query.filter_by(username=form.username.data).first()
@@ -28,7 +31,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != "":
-            next_page = url_for("learn")
+            next_page = url_for("index")
         return redirect(next_page)
     return render_template("login.html", title="Sign In", form=form)
 
@@ -64,7 +67,28 @@ def learn():
 @login_required
 def assessment():
     form = AttemptForm()
+    user = Users.query.filter_by(username=current_user.username).first()
     if form.validate_on_submit():
+        attempt = Attempt(user_id=user.id)
+        answers = [
+            form.answer_1.data,
+            form.answer_2.data,
+            form.answer_3.data,
+            form.answer_4.data,
+            form.answer_5.data,
+        ]
+        post_score(
+            category="High",
+            question_1=answer[0],
+            question_2=answer[1],
+            question_3=answer[2],
+            question_4=answer[3],
+            question_5=answer[4],
+        )
+        generate_score(answers)
+        db.session.add(attempt)
+        db.session.commit()
+
         next_page = request.args.get("next")
         if not next_page or url_parse(next_page).netloc != "":
             next_page = url_for("feedback")

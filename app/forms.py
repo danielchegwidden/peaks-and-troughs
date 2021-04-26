@@ -30,27 +30,27 @@ class RegistrationForm(FlaskForm):
 
 
 class AttemptForm(FlaskForm):
-    question_1_ans = SelectField(
+    answer_1 = SelectField(
         u"Question 1",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_2_ans = SelectField(
+    answer_2 = SelectField(
         u"Question 2",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_3_ans = SelectField(
+    answer_3 = SelectField(
         u"Question 3",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_4_ans = SelectField(
+    answer_4 = SelectField(
         u"Question 4",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],
     )
-    question_5_ans = SelectField(
+    answer_5 = SelectField(
         u"Question 5",
         choices=[("cpp", "C++"), ("py", "Python"), ("text", "Plain Text")],
         validators=[DataRequired()],

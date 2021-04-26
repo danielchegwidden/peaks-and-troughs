@@ -62,7 +62,7 @@ class Attempt(BaseModel):
     """
 
     user_id = db.Column(db.Integer, primary_key=True)
-    bracket = db.Column(db.String(64))
+    category = db.Column(db.String(64))
     question_1 = db.Column(db.Boolean())
     question_2 = db.Column(db.Boolean())
     question_3 = db.Column(db.Boolean())
@@ -74,13 +74,16 @@ class Attempt(BaseModel):
     def __repr__(self):
         return "{}".format(self.user_id)
 
-    def post_score(self, bracket, question_1, question_2, question_3, question_4, question_5):
-        self.bracket = bracket
-        self.question_1 = question_1
-        self.question_2 = question_2
-        self.question_3 = question_3
-        self.question_4 = question_4
-        self.question_5 = question_5
+    def calculate_scores(self, question_id, answer):
+        return 1 if answer == correct(question_id) else 0
+
+    def post_score(self, category, question_1, question_2, question_3, question_4, question_5):
+        self.category = category
+        self.question_1 = calculate_scores(1, question_1)
+        self.question_2 = calculate_scores(2, question_2)
+        self.question_3 = calculate_scores(3, question_3)
+        self.question_4 = calculate_scores(4, question_4)
+        self.question_5 = calculate_scores(5, question_5)
         self.timestamp = datetime.now()
 
     def generate_score(
@@ -94,3 +97,23 @@ class Attempt(BaseModel):
         ],
     ):
         self.score = sum(scores)
+
+
+class Questions(BaseModel):
+    """
+    Table to store questions and answers
+    """
+
+    question_id = db.Column(db.Integer, primary_key=True)
+    question_text = db.Column(db.String(256))
+    answer_1 = db.Column(db.String(64))
+    answer_2 = db.Column(db.String(64))
+    answer_3 = db.Column(db.String(64))
+    answer_4 = db.Column(db.String(64))
+    correct_answer = db.Column(db.String(64))
+
+    def __repr__(self):
+        return "{}".format(self.question_id)
+
+    def correct(self, question_id):
+        return self.correct_answer
