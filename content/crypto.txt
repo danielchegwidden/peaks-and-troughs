@@ -1,0 +1,8 @@
+https://www.cmcmarkets.com/en-au/learn-cryptocurrencies/what-are-cryptocurrencies
+https://www.theverge.com/22310188/nft-explainer-what-is-blockchain-crypto-art-faq
+
+Cryptocurrencies are a type of digital currency that are generated from code. They use a blockchain to keep an immutable record of all of the past transactions, which is called a distributed ledger. Cryptocurrencies were originally created to be an alternative to fiat currency (the cash that is in your wallet), however the volatile nature of their value has stopped that from happening. This can be easist seen with the most well-known cryptocurrency, Bitcoin, which was created in 2009 and continues to have price fluctuations.
+<br>
+Another main cryptocurrency, Ethereum, contains more information on its blockchain, which can be used to execute smart contracts. Ethereum is currently the second largest cryptocurrency behind Bitcoin, and is the foundation for the latest craze, Non-Fungible Tokens or NFT. NFT's are embedded in the Ethereum blockchain and are seen as the digital equivalent to art, where the token you buy is the 'original'.
+<br>
+As cryptocurrencies are based in cryptography and mathemathics, they require increasingly difficult problems to be solved to validate new transactions on the blockchain. The miners that do this validation are turning to high-end computers and specialised equipment to be the first to solve each new puzzle, and be rewarded with the cryptocurrency for doing so. A major envioronmental concern is that the mining activities of cryptocurrencies are a significant contributor to climate change due to the eletricity used to power the process.
