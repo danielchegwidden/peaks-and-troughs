@@ -61,7 +61,8 @@ class Attempt(BaseModel):
     Table to store assessment attempts
     """
 
-    user_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, index=True)
     category = db.Column(db.String(64))
     question_1 = db.Column(db.Boolean())
     question_2 = db.Column(db.Boolean())
@@ -75,15 +76,15 @@ class Attempt(BaseModel):
         return "{}".format(self.user_id)
 
     def calculate_scores(self, question_id, answer):
-        return 1 if answer == correct(question_id) else 0
+        return 1 if answer == Questions.query.get(question_id).correct_answer else 0
 
     def post_score(self, category, question_1, question_2, question_3, question_4, question_5):
         self.category = category
-        self.question_1 = calculate_scores(1, question_1)
-        self.question_2 = calculate_scores(2, question_2)
-        self.question_3 = calculate_scores(3, question_3)
-        self.question_4 = calculate_scores(4, question_4)
-        self.question_5 = calculate_scores(5, question_5)
+        self.question_1 = self.calculate_scores(100, question_1)
+        self.question_2 = self.calculate_scores(100, question_2)
+        self.question_3 = self.calculate_scores(100, question_3)
+        self.question_4 = self.calculate_scores(100, question_4)
+        self.question_5 = self.calculate_scores(100, question_5)
         self.timestamp = datetime.now()
 
     def generate_score(
