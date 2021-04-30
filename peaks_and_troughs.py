@@ -1,5 +1,5 @@
 from app import app, db
-from app.models import Users, LearnProgress, Attempt, Questions
+from app.models import Users, Progress, Attempt, Questions
 
 # $ flask shell
 @app.shell_context_processor
@@ -7,7 +7,7 @@ def make_shell_context():
     return {
         "db": db,
         "Users": Users,
-        "Progress": LearnProgress,
+        "Progress": Progress,
         "Attempt": Attempt,
         "Questions": Questions,
     }
