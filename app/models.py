@@ -8,6 +8,11 @@ from datetime import datetime
 BaseModel: DeclarativeMeta = db.Model
 
 
+@login.user_loader
+def load_user(id):
+    return Users.query.get(int(id))
+
+
 class Users(UserMixin, BaseModel):
     """
     Table to store users
@@ -32,11 +37,6 @@ class Users(UserMixin, BaseModel):
 
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
-
-
-@login.user_loader
-def load_user(id):
-    return Users.query.get(int(id))
 
 
 class Progress(BaseModel):
