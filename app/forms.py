@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, HiddenField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import Users, Questions
 
@@ -88,5 +88,6 @@ class AttemptForm(FlaskForm):
     )
     submit = SubmitField("Submit Attempt")
 
-    # def __init__(self, questions):
-    #     self.questions = questions
+
+class SubmitForm(FlaskForm):
+    submit = SubmitField("Done")

@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from app import app, db
-from app.controllers import UserController, AdminController
+from app.controllers import UserController, AdminController, ProgressController
 from app.models import Users, Progress, Attempt, Questions
 from app.forms import LoginForm, RegistrationForm, AttemptForm
 from flask_login import current_user, login_user, login_required
@@ -33,7 +33,7 @@ def register():
     return redirect(url_for("index"))
 
 
-@app.route("/learn")
+@app.route("/learn", methods=["GET", "POST"])
 @login_required
 def learn():
     return UserController.learn()
@@ -55,3 +55,15 @@ def feedback():
 @login_required
 def statistics():
     return AdminController.stats()
+
+
+@app.route("/highrisk", methods=["GET", "POST"])
+@login_required
+def highrisk():
+    return ProgressController.highrisk()
+
+
+@app.route("/lowrisk", methods=["GET", "POST"])
+@login_required
+def lowrisk():
+    return ProgressController.lowrisk()

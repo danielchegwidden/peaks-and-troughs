@@ -58,6 +58,12 @@ class Progress(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
+    def update_progress(self, category):
+        if category == "high_a":
+            self.high_a = True
+        elif category == "high_b":
+            self.high_b = True
+
 
 class Attempt(BaseModel):
     """

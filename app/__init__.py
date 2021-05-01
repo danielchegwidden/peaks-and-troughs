@@ -16,4 +16,4 @@ csrf = CSRFProtect(app)
 login = LoginManager(app)
 login.login_view = "login"
 
-from app import routes, models, db_test_accounts, db_questions
+from app import routes, models, controllers, db_test_accounts, db_questions
