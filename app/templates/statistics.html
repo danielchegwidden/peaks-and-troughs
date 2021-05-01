@@ -28,11 +28,15 @@
 				<thead>
 					  <tr>
 						<th scope="col">ID</th>
+						<th scope="col">High A</th>
+						<th scope="col">High B</th>
+						<th scope="col">High C</th>
+						<th scope="col">High D</th>
 					  </tr>
 				</thead>
 				<tbody>
 					{% for p in progress %}
-					<tr><td>{{ p.user_id }}</td></tr>
+					<tr><td>{{ p.user_id }}</td><td>{{ p.high_a }}</td><td>{{ p.high_b }}</td><td>{{ p.high_c }}</td><td>{{ p.high_d }}</td></tr>
 					{% endfor %}
 				</tbody>
 			</table>
@@ -45,6 +49,7 @@
 				<thead>
 					  <tr>
 						<th scope="col">ID</th>
+						<th scope="col">User ID</th>
 						<th scope="col">Category</th>
 						<th scope="col">Score</th>
 						<th scope="col">Timestamp</th>
@@ -52,7 +57,7 @@
 				</thead>
 				<tbody>
 					{% for a in attempts %}
-					<tr><td>{{ a.id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
+					<tr><td>{{ a.id }}</td><td>{{ a.user_id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
 					{% endfor %}
 				</tbody>
 			</table>
