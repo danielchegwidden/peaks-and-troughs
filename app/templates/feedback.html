@@ -1,8 +1,122 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
 
-    <section>
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+
+        .squares {
+        display: flex;
+        justify-content: center;
+        }
+
+        .icon1, .icon2, .icon3 {
+            width: 200px;
+            height: 200px;
+            background: #F5F8FA;
+        }
+
+        .icon1,.icon2,.icon3 {
+        margin-right: 10%;
+        border-style: ridge;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+
+
+
+    </style>
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <script>
+    function show_feedback(){
+        let feedback = document.getElementsByClassName('feedback');
+        let finish = document.getElementsByClassName('finish');
+        for (i = 0; i < finish.length; i++) {
+            if (finish[i].style.display !== 'none'){
+                finish[i].style.display = 'none';
+            }
+        }
+        for (i = 0; i < feedback.length; i++) {
+            if (feedback[i].style.display === 'none'){
+            feedback[i].style.display='block'
+        }
+        }
+    };
+    </script>
+
+    <section class="finish" style="display: block;">
+        <div class="container text-center" style="margin-top: 5%;">
+            <h4>
+                You have submitted successfully!
+            </h4>
+        </div>
+        <div class="container text-center" style="margin-top: 5%;">
+            <a>
+                <button type="button" class="btn btn-primary btn-lg" onclick="show_feedback()">Click to see Feedback</button>
+            </a>
+        </div>
+    </section>
+    <section class="feedback" style="display: none;">
+        <div class="container">
+            <table>
+                <tr>
+                    <th>Total Attempt</th>
+                    <th>Average Score</th>
+                    <th>Max Score</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>4</td>
+                    <td>4</td>
+                </tr>
+            </table>
+        </div>
+        <div class="container row">
+
+            <div class="squares col-lg-4">
+                <div class="icon1">
+                   <p>Icon1</p>
+                </div>
+            </div>
+            <div class="squares col-lg-4">
+                <div class="icon2">
+                   <p>Icon</p>
+                </div>
+            </div>
+            <div class="squares col-lg-4">
+                <div class="icon3">
+                    <p>Icon</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <h4>Latest Result: </h4>
+            <p>Q1: In 2001 when Enron collapsed under a $40 billion accounting scandal, shareholders had to pay which of the following?</p>
+            <p>{% if latest.question_1_result %}<i class="fas fa-check fa-fw"></i>{% else %}<i class="fas fa-times fa-fw"></i>{% endif %} Your choice:</p>
+            <p>Q2: Which of the following is not an example of a derivative product?</p>
+            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            <p>Q3: In which of the following cryptocurrencies can you find the Nyan Cat animation embedded on the blockchain?</p>
+            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            <p>Q4: The people who had their entire savings wiped out by Bernie Madoff faced which of the following risks?</p>
+            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            <p>Q5: Which of the following did not contribute to the 2008 Financial Crisis?</p>
+            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+        </div>
         <div class="container text-center">
             <a href="{{ url_for('learn') }}">
                 <button type="button" class="btn btn-primary btn-lg">Return to Content</button>
