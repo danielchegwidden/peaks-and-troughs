@@ -87,7 +87,7 @@
         </div>
         <div class="container row">
 
-            <div class="squares col-lg-4">
+            <div class="squares col-lg-4" >
                 <div class="icon1">
                    <p>Icon1</p>
                 </div>
@@ -107,15 +107,35 @@
         <div class="container">
             <h4>Latest Result: </h4>
             <p>Q1: In 2001 when Enron collapsed under a $40 billion accounting scandal, shareholders had to pay which of the following?</p>
-            <p>{% if latest.question_1_result %}<i class="fas fa-check fa-fw"></i>{% else %}<i class="fas fa-times fa-fw"></i>{% endif %} Your choice:</p>
+            {% if latest.question_1_result %}
+            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            {% endif %}
             <p>Q2: Which of the following is not an example of a derivative product?</p>
-            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            {% if latest.question_2_result %}
+            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            {% endif %}
             <p>Q3: In which of the following cryptocurrencies can you find the Nyan Cat animation embedded on the blockchain?</p>
-            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            {% if latest.question_3_result %}
+            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            {% endif %}
             <p>Q4: The people who had their entire savings wiped out by Bernie Madoff faced which of the following risks?</p>
-            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            {% if latest.question_4_result %}
+            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            {% endif %}
             <p>Q5: Which of the following did not contribute to the 2008 Financial Crisis?</p>
-            <p><i class="fas fa-check fa-fw"></i> Your choice:</p>
+            {% if latest.question_5_result %}
+            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            {% endif %}
         </div>
         <div class="container text-center">
             <a href="{{ url_for('learn') }}">
@@ -123,5 +143,27 @@
             </a>
         </div>
     </section>
+
+    <section class="py-3">
+		<div class="container">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">User ID</th>
+						<th scope="col">Category</th>
+						<th scope="col">Score</th>
+						<th scope="col">Timestamp</th>
+						<th scope="col">High A</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for a in latest %}
+					<tr><td>{{ a.id }}</td><td>{{ a.user_id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td><td>{{ a.question_1_result }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
 
 {% endblock %}
