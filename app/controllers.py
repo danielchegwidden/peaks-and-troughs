@@ -4,6 +4,8 @@ from app.models import Users, Progress, Attempt, Questions
 from app.forms import LoginForm, RegistrationForm, AttemptForm, SubmitForm
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
+from sqlalchemy.sql import func
+from datetime import datetime
 
 
 class UserController:
@@ -74,7 +76,34 @@ class UserController:
 
     @staticmethod
     def feedback():
-        return render_template("feedback.html", title="Feedback")
+        user = Users.query.filter_by(username=current_user.username).first()
+        results = Attempt.query.filter_by(user_id=user.id)
+        attempts = len(Attempt.query.filter(Attempt.user_id == user.id).all())
+        max_score = (
+            Attempt.query.with_entities(func.max(Attempt.score).label("maximum"))
+            .filter(Attempt.user_id == user.id)
+            .all()[0][0]
+        )
+        avg_score = (
+            Attempt.query.with_entities(func.avg(Attempt.score).label("average"))
+            .filter(Attempt.user_id == user.id)
+            .all()[0][0]
+        )
+        latest = max(
+            Attempt.query.with_entities(func.max(Attempt.timestamp).label("latest"))
+            .filter(Attempt.user_id == user.id)
+            .all()
+        )
+        latest_attempt = Attempt.query.filter_by(user_id=user.id, timestamp=latest[0])
+        return render_template(
+            "feedback.html",
+            title="Feedback",
+            results=results,
+            attempts=attempts,
+            max_score=max_score,
+            avg_score=avg_score,
+            latest=latest_attempt,
+        )
 
 
 class AdminController:
