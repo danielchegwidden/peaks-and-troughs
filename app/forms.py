@@ -35,6 +35,7 @@ class AttemptForm(FlaskForm):
     answer_1 = SelectField(
         u"Question 1: " + question_1.question_text,
         choices=[
+            ("", "-- select an option --"),
             ("A", question_1.answer_1),
             ("B", question_1.answer_2),
             ("C", question_1.answer_3),
@@ -46,6 +47,7 @@ class AttemptForm(FlaskForm):
     answer_2 = SelectField(
         u"Question 2: " + question_2.question_text,
         choices=[
+            ("", "-- select an option --"),
             ("A", question_2.answer_1),
             ("B", question_2.answer_2),
             ("C", question_2.answer_3),
@@ -57,6 +59,7 @@ class AttemptForm(FlaskForm):
     answer_3 = SelectField(
         u"Question 3: " + question_3.question_text,
         choices=[
+            ("", "-- select an option --"),
             ("A", question_3.answer_1),
             ("B", question_3.answer_2),
             ("C", question_3.answer_3),
@@ -68,6 +71,7 @@ class AttemptForm(FlaskForm):
     answer_4 = SelectField(
         u"Question 4: " + question_4.question_text,
         choices=[
+            ("", "-- select an option --"),
             ("A", question_4.answer_1),
             ("B", question_4.answer_2),
             ("C", question_4.answer_3),
@@ -79,6 +83,7 @@ class AttemptForm(FlaskForm):
     answer_5 = SelectField(
         u"Question 5: " + question_5.question_text,
         choices=[
+            ("", "-- select an option --"),
             ("A", question_5.answer_1),
             ("B", question_5.answer_2),
             ("C", question_5.answer_3),

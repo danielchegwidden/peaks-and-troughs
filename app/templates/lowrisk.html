@@ -8,8 +8,8 @@
         <div class="container">
             <!-- Portfolio Grid Items-->
             <div class="row justify-content-center">
-                <!-- Stock block -->
-                <div class="col-md-6 col-lg-3 mb-5 high_Risk">
+                <!-- Bonds block -->
+                <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
                         <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
                             <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
@@ -21,41 +21,41 @@
                         </div>
                     </div>
                 </div>
-                <!-- derivatives block -->
-                <div class="col-md-6 col-lg-3 mb-5 high_Risk">
+                <!-- Cash block -->
+                <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
                         <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
                             <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
                             {% if progress.low_b %}
-                            <span style="position: absolute; top: 38%; left: 25%; color: green; font-size: xx-large;">Cash</span>
+                            <span style="position: absolute; top: 38%; left: 43%; color: green; font-size: xx-large;">Cash</span>
                             {% else %}
-                            <span style="position: absolute; top: 38%; left: 25%; color: orange; font-size: xx-large;">Cash</span>
+                            <span style="position: absolute; top: 38%; left: 43%; color: orange; font-size: xx-large;">Cash</span>
                             {% endif %}
                         </div>
                     </div>
                 </div>
-                <!-- cryptocurrency block -->
-                <div class="col-md-6 col-lg-3 mb-5 high_Risk">
+                <!-- Art block -->
+                <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
                         <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
                             <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
                             {% if progress.low_c %}
-                            <span style="position: absolute; top: 38%; left: 9%; color: green; font-size: xx-large;">Art</span>
+                            <span style="position: absolute; top: 38%; left: 51%; color: green; font-size: xx-large;">Art</span>
                             {% else %}
-                            <span style="position: absolute; top: 38%; left: 9%; color: orange; font-size: xx-large;">Art</span>
+                            <span style="position: absolute; top: 38%; left: 51%; color: orange; font-size: xx-large;">Art</span>
                             {% endif %}
                         </div>
                     </div>
                 </div>
-                <!-- Risk block-->
-                <div class="col-md-6 col-lg-3 mb-5 high_Risk">
+                <!-- Property block-->
+                <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
                         <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
                             <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
                             {% if progress.low_d %}
-                            <span style="position: absolute; top: 38%; left: 38%; color: green; font-size: xx-large;">Property</span>
+                            <span style="position: absolute; top: 38%; left: 27%; color: green; font-size: xx-large;">Property</span>
                             {% else %}
-                            <span style="position: absolute; top: 38%; left: 38%; color: orange; font-size: xx-large;">Property</span>
+                            <span style="position: absolute; top: 38%; left: 27%; color: orange; font-size: xx-large;">Property</span>
                             {% endif %}
                         </div>
                     </div>
@@ -66,7 +66,7 @@
 
     <section>
         <!-- popup content -->
-        <!-- Stock content -->
+        <!-- Bonds content -->
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -74,11 +74,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Stocks - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="stocksTitle">Bonds</h2>
-                                    <!-- Stocks - Image-->
+                                    <!-- Bonds - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="bondsTitle">Bonds</h2>
+                                    <!-- Bonds - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/stonks.png" alt="Stonks" style="margin-top: 5%;"/>
-                                    <!-- Stocks - Text-->
+                                    <!-- Bonds - Text-->
                                     <p class="mb-5 text-justify">
                                         <!-- Stocks, or equities, are a type of security that represents ownership of a company. Well, a fraction of a company, which entitles the owner of the stock to a proportion of the company's assets. Stocks are often referred to as shares, as the owner has a share of the ownership of the company, proportional to their number of stocks.
                                         <br><br>
@@ -99,7 +99,7 @@
                 </div>
             </div>
         </div>
-        <!-- Derivatives content -->
+        <!-- Cash content -->
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -107,11 +107,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Derivatives - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="derivativesTitle">Cash</h2>
-                                    <!-- Derivatives - Image-->
+                                    <!-- Cash - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cashTitle">Cash</h2>
+                                    <!-- Cash - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/derivatives.png" alt="Derivatives" style="margin-top: 5%;"/>
-                                    <!-- Derivatives - Text-->
+                                    <!-- Cash - Text-->
                                     <p class="mb-5 text-justify">
                                         <!-- Derivatives are securities whose value relies upon the value of another asset, whether a single asset or a group. This means that the price of the derivative changes as the price of the underlying asset fluctuates. Common underlying assets for derivatives are stocks, bonds, commodities, interest rates, and market indexes. A derivative can essentially be seen as a gamble on the underlying asset, without directly having exposure to said asset.
                                         <br><br>
@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <!-- Cryptocurrency -->
+        <!-- Art -->
         <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -140,11 +140,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Cryptocurrency - Title-->
+                                    <!-- Art - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cryptocurrencyTitle">Art</h2>
-                                    <!-- Cryptocurrency - Image-->
+                                    <!-- Art - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/cryptocurrency.png" alt="Cryptocurrency" style="margin-top: 5%;"/>
-                                    <!-- Cryptocurrency - Text-->
+                                    <!-- Art - Text-->
                                     <p class="mb-5 text-justify">
                                         <!-- Cryptocurrencies are a type of digital currency that are generated from code. They use a blockchain to keep an immutable record of all of the past transactions, which is called a distributed ledger. Cryptocurrencies were originally created to be an alternative to fiat currency (the cash that is in your wallet), however the volatile nature of their value has stopped that from happening. This can be easiest seen with the most well-known cryptocurrency, Bitcoin, which was created in 2009 and continues to have price fluctuations.
                                         <br><br>
@@ -165,7 +165,7 @@
                 </div>
             </div>
         </div>
-        <!-- Risk content -->
+        <!-- Property content -->
         <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -173,11 +173,11 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Risk - Title-->
+                                    <!-- Property - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="risksTitle">Property</h2>
-                                    <!-- Risk - Image-->
+                                    <!-- Property - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/risks.png" alt="Risks" style="margin-top: 5%;"/>
-                                    <!-- Risk - Text-->
+                                    <!-- Property - Text-->
                                     <p class="mb-5 text-justify">
                                         <!-- Any conversation about the risks of investing has to start with Bernie Madoff, who ran the largest Ponzi scheme ever. He took money from investors and then simply left it in the bank and used it to fund his lavish lifestyle whilst telling them they were getting decent returns. When those investors wanted their profits, he used the money from other investors to pay them out, and so on, and so on. He was brought down when the market fell in 2008 and too many people wanted their money.
                                         <br><br>
