@@ -112,6 +112,18 @@ class Attempt(BaseModel):
             ]
         )
 
+    # @staticmethod
+    # def count_attempts(scores):
+    #     return [score.id for score in scores]
+
+    # @staticmethod
+    # def max_score(scores):
+    #     return max(scores)
+
+    # @staticmethod
+    # def average_score(scores):
+    #     return sum(scores) / len(scores)
+
 
 class Questions(BaseModel):
     """
