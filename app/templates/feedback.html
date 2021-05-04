@@ -9,13 +9,7 @@
         }
 
         td, th {
-        border: 1px solid #dddddd;
         text-align: center;
-        padding: 8px;
-        }
-
-        tr:nth-child(even) {
-        background-color: #dddddd;
         }
 
         .squares {
@@ -24,20 +18,18 @@
         }
 
         .icon1, .icon2, .icon3 {
-            width: 200px;
-            height: 200px;
-            background: #F5F8FA;
+            width: 150px;
+            height: 150px;
+            background: #000000;
+            color: white;
         }
 
         .icon1,.icon2,.icon3 {
-        margin-right: 10%;
         border-style: ridge;
         display: flex;
         align-items: center;
         justify-content: center;
         }
-
-
 
     </style>
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
@@ -79,31 +71,31 @@
                     <th>Max Score</th>
                 </tr>
                 <tr>
-                    <td>1</td>
-                    <td>4</td>
-                    <td>4</td>
+                    <td>
+                        <div class="squares" >
+                            <div class="icon1">
+                                <p>1</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="squares">
+                            <div class="icon2">
+                                <p>4</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="squares">
+                            <div class="icon3">
+                                <p>4</p>
+                            </div>
+                        </div>
+                    </td>
                 </tr>
             </table>
         </div>
-        <div class="container row">
 
-            <div class="squares col-lg-4" >
-                <div class="icon1">
-                   <p>Icon1</p>
-                </div>
-            </div>
-            <div class="squares col-lg-4">
-                <div class="icon2">
-                   <p>Icon</p>
-                </div>
-            </div>
-            <div class="squares col-lg-4">
-                <div class="icon3">
-                    <p>Icon</p>
-                </div>
-            </div>
-
-        </div>
         <div class="container">
             <h4>Latest Result: </h4>
             <p>Q1: In 2001 when Enron collapsed under a $40 billion accounting scandal, shareholders had to pay which of the following?</p>
@@ -144,26 +136,5 @@
         </div>
     </section>
 
-    <section class="py-3">
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					  <tr>
-						<th scope="col">ID</th>
-						<th scope="col">User ID</th>
-						<th scope="col">Category</th>
-						<th scope="col">Score</th>
-						<th scope="col">Timestamp</th>
-						<th scope="col">High A</th>
-					  </tr>
-				</thead>
-				<tbody>
-					{% for a in latest %}
-					<tr><td>{{ a.id }}</td><td>{{ a.user_id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td><td>{{ a.question_1_result }}</td></tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</section>
 
 {% endblock %}
