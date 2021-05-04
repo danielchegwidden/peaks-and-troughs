@@ -2,6 +2,25 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block risk_content %}
+<style>
+.squares {
+    display: flex;
+    justify-content: center;
+    }
+
+    .icon{
+        width: 250px;
+        height: 200px;
+        background: #000000;
+        font-size: xx-large;
+    }
+
+    .icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
 
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
@@ -11,52 +30,56 @@
                 <!-- Stock block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                        <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.high_a %}
-                            <span style="position: absolute; top: 38%; left: 32%; color: green; font-size: xx-large;">Stocks</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 32%; color: orange; font-size: xx-large;">Stocks</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.high_a %}
+                                <p style="color: green;">Stocks</p>
+                                {% else %}
+                                <p style="color: orange;">Stocks</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- derivatives block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                        <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.high_b %}
-                            <span style="position: absolute; top: 38%; left: 25%; color: green; font-size: xx-large;">Derivatives</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 25%; color: orange; font-size: xx-large;">Derivatives</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.high_b %}
+                                <p style="color: green;">Derivatives</p>
+                                {% else %}
+                                <p style="color: orange;">Derivatives</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- cryptocurrency block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
-                        <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.high_c %}
-                            <span style="position: absolute; top: 38%; left: 9%; color: green; font-size: xx-large;">Cryptocurrency</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 9%; color: orange; font-size: xx-large;">Cryptocurrency</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.high_c %}
+                                <p style="color: green;">Cryptocurrency</p>
+                                {% else %}
+                                <p style="color: orange;">Cryptocurrency</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Risk block-->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
-                        <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.high_d %}
-                            <span style="position: absolute; top: 38%; left: 36%; color: green; font-size: xx-large;">Risks</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 36%; color: orange; font-size: xx-large;">Risks</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.high_d %}
+                                <p style="color: green;">Risk</p>
+                                {% else %}
+                                <p style="color: orange;">Risk</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,6 +122,7 @@
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_a" value="Done">
+                                        <input type="submit" name="" value="Close">
                                     </form>
                                 </div>
                             </div>
@@ -132,6 +156,7 @@
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_b" value="Done">
+                                        <input type="submit" name="" value="Close">
                                     </form>
                                 </div>
                             </div>
@@ -165,6 +190,7 @@
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_c" value="Done">
+                                        <input type="submit" name="" value="Close">
                                     </form>
                                 </div>
                             </div>
@@ -198,6 +224,7 @@
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_d" value="Done">
+                                        <input type="submit" name="" value="Close">
                                     </form>
                                 </div>
                             </div>

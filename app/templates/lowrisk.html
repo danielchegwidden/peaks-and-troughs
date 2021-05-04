@@ -2,6 +2,25 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block risk_content %}
+<style>
+    .squares {
+        display: flex;
+        justify-content: center;
+        }
+
+        .icon {
+            width: 250px;
+            height: 200px;
+            background: #000000;
+            font-size: xx-large;
+        }
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
 
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
@@ -11,52 +30,56 @@
                 <!-- Bonds block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                        <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.low_a %}
-                            <span style="position: absolute; top: 38%; bottom: 30%; left: 33%; color: green; font-size: xx-large;">Bonds</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; bottom: 30%; left: 33%; color: orange; font-size: xx-large;">Bonds</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.low_a %}
+                                <p style="color: green;">Bonds</p>
+                                {% else %}
+                                <p style="color: orange;">Bonds</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Cash block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                        <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.low_b %}
-                            <span style="position: absolute; top: 38%; left: 43%; color: green; font-size: xx-large;">Cash</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 43%; color: orange; font-size: xx-large;">Cash</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.low_b %}
+                                <p style="color: green;">Cash</p>
+                                {% else %}
+                                <p style="color: orange;">Cash</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Art block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
-                        <div style="position: relative; width: 200px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.low_c %}
-                            <span style="position: absolute; top: 38%; left: 51%; color: green; font-size: xx-large;">Art</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 51%; color: orange; font-size: xx-large;">Art</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.low_c %}
+                                <p style="color: green;">Art</p>
+                                {% else %}
+                                <p style="color: orange;">Art</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- Property block-->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
-                        <div style="position: relative; width: 250px; height: 200px; margin-top: 20%;">
-                            <img class="rounded" src="static/images/content/black.png" width="250" height="200" alt="">
-                            {% if progress.low_d %}
-                            <span style="position: absolute; top: 38%; left: 27%; color: green; font-size: xx-large;">Property</span>
-                            {% else %}
-                            <span style="position: absolute; top: 38%; left: 27%; color: orange; font-size: xx-large;">Property</span>
-                            {% endif %}
+                        <div class="squares" style="margin-top: 20%;">
+                            <div class="icon">
+                                {% if progress.low_d %}
+                                <p style="color: green;">Property</p>
+                                {% else %}
+                                <p style="color: orange;">Property</p>
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                 </div>
