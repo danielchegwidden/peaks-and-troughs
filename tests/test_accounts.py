@@ -10,7 +10,7 @@ def create_user(id, username, email, password, admin=False):
     db.session.commit()
 
 
-if __name__ == "__main__":
+def main():
     create_user(
         id=0,
         username="test-admin",
@@ -21,3 +21,7 @@ if __name__ == "__main__":
     create_user(
         id=1, username="test-user", email="test-user@peaksandtroughs.com", password="test123"
     )
+
+
+if __name__ == "__main__":
+    main()

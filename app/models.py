@@ -38,6 +38,9 @@ class Users(UserMixin, BaseModel):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def is_committed(self):
+        return self.username is not None
+
 
 class Progress(BaseModel):
     """
@@ -58,11 +61,11 @@ class Progress(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
-    def update_progress(self, category):
-        if category == "high_a":
-            self.high_a = True
-        elif category == "high_b":
-            self.high_b = True
+    # def update_progress(self, category):
+    #     if category == "high_a":
+    #         self.high_a = True
+    #     elif category == "high_b":
+    #         self.high_b = True
 
 
 class Attempt(BaseModel):
