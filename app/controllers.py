@@ -5,6 +5,7 @@ from app.forms import LoginForm, RegistrationForm, AttemptForm, SubmitForm
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 from sqlalchemy.sql import func
+import json
 
 
 class UserController:
@@ -138,6 +139,11 @@ class AdminController:
         progress = Progress.query.all()
         attempts = Attempt.query.all()
         questions = Questions.query.all()
+        total_attempts, scores, frequency = AdminController.generate_attempt_stats(
+            attempts=attempts
+        )
+        avg_score = sum(scores) / total_attempts
+        max_score = max(scores)
         if current_user.is_authenticated and current_user.is_admin:
             return render_template(
                 "statistics.html",
@@ -146,8 +152,29 @@ class AdminController:
                 progress=progress,
                 attempts=attempts,
                 questions=questions,
+                total_attempts=total_attempts,
+                avg_score=avg_score,
+                max_score=max_score,
+                frequency=json.dumps(frequency),
             )
         return redirect(url_for("index"))
+
+    @staticmethod
+    def generate_attempt_stats(attempts):
+        # Total Attempts
+        total_attempts = sum([1 for _ in attempts])
+
+        # Scores
+        scores = [a.score for a in attempts]
+
+        # Assessment Days Frequency
+        days_map = {x: 0 for x in range(8)}
+        days = [a.timestamp.weekday() for a in attempts]
+        for day in days:
+            days_map[day] += 1
+        frequency = [val[1] for val in sorted(days_map.items())]
+
+        return total_attempts, scores, frequency
 
 
 class ProgressController:
