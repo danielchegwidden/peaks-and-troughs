@@ -10,76 +10,284 @@
 	<section>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-4">
-					<canvas id="myChart" width="400" height="400"></canvas>
+				<div class="col d-flex justify-content-center">
+					<!-- DAY FREQUENCY -->
+					<p>TOTAL ATTEMPTS</p>
 				</div>
-				<div class="col-xs-4">
-					<!-- SECOND CANVAS -->
-					<canvas id="myChart2" width="400" height="400"></canvas>
+				<div class="col d-flex justify-content-center">
+					<!-- SCORE FREQUENCY -->
+					<p>AVERAGE SCORE</p>
 				</div>
-				<div class="col-xs-4">
-					<!-- THIRD CANVAS -->
-					<canvas id="myChart3" width="400" height="400"></canvas>
+				<div class="col d-flex justify-content-center">
+					<!-- THIRD -->
+					<p>???</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col d-flex justify-content-center">
+					<!-- DAY FREQUENCY -->
+					<canvas id="day_chart" height="350"></canvas>
+				</div>
+				<div class="col d-flex justify-content-center">
+					<!-- SCORE FREQUENCY -->
+					<canvas id="score_chart" height="350"></canvas>
+				</div>
+				<div class="col d-flex justify-content-center">
+					<!-- THIRD -->
+					<canvas id="new_chart" height="350"></canvas>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<!-- DAY FREQUENCY -->
 	<script>
-	let days_data = {{ frequency|safe }}
-	let ctx = document.getElementById('myChart').getContext('2d');
-	let myChart = new Chart(ctx, {
-		type: 'bar',
-		data: {
-			labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-			datasets: [{
-				label: 'Attempts',
-				data: days_data,
-				backgroundColor: [
-					'rgba(255, 99, 132, 0.2)',
-					'rgba(54, 162, 235, 0.2)',
-					'rgba(255, 206, 86, 0.2)',
-					'rgba(75, 192, 192, 0.2)',
-					'rgba(153, 102, 255, 0.2)',
-					'rgba(255, 159, 64, 0.2)'
-				],
-				borderColor: [
-					'rgba(255, 99, 132, 1)',
-					'rgba(54, 162, 235, 1)',
-					'rgba(255, 206, 86, 1)',
-					'rgba(75, 192, 192, 1)',
-					'rgba(153, 102, 255, 1)',
-					'rgba(255, 159, 64, 1)'
-				],
-				borderWidth: 1
-			}]
-		},
-		options: {
-			// responsive: false,
-			scales: {
-				y: {
-					beginAtZero: true
-				}
+		let days_data = {{ day_frequency|safe }}
+		let ctx1 = document.getElementById('day_chart').getContext('2d');
+		let myChart1 = new Chart(ctx1, {
+			type: 'bar',
+			data: {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				datasets: [{
+					label: 'Attempts',
+					data: days_data,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
 			},
-			legend: {
-        		display: false
-    		},
-			title: {
-				display: true,
-				text: 'Daily Assessment Frequency'
+			options: {
+				responsive: true,
+   				maintainAspectRatio: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Daily Assessment Frequency',
+					fontColor: 'white'
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Month'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Frequency'
+						},
+						ticks: {
+							beginAtZero: true,
+							callback: function(value) {if (value % 1 === 0) {return value;}}
+						}
+					}]
+				}
 			}
-		}
-	});
+		});
 	</script>
 
+	<!-- SCORE FREQUENCY -->
+	<script>
+		let scores_data = {{ score_frequency|safe }}
+		let ctx2 = document.getElementById('score_chart').getContext('2d');
+		let myChart2 = new Chart(ctx2, {
+			type: 'bar',
+			data: {
+				labels: ['0', '1', '2', '3', '4', '5'],
+				datasets: [{
+					label: 'Attempts',
+					data: scores_data,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+   				maintainAspectRatio: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Score Frequency',
+					fontColor: 'white'
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Score'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Frequency'
+						},
+						ticks: {
+							beginAtZero: true,
+							callback: function(value) {if (value % 1 === 0) {return value;}}
+						}
+					}]
+				}
+			}
+		});
+	</script>
 
+	<!-- SCORE FREQUENCY -->
+	<script>
+		let scores_data2 = {{ score_frequency|safe }}
+		let ctx3 = document.getElementById('new_chart').getContext('2d');
+		let myChart3 = new Chart(ctx3, {
+			type: 'bar',
+			data: {
+				labels: ['0', '1', '2', '3', '4', '5'],
+				datasets: [{
+					label: 'Attempts',
+					data: scores_data2,
+					backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+			options: {
+				responsive: true,
+   				maintainAspectRatio: true,
+				scales: {
+					y: {
+						beginAtZero: true
+					}
+				},
+				legend: {
+					display: false
+				},
+				title: {
+					display: true,
+					text: 'Score Frequency',
+					fontColor: 'white'
+				},
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Score'
+						}
+					}],
+					yAxes: [{
+						display: true,
+						gridLines: {
+							color: 'rgba(255, 255, 255, 0.2)'
+						},
+						scaleLabel: {
+							display: true,
+							labelString: 'Frequency'
+						},
+						ticks: {
+							beginAtZero: true,
+							callback: function(value) {if (value % 1 === 0) {return value;}}
+						}
+					}]
+				}
+			}
+		});
+	</script>
 
 	<section>
+		<br>
 		<div class="container text-center" style="margin-bottom: 5%;">
 			<a>
-				<button type="button" class="btn btn-primary btn-lg" name='show_users'>Users</button>
+				<button type="button" class="btn btn-primary btn-lg btn-outline-warning" name='show_users'>Users</button>
 			</a>
 			<a>
-				<button type="button" class="btn btn-primary btn-lg" name='show_questions'>Questions</button>
+				<button type="button" class="btn btn-primary btn-lg btn-outline-warning" name='show_questions'>Questions</button>
 			</a>
 		</div>
 	</section>
@@ -87,18 +295,19 @@
 	<!-- USERS -->
 	<section class="py-3">
 		<div class="container" id="table_users" style="display: block">
-			<table class="table table-striped">
-				<thead>
+			<table class="table table-dark table-bordered table-hover">
+				<caption>List of users</caption>
+				<thead class="thead-light">
 					<tr>
-						<th scope="col">ID</th>
+						<th scope="col" class="text-center">ID</th>
 						<th scope="col">Username</th>
 						<th scope="col">Email</th>
-						<th scope="col">Admin Status</th>
+						<th scope="col" class="text-center">Admin Status</th>
 					</tr>
 				</thead>
 				<tbody>
 					{% for u in users %}
-					<tr><td>{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
+					<tr><td class="text-center">{{ u.id }}</td><td>{{ u.username }}</td><td>{{ u.email }}</td><td>{{ u.is_admin }}</td></tr>
 					{% endfor %}
 				</tbody>
 			</table>
@@ -108,21 +317,22 @@
 	<!-- QUESTIONS -->
 	<section class="py-3">
 		<div class="container table_questions" style="display: block">
-			<table class="table table-striped">
-				<thead>
+			<table class="table table-dark table-bordered table-hover">
+				<caption>List of questions</caption>
+				<thead class="thead-light">
 					  <tr>
-						<th scope="col">ID</th>
-						<th scope="col">Questions</th>
-						<th scope="col">Option A</th>
-						<th scope="col">Option B</th>
-						<th scope="col">Option C</th>
-						<th scope="col">Option D</th>
-						<th scope="col">Answer</th>
+						<th scope="col" class="text-center">ID</th>
+						<th scope="col" class="text-center">Question</th>
+						<th scope="col" class="text-center">Option A</th>
+						<th scope="col" class="text-center">Option B</th>
+						<th scope="col" class="text-center">Option C</th>
+						<th scope="col" class="text-center">Option D</th>
+						<th scope="col" class="text-center">Answer</th>
 					  </tr>
 				</thead>
 				<tbody>
 					{% for q in questions %}
-					<tr><td>{{ q.question_id }}</td><td>{{ q.question_text }}</td><td>{{ q.answer_1 }}</td><td>{{ q.answer_2 }}</td><td>{{ q.answer_3 }}</td><td>{{ q.answer_4 }}</td><td>{{ q.correct_answer }}</td></tr>
+					<tr><td class="text-center">{{ q.question_id }}</td><td>{{ q.question_text }}</td><td>{{ q.answer_1 }}</td><td>{{ q.answer_2 }}</td><td>{{ q.answer_3 }}</td><td>{{ q.answer_4 }}</td><td class="text-center">{{ q.correct_answer }}</td></tr>
 					{% endfor %}
 				</tbody>
 			</table>

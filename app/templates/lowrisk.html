@@ -113,7 +113,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="low_a" value="Done">
+                                        <input type="submit" name="low_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -146,7 +147,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="low_b" value="Done">
+                                        <input type="submit" name="low_b" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -179,7 +181,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="low_c" value="Done">
+                                        <input type="submit" name="low_c" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -212,7 +215,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="low_d" value="Done">
+                                        <input type="submit" name="low_d" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -226,7 +230,7 @@
     <section>
         <div class="container text-center" style="margin-bottom: 5%;">
             <a href="{{ url_for('assessment') }}">
-                <button type="button" class="btn btn-primary btn-lg">Attempt Assessment</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning">Attempt Assessment</button>
             </a>
             <!-- <a>
                 <button type="button" class="btn btn-primary btn-lg">Save Progress</button>

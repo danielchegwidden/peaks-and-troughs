@@ -9,22 +9,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 
-    <section class="py-3">
-        <div class="container">
-            <h1 class="font-weight-light Testing_style">Hi, {{ current_user.username }}!</h1>
-            <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
-        </div>
-    </section>
-
     <!-- Risk Section -->
     <section>
+        <br>
         <div class="container text-center">
             <form>
                 <a href="{{ url_for('highrisk') }}">
-                    <button type="button" class="btn btn-primary btn-lg" id="high">High Risk investments</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-outline-warning" id="high">High Risk investments</button>
                 </a>
                 <a href="{{ url_for('lowrisk') }}">
-                    <button type="button" class="btn btn-primary btn-lg" id="low">Low Risk investments</button>
+                    <button type="button" class="btn btn-primary btn-lg btn-outline-warning" id="low">Low Risk investments</button>
                 </a>
             </form>
         </div>
