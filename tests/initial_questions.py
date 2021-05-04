@@ -17,7 +17,7 @@ def add_question(question_id, question_text, answers, correct_answer):
     db.session.commit()
 
 
-if __name__ == "__main__":
+def main():
     add_question(
         question_id=1,
         question_text="In 2001 when Enron collapsed under a $40 billion accounting scandal, shareholders had to pay which of the following?",
@@ -80,3 +80,7 @@ if __name__ == "__main__":
         ],
         correct_answer="C",
     )
+
+
+if __name__ == "__main__":
+    main()

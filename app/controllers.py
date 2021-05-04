@@ -5,7 +5,6 @@ from app.forms import LoginForm, RegistrationForm, AttemptForm, SubmitForm
 from flask_login import current_user, login_user, login_required, logout_user
 from werkzeug.urls import url_parse
 from sqlalchemy.sql import func
-from datetime import datetime
 
 
 class UserController:
