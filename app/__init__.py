@@ -17,3 +17,16 @@ login = LoginManager(app)
 login.login_view = "login"
 
 from app import routes, models, controllers
+
+from app.models import Users, Progress, Attempt, Questions
+from tests import test_accounts, initial_questions, initial_data
+
+DEVELOP = True
+if DEVELOP:
+    Users.query.delete()
+    Progress.query.delete()
+    Attempt.query.delete()
+    Questions.query.delete()
+    test_accounts.main()
+    initial_questions.main()
+    initial_data.main()

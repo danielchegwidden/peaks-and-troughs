@@ -129,24 +129,4 @@
 		</div>
 	</section>
 
-	<!-- QUESTIONS -->
-	<section class="py-3">
-		<div class="container table_questions" style="display: block">
-			<table class="table table-striped">
-				<thead>
-					  <tr>
-						<th scope="col">ID</th>
-						<th scope="col">Score</th>
-						<th scope="col">Timestamp</th>
-					  </tr>
-				</thead>
-				<tbody>
-					{% for a in attempts %}
-					<tr><td>{{ a.id }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</section>
-
 {% endblock %}
