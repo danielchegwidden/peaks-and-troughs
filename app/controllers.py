@@ -94,6 +94,23 @@ class UserController:
             .all()
         )
         latest_attempt = Attempt.query.filter_by(user_id=user.id, timestamp=latest[0])
+        questions = [
+            Questions.query.filter_by(question_id=latest_attempt[0].question_1_id)
+            .first()
+            .question_text,
+            Questions.query.filter_by(question_id=latest_attempt[0].question_2_id)
+            .first()
+            .question_text,
+            Questions.query.filter_by(question_id=latest_attempt[0].question_3_id)
+            .first()
+            .question_text,
+            Questions.query.filter_by(question_id=latest_attempt[0].question_4_id)
+            .first()
+            .question_text,
+            Questions.query.filter_by(question_id=latest_attempt[0].question_5_id)
+            .first()
+            .question_text,
+        ]
         return render_template(
             "feedback.html",
             title="Feedback",
@@ -102,6 +119,7 @@ class UserController:
             max_score=max_score,
             avg_score=avg_score,
             latest=latest_attempt,
+            questions=questions,
         )
 
 

@@ -38,8 +38,8 @@ class Users(UserMixin, BaseModel):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    def is_committed(self):
-        return self.username is not None
+    # def is_committed(self):
+    #     return self.username is not None
 
 
 class Progress(BaseModel):
@@ -97,6 +97,11 @@ class Attempt(BaseModel):
 
     def post_results(self, category, questions, answers):
         self.category = category
+        self.question_1_id = questions[0]
+        self.question_2_id = questions[1]
+        self.question_3_id = questions[2]
+        self.question_4_id = questions[3]
+        self.question_5_id = questions[4]
         self.question_1_result = self.calculate_results(question_id=questions[0], answer=answers[0])
         self.question_2_result = self.calculate_results(question_id=questions[1], answer=answers[1])
         self.question_3_result = self.calculate_results(question_id=questions[2], answer=answers[2])
