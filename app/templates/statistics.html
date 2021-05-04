@@ -1,9 +1,92 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+	<!-- {% for a in attempts %}
+	{{ a.score }}
+	{% endfor %} -->
 
-	<section class="py-3">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+	<section>
 		<div class="container">
+			<div class="row">
+				<div class="col-xs-4">
+					<canvas id="myChart" width="400" height="400"></canvas>
+				</div>
+				<div class="col-xs-4">
+					<!-- SECOND CANVAS -->
+					<canvas id="myChart2" width="400" height="400"></canvas>
+				</div>
+				<div class="col-xs-4">
+					<!-- THIRD CANVAS -->
+					<canvas id="myChart3" width="400" height="400"></canvas>
+				</div>
+			</div>
+		</div>
+	</section>
+	<script>
+	let days_data = {{ frequency|safe }}
+	let ctx = document.getElementById('myChart').getContext('2d');
+	let myChart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+			datasets: [{
+				label: 'Attempts',
+				data: days_data,
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+			// responsive: false,
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			},
+			legend: {
+        		display: false
+    		},
+			title: {
+				display: true,
+				text: 'Daily Assessment Frequency'
+			}
+		}
+	});
+	</script>
+
+
+
+	<section>
+		<div class="container text-center" style="margin-bottom: 5%;">
+			<a>
+				<button type="button" class="btn btn-primary btn-lg" name='show_users'>Users</button>
+			</a>
+			<a>
+				<button type="button" class="btn btn-primary btn-lg" name='show_questions'>Questions</button>
+			</a>
+		</div>
+	</section>
+
+	<!-- USERS -->
+	<section class="py-3">
+		<div class="container" id="table_users" style="display: block">
 			<table class="table table-striped">
 				<thead>
 					<tr>
@@ -22,65 +105,44 @@
 		</div>
 	</section>
 
+	<!-- QUESTIONS -->
 	<section class="py-3">
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					  <tr>
-						<th scope="col">ID</th>
-						<th scope="col">High A</th>
-						<th scope="col">High B</th>
-						<th scope="col">High C</th>
-						<th scope="col">High D</th>
-					  </tr>
-				</thead>
-				<tbody>
-					{% for p in progress %}
-					<tr><td>{{ p.user_id }}</td><td>{{ p.high_a }}</td><td>{{ p.high_b }}</td><td>{{ p.high_c }}</td><td>{{ p.high_d }}</td></tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</section>
-
-	<section class="py-3">
-		<div class="container">
-			<table class="table table-striped">
-				<thead>
-					  <tr>
-						<th scope="col">ID</th>
-						<th scope="col">User ID</th>
-						<th scope="col">Category</th>
-						<th scope="col">Score</th>
-						<th scope="col">Timestamp</th>
-					  </tr>
-				</thead>
-				<tbody>
-					{% for a in attempts %}
-					<tr><td>{{ a.id }}</td><td>{{ a.user_id }}</td><td>{{ a.category }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
-					{% endfor %}
-				</tbody>
-			</table>
-		</div>
-	</section>
-
-	<section class="py-3">
-		<div class="container">
+		<div class="container table_questions" style="display: block">
 			<table class="table table-striped">
 				<thead>
 					  <tr>
 						<th scope="col">ID</th>
 						<th scope="col">Questions</th>
-						<th scope="col">A</th>
-						<th scope="col">B</th>
-						<th scope="col">C</th>
-						<th scope="col">D</th>
+						<th scope="col">Option A</th>
+						<th scope="col">Option B</th>
+						<th scope="col">Option C</th>
+						<th scope="col">Option D</th>
 						<th scope="col">Answer</th>
 					  </tr>
 				</thead>
 				<tbody>
 					{% for q in questions %}
 					<tr><td>{{ q.question_id }}</td><td>{{ q.question_text }}</td><td>{{ q.answer_1 }}</td><td>{{ q.answer_2 }}</td><td>{{ q.answer_3 }}</td><td>{{ q.answer_4 }}</td><td>{{ q.correct_answer }}</td></tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<!-- QUESTIONS -->
+	<section class="py-3">
+		<div class="container table_questions" style="display: block">
+			<table class="table table-striped">
+				<thead>
+					  <tr>
+						<th scope="col">ID</th>
+						<th scope="col">Score</th>
+						<th scope="col">Timestamp</th>
+					  </tr>
+				</thead>
+				<tbody>
+					{% for a in attempts %}
+					<tr><td>{{ a.id }}</td><td>{{ a.score }}</td><td>{{ a.timestamp }}</td></tr>
 					{% endfor %}
 				</tbody>
 			</table>

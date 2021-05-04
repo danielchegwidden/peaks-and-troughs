@@ -46,7 +46,7 @@
         for (i = 0; i < feedback.length; i++) {
             if (feedback[i].style.display === 'none'){
             feedback[i].style.display='block'
-        }
+            }
         }
     };
     </script>
@@ -67,7 +67,7 @@
         <div class="container">
             <table>
                 <tr>
-                    <th>Total Attempt</th>
+                    <th>Total Attempts</th>
                     <th>Average Score</th>
                     <th>Max Score</th>
                 </tr>
@@ -75,21 +75,21 @@
                     <td>
                         <div class="squares" >
                             <div class="icon">
-                                <p>1</p>
+                                <p>{{ attempts }}</p>
                             </div>
                         </div>
                     </td>
                     <td>
                         <div class="squares">
                             <div class="icon">
-                                <p>4</p>
+                                <p>{{ avg_score }}</p>
                             </div>
                         </div>
                     </td>
                     <td>
                         <div class="squares">
                             <div class="icon">
-                                <p>4</p>
+                                <p>{{ max_score }}</p>
                             </div>
                         </div>
                     </td>
@@ -99,32 +99,32 @@
 
         <div class="container">
             <h4>Latest Result: </h4>
-            <p>Q1: In 2001 when Enron collapsed under a $40 billion accounting scandal, shareholders had to pay which of the following?</p>
-            {% if latest.question_1_result %}
+            <p>Q1: {{ questions[0] }}</p>
+            {% if latest[0].question_1_result %}
+            <p><i class="fas fa-check fa-fw"></i>Your choice:</p>
+            {% else %}
+            <p><i class="fas fa-times fa-fw"></i>Your choice:</p>
+            {% endif %}
+            <p>Q2: {{ questions[1] }}</p>
+            {% if latest[0].question_2_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q2: Which of the following is not an example of a derivative product?</p>
-            {% if latest.question_2_result %}
+            <p>Q3: {{ questions[2] }}</p>
+            {% if latest[0].question_3_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q3: In which of the following cryptocurrencies can you find the Nyan Cat animation embedded on the blockchain?</p>
-            {% if latest.question_3_result %}
+            <p>Q4: {{ questions[3] }}</p>
+            {% if latest[0].question_4_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q4: The people who had their entire savings wiped out by Bernie Madoff faced which of the following risks?</p>
-            {% if latest.question_4_result %}
-            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
-            {% else %}
-            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
-            {% endif %}
-            <p>Q5: Which of the following did not contribute to the 2008 Financial Crisis?</p>
-            {% if latest.question_5_result %}
+            <p>Q5: {{ questions[4] }}</p>
+            {% if latest[0].question_5_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
@@ -136,6 +136,5 @@
             </a>
         </div>
     </section>
-
 
 {% endblock %}
