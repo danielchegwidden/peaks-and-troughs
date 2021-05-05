@@ -50,7 +50,7 @@
         }
     };
     </script>
-
+    <p>{{ test }}</p>
     <section class="finish" style="display: block;">
         <div class="container text-center" style="margin-top: 5%;">
             <h4>
@@ -59,7 +59,7 @@
         </div>
         <div class="container text-center" style="margin-top: 5%;">
             <a>
-                <button type="button" class="btn btn-primary btn-lg" onclick="show_feedback()">Click to see Feedback</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning" onclick="show_feedback()">Click to see Feedback</button>
             </a>
         </div>
     </section>
@@ -99,31 +99,31 @@
 
         <div class="container">
             <h4>Latest Result: </h4>
-            <p>Q1: {{ questions[0] }}</p>
+            <p>Q1: {{ questions['question_1'] }}</p>
             {% if latest[0].question_1_result %}
             <p><i class="fas fa-check fa-fw"></i>Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>Your choice:</p>
             {% endif %}
-            <p>Q2: {{ questions[1] }}</p>
+            <p>Q2: {{ questions['question_2'] }}</p>
             {% if latest[0].question_2_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q3: {{ questions[2] }}</p>
+            <p>Q3: {{ questions['question_3'] }}</p>
             {% if latest[0].question_3_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q4: {{ questions[3] }}</p>
+            <p>Q4: {{ questions['question_4'] }}</p>
             {% if latest[0].question_4_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}
             <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
             {% endif %}
-            <p>Q5: {{ questions[4] }}</p>
+            <p>Q5: {{ questions['question_5'] }}</p>
             {% if latest[0].question_5_result %}
             <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
             {% else %}

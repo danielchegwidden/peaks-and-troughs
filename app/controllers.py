@@ -77,50 +77,15 @@ class UserController:
     @staticmethod
     def feedback():
         user = Users.query.filter_by(username=current_user.username).first()
-        results = Attempt.query.filter_by(user_id=user.id)
-        attempts = len(Attempt.query.filter(Attempt.user_id == user.id).all())
-        max_score = (
-            Attempt.query.with_entities(func.max(Attempt.score).label("maximum"))
-            .filter(Attempt.user_id == user.id)
-            .all()[0][0]
-        )
-        avg_score = (
-            Attempt.query.with_entities(func.avg(Attempt.score).label("average"))
-            .filter(Attempt.user_id == user.id)
-            .all()[0][0]
-        )
-        latest = max(
-            Attempt.query.with_entities(func.max(Attempt.timestamp).label("latest"))
-            .filter(Attempt.user_id == user.id)
-            .all()
-        )
-        latest_attempt = Attempt.query.filter_by(user_id=user.id, timestamp=latest[0])
-        questions = [
-            Questions.query.filter_by(question_id=latest_attempt[0].question_1_id)
-            .first()
-            .question_text,
-            Questions.query.filter_by(question_id=latest_attempt[0].question_2_id)
-            .first()
-            .question_text,
-            Questions.query.filter_by(question_id=latest_attempt[0].question_3_id)
-            .first()
-            .question_text,
-            Questions.query.filter_by(question_id=latest_attempt[0].question_4_id)
-            .first()
-            .question_text,
-            Questions.query.filter_by(question_id=latest_attempt[0].question_5_id)
-            .first()
-            .question_text,
-        ]
+        latest = Attempt.get_latest_attempt(user_id=user.id)
         return render_template(
             "feedback.html",
             title="Feedback",
-            results=results,
-            attempts=attempts,
-            max_score=max_score,
-            avg_score=avg_score,
-            latest=latest_attempt,
-            questions=questions,
+            attempts=len(Attempt.get_attempts(user_id=user.id)),
+            max_score=Attempt.calculate_max_score(user_id=user.id),
+            avg_score=Attempt.calculate_avg_score(user_id=user.id),
+            latest=latest,
+            questions=Questions.get_my_questions(attempt_id=latest[0].id),
         )
 
 
@@ -136,45 +101,21 @@ class AdminController:
     @staticmethod
     def stats():
         users = Users.query.all()
-        progress = Progress.query.all()
-        attempts = Attempt.query.all()
         questions = Questions.query.all()
-        total_attempts, scores, frequency = AdminController.generate_attempt_stats(
-            attempts=attempts
-        )
-        avg_score = sum(scores) / total_attempts
-        max_score = max(scores)
         if current_user.is_authenticated and current_user.is_admin:
             return render_template(
                 "statistics.html",
                 title="Statistics",
                 users=users,
-                progress=progress,
-                attempts=attempts,
+                attempts=Attempt.get_attempts(),
                 questions=questions,
-                total_attempts=total_attempts,
-                avg_score=avg_score,
-                max_score=max_score,
-                frequency=json.dumps(frequency),
+                total_attempts=Attempt.calculate_num_attempts(),
+                avg_score=Attempt.calculate_avg_score(),
+                max_score=Attempt.calculate_max_score(),
+                day_frequency=json.dumps(Attempt.day_frequency()),
+                score_frequency=json.dumps(Attempt.score_frequency()),
             )
         return redirect(url_for("index"))
-
-    @staticmethod
-    def generate_attempt_stats(attempts):
-        # Total Attempts
-        total_attempts = sum([1 for _ in attempts])
-
-        # Scores
-        scores = [a.score for a in attempts]
-
-        # Assessment Days Frequency
-        days_map = {x: 0 for x in range(8)}
-        days = [a.timestamp.weekday() for a in attempts]
-        for day in days:
-            days_map[day] += 1
-        frequency = [val[1] for val in sorted(days_map.items())]
-
-        return total_attempts, scores, frequency
 
 
 class ProgressController:

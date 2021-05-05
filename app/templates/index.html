@@ -3,16 +3,17 @@
 {% block app_content %}
 
     <section>
+        <br>
         <div class="container text-center">
             {% if not current_user.is_anonymous %}
             <a href="{{ url_for('learn') }}">
-                <button type="button" class="btn btn-primary btn-lg">Learn</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning">Learn</button>
             </a>
             <a href="{{ url_for('assessment') }}">
-                <button type="button" class="btn btn-primary btn-lg">Assessment</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning">Assessment</button>
             </a>
             <a href="{{ url_for('feedback') }}">
-                <button type="button" class="btn btn-primary btn-lg">Feedback</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning">Feedback</button>
             </a>
             {% endif %}
         </div>

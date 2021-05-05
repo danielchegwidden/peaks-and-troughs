@@ -3,9 +3,9 @@
 
 {% block risk_content %}
 <style>
-.squares {
-    display: flex;
-    justify-content: center;
+    .squares {
+        display: flex;
+        justify-content: center;
     }
 
     .icon{
@@ -121,8 +121,8 @@
                                     </form> -->
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_a" value="Done">
-                                        <input type="submit" name="" value="Close">
+                                        <input type="submit" name="high_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -155,8 +155,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_b" value="Done">
-                                        <input type="submit" name="" value="Close">
+                                        <input type="submit" name="high_b" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -189,8 +189,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_c" value="Done">
-                                        <input type="submit" name="" value="Close">
+                                        <input type="submit" name="high_c" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -223,8 +223,8 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_d" value="Done">
-                                        <input type="submit" name="" value="Close">
+                                        <input type="submit" name="high_d" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
                             </div>
@@ -242,7 +242,7 @@
                 <input type="submit" name="High" value="Attempt Assessment">
             </form> -->
             <a href="{{ url_for('assessment') }}">
-                <button type="button" class="btn btn-primary btn-lg" name='highrisk'>Attempt Assessment</button>
+                <button type="button" class="btn btn-primary btn-lg btn-outline-warning" name='highrisk'>Attempt Assessment</button>
             </a>
             <!-- <a>
                 <button type="button" class="btn btn-primary btn-lg">Save Progress</button>

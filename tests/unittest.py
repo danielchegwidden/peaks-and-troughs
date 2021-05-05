@@ -37,21 +37,21 @@ class UserModelCase(unittest.TestCase):
         # self.assertTrue(u3.is_committed())
 
 
-class ProgressModelCase(unittest.TestCase):
-    def setUp(self):
-        self.app = app.test_client()
-        user1 = Users(id=9999, username="FirstTest", email="test1@peaksandtroughs.com")
-        progress1 = Progress(user_id=9999)
-        db.session.add(user1)
-        db.session.add(progress1)
-        db.session.commit()
+# class ProgressModelCase(unittest.TestCase):
+#     def setUp(self):
+#         self.app = app.test_client()
+#         user1 = Users(id=9999, username="FirstTest", email="test1@peaksandtroughs.com")
+#         progress1 = Progress(user_id=9999)
+#         db.session.add(user1)
+#         db.session.add(progress1)
+#         db.session.commit()
 
-    def tearDown(self):
-        user1 = Users.query.filter_by(id=9999).first()
-        progress1 = Progress.query.filter_by(user_id=9999).first()
-        db.session.delete(user1)
-        db.session.delete(progress1)
-        db.session.commit()
+#     def tearDown(self):
+#         user1 = Users.query.filter_by(id=9999).first()
+#         progress1 = Progress.query.filter_by(user_id=9999).first()
+#         db.session.delete(user1)
+#         db.session.delete(progress1)
+#         db.session.commit()
 
 
 class AttemptModelCase(unittest.TestCase):
@@ -107,6 +107,30 @@ class AttemptModelCase(unittest.TestCase):
         # db.session.commit()
         # self.assertFalse(a1.score == 0)
         # self.assertTrue(a1.score == 1)
+
+    def test_get_attempts(self):
+        pass
+
+    def test_calculate_num_attempts(self):
+        pass
+
+    def calculate_avg_score(self):
+        pass
+
+    def calculate_max_score(self):
+        pass
+
+    def get_latest_attempt(self):
+        pass
+
+    def day_frequency(self):
+        pass
+
+    def score_frequency(self):
+        pass
+
+    def get_my_questions(self):
+        pass
 
 
 if __name__ == "__main__":
