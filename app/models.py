@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
+from sqlalchemy.sql import func
 
 BaseModel: DeclarativeMeta = db.Model
 
@@ -61,12 +62,6 @@ class Progress(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
-    # def update_progress(self, category):
-    #     if category == "high_a":
-    #         self.high_a = True
-    #     elif category == "high_b":
-    #         self.high_b = True
-
 
 class Attempt(BaseModel):
     """
@@ -120,17 +115,56 @@ class Attempt(BaseModel):
             ]
         )
 
-    # @staticmethod
-    # def count_attempts(scores):
-    #     return [score.id for score in scores]
+    def get_attempts(user_id=False):
+        if user_id:
+            return Attempt.query.filter_by(user_id=user_id)
+        else:
+            return Attempt.query.all()
 
-    # @staticmethod
-    # def max_score(scores):
-    #     return max(scores)
+    def calculate_num_attempts(user_id=False):
+        attempts = Attempt.get_attempts(user_id)
+        return sum([1 for _ in attempts])
 
-    # @staticmethod
-    # def average_score(scores):
-    #     return sum(scores) / len(scores)
+    def calculate_avg_score(user_id=False):
+        avg_score = (
+            Attempt.query.with_entities(func.avg(Attempt.score).label("average"))
+            .filter(Attempt.user_id == user_id)
+            .all()[0][0]
+        )
+        return avg_score if avg_score is not None else 0.0
+
+    def calculate_max_score(user_id=False):
+        max_score = (
+            Attempt.query.with_entities(func.max(Attempt.score).label("maximum"))
+            .filter(Attempt.user_id == user_id)
+            .all()[0][0]
+        )
+        return max_score if max_score is not None else 0
+
+    def get_latest_attempt(user_id=False):
+        latest_time = max(
+            Attempt.query.with_entities(func.max(Attempt.timestamp).label("latest"))
+            .filter(Attempt.user_id == user_id)
+            .all()
+        )
+        latest_attempt = Attempt.query.filter_by(user_id=user_id, timestamp=latest_time[0])
+        return latest_attempt
+
+    def day_frequency(user_id=False):
+        attempts = Attempt.get_attempts(user_id=user_id)
+        days_map = {x: 0 for x in range(8)}
+        days = [a.timestamp.weekday() for a in attempts]
+        for day in days:
+            days_map[day] += 1
+        return [val[1] for val in sorted(days_map.items())]
+
+    def score_frequency(user_id=False):
+        attempts = Attempt.get_attempts(user_id=user_id)
+        scores_map = {x: 0 for x in range(6)}
+        scores = [a.score for a in attempts]
+        for score in scores:
+            scores_map[score] += 1
+        return [val[1] for val in sorted(scores_map.items())]
 
 
 class Questions(BaseModel):
@@ -151,3 +185,24 @@ class Questions(BaseModel):
 
     def correct(self, question_id):
         return self.query.get(question_id).correct_answer
+
+    def get_my_questions(attempt_id=1):
+        attempt = Attempt.query.filter_by(id=attempt_id).first()
+        questions = {
+            "question_1": Questions.query.filter_by(question_id=attempt.question_1_id)
+            .first()
+            .question_text,
+            "question_2": Questions.query.filter_by(question_id=attempt.question_2_id)
+            .first()
+            .question_text,
+            "question_3": Questions.query.filter_by(question_id=attempt.question_3_id)
+            .first()
+            .question_text,
+            "question_4": Questions.query.filter_by(question_id=attempt.question_4_id)
+            .first()
+            .question_text,
+            "question_5": Questions.query.filter_by(question_id=attempt.question_5_id)
+            .first()
+            .question_text,
+        }
+        return questions
