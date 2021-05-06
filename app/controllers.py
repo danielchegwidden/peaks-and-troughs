@@ -114,6 +114,7 @@ class AdminController:
                 max_score=Attempt.calculate_max_score(),
                 day_frequency=json.dumps(Attempt.day_frequency()),
                 score_frequency=json.dumps(Attempt.score_frequency()),
+                progress_frequency=json.dumps(Progress.learn_progress()),
             )
         return redirect(url_for("index"))
 
@@ -139,6 +140,9 @@ class ProgressController:
 
     @staticmethod
     def lowrisk():
+        construction = True
+        if construction:
+            return render_template("construction.html", title="Under Construction")
         form = SubmitForm()
         progress = Progress.query.filter_by(user_id=current_user.id).first()
         if "low_a" in request.form:

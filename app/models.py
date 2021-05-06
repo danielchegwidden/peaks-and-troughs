@@ -62,6 +62,21 @@ class Progress(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
+    def learn_progress(user_id=False):
+        progress = Progress.query.filter_by(user_id=user_id)
+        progress_map = {x: 0 for x in range(5)}
+        progress_scores = [Progress.get_progress(p) for p in progress]
+        for prog in progress_scores:
+            progress_map[prog] += 1
+        return [val[1] for val in sorted(progress_map.items())]
+
+    def get_progress(progress, category="High"):
+        if category == "High":
+            return sum([progress.high_a, progress.high_b, progress.high_c, progress.high_d])
+        elif category == "Low":
+            return sum([progress.low_a, progress.low_b, progress.low_c, progress.low_d])
+        return None
+
 
 class Attempt(BaseModel):
     """

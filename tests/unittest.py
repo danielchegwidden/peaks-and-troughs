@@ -1,6 +1,6 @@
 import unittest, os
 from app import app, db
-from app.models import Users, Progress, Attempt, Questions
+from app.models import Users, Attempt, Questions
 from datetime import datetime
 
 
@@ -109,27 +109,27 @@ class AttemptModelCase(unittest.TestCase):
         # self.assertTrue(a1.score == 1)
 
     def test_get_attempts(self):
-        pass
+        self.assertFalse(False)
 
     def test_calculate_num_attempts(self):
         pass
 
-    def calculate_avg_score(self):
+    def test_calculate_avg_score(self):
         pass
 
-    def calculate_max_score(self):
+    def test_calculate_max_score(self):
         pass
 
-    def get_latest_attempt(self):
+    def test_get_latest_attempt(self):
         pass
 
-    def day_frequency(self):
+    def test_day_frequency(self):
         pass
 
-    def score_frequency(self):
+    def test_score_frequency(self):
         pass
 
-    def get_my_questions(self):
+    def test_get_my_questions(self):
         pass
 
 
