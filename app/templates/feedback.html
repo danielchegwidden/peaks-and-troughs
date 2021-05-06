@@ -36,22 +36,14 @@
     <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
     <script>
     function show_feedback(){
-        let feedback = document.getElementsByClassName('feedback');
-        let finish = document.getElementsByClassName('finish');
-        for (i = 0; i < finish.length; i++) {
-            if (finish[i].style.display !== 'none'){
-                finish[i].style.display = 'none';
-            }
-        }
-        for (i = 0; i < feedback.length; i++) {
-            if (feedback[i].style.display === 'none'){
-            feedback[i].style.display='block'
-            }
-        }
+        let feedback = document.getElementById('feedback');
+        let finish = document.getElementById('finish');
+        finish.style.display = 'none';
+        feedback.style.display='block';
     };
     </script>
     <p>{{ test }}</p>
-    <section class="finish" style="display: block;">
+    <section id="finish" style="display: block;">
         <div class="container text-center" style="margin-top: 5%;">
             <h4>
                 You have submitted successfully!
@@ -63,7 +55,7 @@
             </a>
         </div>
     </section>
-    <section class="feedback" style="display: none;">
+    <section id="feedback" style="display: none;">
         <div class="container">
             <table>
                 <tr>
@@ -97,37 +89,37 @@
             </table>
         </div>
 
-        <div class="container">
-            <h4>Latest Result: </h4>
+        <div class="container" style="margin-top: 5%;">
+            <h4 style="margin-bottom: 2%;">Latest Result: </h4>
             <p>Q1: {{ questions['question_1'] }}</p>
             {% if latest[0].question_1_result %}
-            <p><i class="fas fa-check fa-fw"></i>Your choice:</p>
+            <p><i class="fas fa-check fa-fw"></i>Correct</p>
             {% else %}
-            <p><i class="fas fa-times fa-fw"></i>Your choice:</p>
+            <p><i class="fas fa-times fa-fw"></i>Wrong</p>
             {% endif %}
             <p>Q2: {{ questions['question_2'] }}</p>
             {% if latest[0].question_2_result %}
-            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            <p><i class="fas fa-check fa-fw"></i>Correct</p>
             {% else %}
-            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            <p><i class="fas fa-times fa-fw"></i>Wrong</p>
             {% endif %}
             <p>Q3: {{ questions['question_3'] }}</p>
             {% if latest[0].question_3_result %}
-            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            <p><i class="fas fa-check fa-fw"></i>Correct</p>
             {% else %}
-            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            <p><i class="fas fa-times fa-fw"></i>Wrong</p>
             {% endif %}
             <p>Q4: {{ questions['question_4'] }}</p>
             {% if latest[0].question_4_result %}
-            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            <p><i class="fas fa-check fa-fw"></i>Correct</p>
             {% else %}
-            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            <p><i class="fas fa-times fa-fw"></i>Wrong</p>
             {% endif %}
             <p>Q5: {{ questions['question_5'] }}</p>
             {% if latest[0].question_5_result %}
-            <p><i class="fas fa-check fa-fw"></i>YES Your choice:</p>
+            <p><i class="fas fa-check fa-fw"></i>Correct</p>
             {% else %}
-            <p><i class="fas fa-times fa-fw"></i>NO Your choice:</p>
+            <p><i class="fas fa-times fa-fw"></i>Wrong</p>
             {% endif %}
         </div>
         <div class="container text-center">
