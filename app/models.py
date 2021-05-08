@@ -102,9 +102,6 @@ class Attempt(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
-    def calculate_results(self, question_id, answer):
-        return 1 if answer == Questions.query.get(question_id).correct_answer else 0
-
     def post_results(self, category, questions, answers):
         self.category = category
         self.question_1_id = questions[0]
@@ -112,11 +109,21 @@ class Attempt(BaseModel):
         self.question_3_id = questions[2]
         self.question_4_id = questions[3]
         self.question_5_id = questions[4]
-        self.question_1_result = self.calculate_results(question_id=questions[0], answer=answers[0])
-        self.question_2_result = self.calculate_results(question_id=questions[1], answer=answers[1])
-        self.question_3_result = self.calculate_results(question_id=questions[2], answer=answers[2])
-        self.question_4_result = self.calculate_results(question_id=questions[3], answer=answers[3])
-        self.question_5_result = self.calculate_results(question_id=questions[4], answer=answers[4])
+        self.question_1_result = Questions.calculate_results(
+            question_id=questions[0], answer=answers[0]
+        )
+        self.question_2_result = Questions.calculate_results(
+            question_id=questions[1], answer=answers[1]
+        )
+        self.question_3_result = Questions.calculate_results(
+            question_id=questions[2], answer=answers[2]
+        )
+        self.question_4_result = Questions.calculate_results(
+            question_id=questions[3], answer=answers[3]
+        )
+        self.question_5_result = Questions.calculate_results(
+            question_id=questions[4], answer=answers[4]
+        )
         self.timestamp = datetime.now()
 
     def post_score(self):
@@ -200,6 +207,13 @@ class Questions(BaseModel):
 
     def correct(self, question_id):
         return self.query.get(question_id).correct_answer
+
+    def calculate_results(question_id, answer):
+        question = Questions.query.get(question_id)
+        if question is not None:
+            return answer == question.correct_answer
+        return False
+        # return 1 if answer == Questions.query.get(question_id).correct_answer else 0
 
     def get_my_questions(attempt_id=1):
         attempt = Attempt.query.filter_by(id=attempt_id).first()
