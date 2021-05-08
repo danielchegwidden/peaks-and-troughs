@@ -140,8 +140,7 @@ class Attempt(BaseModel):
     def get_attempts(user_id=False):
         if user_id:
             return Attempt.query.filter_by(user_id=user_id)
-        else:
-            return Attempt.query.all()
+        return Attempt.query.all()
 
     def calculate_num_attempts(user_id=False):
         attempts = Attempt.get_attempts(user_id)
