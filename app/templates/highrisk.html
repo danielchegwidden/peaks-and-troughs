@@ -20,6 +20,14 @@
         align-items: center;
         justify-content: center;
     }
+    /* .transparent {
+    position: absolute;
+    background: white;
+    opacity: 0.6;
+    text-align: center;
+    width: 250px;
+    height: 200px;
+} */
 </style>
 
     <!-- Portfolio Section-->
@@ -33,7 +41,8 @@
                         <div class="squares" style="margin-top: 20%;">
                             <div class="icon">
                                 {% if progress.high_a %}
-                                <p style="color: green;">Stocks</p>
+                                <p style="color: green;" >Stocks<i class="fas fa-check fa-fw"></i></p>
+                                <!-- <div class="transparent">&radic</div> -->
                                 {% else %}
                                 <p style="color: orange;">Stocks</p>
                                 {% endif %}
@@ -47,7 +56,7 @@
                         <div class="squares" style="margin-top: 20%;">
                             <div class="icon">
                                 {% if progress.high_b %}
-                                <p style="color: green;">Derivatives</p>
+                                <p style="color: green;" >Derivatives<i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
                                 <p style="color: orange;">Derivatives</p>
                                 {% endif %}
@@ -61,7 +70,7 @@
                         <div class="squares" style="margin-top: 20%;">
                             <div class="icon">
                                 {% if progress.high_c %}
-                                <p style="color: green;">Cryptocurrency</p>
+                                <p style="color: green;">Cryptocurrency<i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
                                 <p style="color: orange;">Cryptocurrency</p>
                                 {% endif %}
@@ -75,7 +84,7 @@
                         <div class="squares" style="margin-top: 20%;">
                             <div class="icon">
                                 {% if progress.high_d %}
-                                <p style="color: green;">Risk</p>
+                                <p style="color: green;">Risk<i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
                                 <p style="color: orange;">Risk</p>
                                 {% endif %}
