@@ -1,5 +1,5 @@
 import unittest, os
-from app import app, db
+from app import app, db, models
 from app.models import Users, Progress, Attempt, Questions
 from datetime import datetime
 
@@ -34,6 +34,13 @@ class UserModelCase(unittest.TestCase):
         # db.session.commit()
         # self.assertTrue(u3.is_committed())
 
+    def test_users_repr(self):
+        self.assertTrue(str(Users.query.get(9999)) == "FirstTest")
+
+    def test_user(self):
+        self.assertTrue(models.load_user(9999))
+        self.assertFalse(models.load_user(9997))
+
 
 class ProgressModelCase(unittest.TestCase):
     def setUp(self):
@@ -65,12 +72,19 @@ class ProgressModelCase(unittest.TestCase):
         db.session.add(p2)
         db.session.commit()
         self.assertTrue(Progress.get_progress(progress=p2) == 0)
+        self.assertTrue(Progress.get_progress(progress=p2, category="Low") == 0)
         self.assertTrue(Progress.get_progress(progress=p2, category="Medium") is None)
 
         p2.high_a = True
         db.session.add(p2)
         db.session.commit()
         self.assertTrue(Progress.get_progress(progress=p2) == 1)
+
+    def test_progress_repr(self):
+        p3 = Progress(user_id=9999)
+        db.session.add(p3)
+        db.session.commit()
+        self.assertTrue(str(Progress.query.filter_by(user_id=9999).first()) == "1")
 
 
 class AttemptModelCase(unittest.TestCase):
@@ -80,15 +94,6 @@ class AttemptModelCase(unittest.TestCase):
         self.app = app.test_client()
         db.create_all()
         user1 = Users(id=9999, username="FirstTest", email="test1@peaksandtroughs.com")
-        # attempt1 = Attempt(
-        #     user_id=9999,
-        #     category="High",
-        #     question_1_id=1,
-        #     question_2_id=2,
-        #     question_3_id=3,
-        #     question_4_id=4,
-        #     question_5_id=5,
-        # )
         questions1 = Questions(
             question_text="Test Question 1",
             answer_1="Answer A",
@@ -98,7 +103,6 @@ class AttemptModelCase(unittest.TestCase):
             correct_answer="D",
         )
         db.session.add(user1)
-        # db.session.add(attempt1)
         db.session.add(questions1)
         db.session.commit()
 
@@ -106,33 +110,8 @@ class AttemptModelCase(unittest.TestCase):
         db.session.remove()
         db.drop_all()
 
-    # def test_post_results(self):
-    #     a1 = Attempt.query.filter_by(user_id=9999).first()
-    #     q1 = [
-    #         a1.question_1_id,
-    #         a1.question_2_id,
-    #         a1.question_3_id,
-    #         a1.question_4_id,
-    #         a1.question_5_id,
-    #     ]
-    #     a1.post_results(category=a1.category, questions=q1, answers=["A", "A", "A", "A", "A"])
-    #     db.session.add(a1)
-    #     db.session.commit()
-    #     self.assertFalse(a1.question_1_result)
-    #     self.assertTrue(a1.question_4_result) ##
-    #     self.assertTrue(a1.timestamp < datetime.now())
-
-    def test_post_score(self):
-        pass
-        # a1 = Attempt.query.filter_by(user_id=9999).first()
-        # a1.post_score()
-        # db.session.add(a1)
-        # db.session.commit()
-        # self.assertFalse(a1.score == 0)
-        # self.assertTrue(a1.score == 1)
-
     def test_get_attempts(self):
-        # self.assertFalse(Attempt.get_attempts()) # WHY IS THIS FAILING?
+        self.assertFalse(Attempt.get_attempts())
         a1 = Attempt(
             user_id=9999,
             category="High",
@@ -217,17 +196,92 @@ class AttemptModelCase(unittest.TestCase):
         db.session.commit()
         self.assertTrue(Attempt.calculate_max_score(user_id=9999) == 1)
 
-    # def test_get_latest_attempt(self):
-    #     pass
+    def test_get_latest_attempt(self):
+        self.assertTrue(Attempt.get_latest_attempt())
 
-    # def test_day_frequency(self):
-    #     pass
+        a6 = Attempt(
+            user_id=9999,
+            category="High",
+            question_1_id=1,
+            question_2_id=1,
+            question_3_id=1,
+            question_4_id=1,
+            question_5_id=1,
+        )
+        db.session.add(a6)
+        db.session.commit()
+        self.assertTrue(Attempt.get_latest_attempt(user_id=9999)[0].user_id == 9999)
+        self.assertTrue(Attempt.get_latest_attempt(user_id=9999)[0].timestamp < datetime.now())
 
-    # def test_score_frequency(self):
-    #     pass
+    def test_day_frequency(self):
+        self.assertTrue(sum(Attempt.day_frequency()) == 0)
 
-    # def test_get_my_questions(self):
-    #     pass
+        a7 = Attempt(
+            user_id=9999,
+            category="High",
+            question_1_id=1,
+            question_2_id=1,
+            question_3_id=1,
+            question_4_id=1,
+            question_5_id=1,
+        )
+        db.session.add(a7)
+        db.session.commit()
+        self.assertTrue(sum(Attempt.day_frequency()) == 1)
+        self.assertTrue(sum(Attempt.day_frequency(user_id=9999)) == 1)
+
+        day = datetime.now().weekday()
+        self.assertTrue(Attempt.day_frequency()[day] == 1)
+        self.assertTrue(Attempt.day_frequency(user_id=9999)[day] == 1)
+
+    def test_score_frequency(self):
+        self.assertTrue(sum(Attempt.score_frequency()) == 0)
+
+        a8 = Attempt(
+            user_id=9999,
+            category="High",
+            question_1_id=1,
+            question_2_id=1,
+            question_3_id=1,
+            question_4_id=1,
+            question_5_id=1,
+        )
+        db.session.add(a8)
+        db.session.commit()
+        self.assertTrue(sum(Attempt.score_frequency()) == 1)
+        self.assertTrue(Attempt.score_frequency()[0] == 1)
+        self.assertTrue(sum(Attempt.score_frequency(user_id=9999)) == 1)
+        self.assertTrue(Attempt.score_frequency(user_id=9999)[0] == 1)
+
+    def test_get_my_questions(self):
+        a9 = Attempt(
+            user_id=9999,
+            category="High",
+            question_1_id=1,
+            question_2_id=1,
+            question_3_id=1,
+            question_4_id=1,
+            question_5_id=1,
+        )
+        db.session.add(a9)
+        db.session.commit()
+        self.assertTrue(
+            Questions.get_my_questions(attempt_id=a9.id)["question_1"] == "Test Question 1"
+        )
+
+    def test_attempt_repr(self):
+        a10 = Attempt(
+            user_id=9999,
+            category="High",
+            question_1_id=1,
+            question_2_id=1,
+            question_3_id=1,
+            question_4_id=1,
+            question_5_id=1,
+        )
+        db.session.add(a10)
+        db.session.commit()
+        self.assertTrue(str(Attempt.query.filter_by(user_id=9999).first()) == "1")
 
 
 class QuestionsModelCase(unittest.TestCase):
@@ -257,8 +311,11 @@ class QuestionsModelCase(unittest.TestCase):
         self.assertTrue(q1.correct(question_id=1) == "D")
 
     def test_calculate_results(self):
-        self.assertFalse(Questions.calculate_results(question_id=1, answer="A"))
+        self.assertFalse(Questions.calculate_results(question_id=10, answer="A"))
         self.assertTrue(Questions.calculate_results(question_id=1, answer="D"))
+
+    def test_question_repr(self):
+        self.assertTrue(str(Questions.query.get(1)) == "1")
 
 
 if __name__ == "__main__":

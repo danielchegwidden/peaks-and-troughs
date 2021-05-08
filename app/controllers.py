@@ -158,15 +158,3 @@ class ProgressController:
         return render_template(
             "lowrisk.html", title="Learn - Low Risk", form=form, progress=progress
         )
-
-    # def reset_progress():
-    #     progress = Progress.query.filter_by(user_id=current_user.id).first()
-    #     progress.high_a = False
-    #     progress.high_b = False
-    #     progress.high_c = False
-    #     progress.high_d = False
-    #     progress.low_a = False
-    #     progress.low_b = False
-    #     progress.low_c = False
-    #     progress.low_d = False
-    #     return render_template("learn.html", title="Learn")
