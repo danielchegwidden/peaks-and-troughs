@@ -78,6 +78,8 @@ class UserController:
     def feedback():
         user = Users.query.filter_by(username=current_user.username).first()
         latest = Attempt.get_latest_attempt(user_id=user.id)
+        if latest.first() is None:
+            return redirect(url_for("index"))
         return render_template(
             "feedback.html",
             title="Feedback",
@@ -124,16 +126,18 @@ class ProgressController:
     def highrisk():
         form = SubmitForm()
         progress = Progress.query.filter_by(user_id=current_user.id).first()
-        if "high_a" in request.form:
-            progress.high_a = True
-        elif "high_b" in request.form:
-            progress.high_b = True
-        elif "high_c" in request.form:
-            progress.high_c = True
-        elif "high_d" in request.form:
-            progress.high_d = True
-        db.session.add(progress)
-        db.session.commit()
+        if form.validate_on_submit():
+            progress = Progress.query.filter_by(user_id=current_user.id).first()
+            if "high_a" in request.form:
+                progress.high_a = True
+            elif "high_b" in request.form:
+                progress.high_b = True
+            elif "high_c" in request.form:
+                progress.high_c = True
+            elif "high_d" in request.form:
+                progress.high_d = True
+            db.session.add(progress)
+            db.session.commit()
         return render_template(
             "highrisk.html", title="Learn - High Risk", form=form, progress=progress
         )
