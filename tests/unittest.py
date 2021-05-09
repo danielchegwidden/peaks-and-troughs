@@ -10,8 +10,8 @@ class UserModelCase(unittest.TestCase):
         app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "test.db")
         self.app = app.test_client()
         db.create_all()
-        user1 = Users(id=9999, username="FirstTest", email="test1@peaksandtroughs.com")
-        user2 = Users(id=9998, username="SecondTest", email="test2@peaksandtroughs.com")
+        user1 = Users(id=9999, username="FirstTest", email="test-u1@peaksandtroughs.com")
+        user2 = Users(id=9998, username="SecondTest", email="test-u2@peaksandtroughs.com")
         db.session.add(user1)
         db.session.add(user2)
         db.session.commit()
@@ -25,6 +25,7 @@ class UserModelCase(unittest.TestCase):
         u1.set_password("testmypassword")
         self.assertFalse(u1.check_password("notmypassword"))
         self.assertTrue(u1.check_password("testmypassword"))
+        self.assertFalse(u1.password_hash == "testmypassword")
 
     def test_is_committed(self):
         pass
