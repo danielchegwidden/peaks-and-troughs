@@ -62,6 +62,21 @@ class Progress(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
+    def learn_progress(user_id=False):
+        progress = Progress.query.filter_by(user_id=user_id)
+        progress_map = {x: 0 for x in range(5)}
+        progress_scores = [Progress.get_progress(p) for p in progress]
+        for prog in progress_scores:
+            progress_map[prog] += 1
+        return [val[1] for val in sorted(progress_map.items())]
+
+    def get_progress(progress, category="High"):
+        if category == "High":
+            return sum([progress.high_a, progress.high_b, progress.high_c, progress.high_d])
+        elif category == "Low":
+            return sum([progress.low_a, progress.low_b, progress.low_c, progress.low_d])
+        return None
+
 
 class Attempt(BaseModel):
     """
@@ -87,9 +102,6 @@ class Attempt(BaseModel):
     def __repr__(self):
         return "{}".format(self.id)
 
-    def calculate_results(self, question_id, answer):
-        return 1 if answer == Questions.query.get(question_id).correct_answer else 0
-
     def post_results(self, category, questions, answers):
         self.category = category
         self.question_1_id = questions[0]
@@ -97,11 +109,21 @@ class Attempt(BaseModel):
         self.question_3_id = questions[2]
         self.question_4_id = questions[3]
         self.question_5_id = questions[4]
-        self.question_1_result = self.calculate_results(question_id=questions[0], answer=answers[0])
-        self.question_2_result = self.calculate_results(question_id=questions[1], answer=answers[1])
-        self.question_3_result = self.calculate_results(question_id=questions[2], answer=answers[2])
-        self.question_4_result = self.calculate_results(question_id=questions[3], answer=answers[3])
-        self.question_5_result = self.calculate_results(question_id=questions[4], answer=answers[4])
+        self.question_1_result = Questions.calculate_results(
+            question_id=questions[0], answer=answers[0]
+        )
+        self.question_2_result = Questions.calculate_results(
+            question_id=questions[1], answer=answers[1]
+        )
+        self.question_3_result = Questions.calculate_results(
+            question_id=questions[2], answer=answers[2]
+        )
+        self.question_4_result = Questions.calculate_results(
+            question_id=questions[3], answer=answers[3]
+        )
+        self.question_5_result = Questions.calculate_results(
+            question_id=questions[4], answer=answers[4]
+        )
         self.timestamp = datetime.now()
 
     def post_score(self):
@@ -118,8 +140,7 @@ class Attempt(BaseModel):
     def get_attempts(user_id=False):
         if user_id:
             return Attempt.query.filter_by(user_id=user_id)
-        else:
-            return Attempt.query.all()
+        return Attempt.query.all()
 
     def calculate_num_attempts(user_id=False):
         attempts = Attempt.get_attempts(user_id)
@@ -185,6 +206,13 @@ class Questions(BaseModel):
 
     def correct(self, question_id):
         return self.query.get(question_id).correct_answer
+
+    def calculate_results(question_id, answer):
+        question = Questions.query.get(question_id)
+        if question is not None:
+            return answer == question.correct_answer
+        return False
+        # return 1 if answer == Questions.query.get(question_id).correct_answer else 0
 
     def get_my_questions(attempt_id=1):
         attempt = Attempt.query.filter_by(id=attempt_id).first()

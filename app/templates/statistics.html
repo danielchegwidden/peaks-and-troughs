@@ -50,12 +50,12 @@
 					<canvas id="day_chart" height="350"></canvas>
 				</div>
 				<div class="col d-flex justify-content-center">
-					<!-- SCORE FREQUENCY -->
-					<canvas id="score_chart" height="350"></canvas>
+					<!-- PROGRESS FREQUENCY -->
+					<canvas id="prog_chart" height="350"></canvas>
 				</div>
 				<div class="col d-flex justify-content-center">
-					<!-- THIRD -->
-					<canvas id="new_chart" height="350"></canvas>
+					<!-- SCORE FREQUENCY -->
+					<canvas id="score_chart" height="350"></canvas>
 				</div>
 			</div>
 		</div>
@@ -141,17 +141,17 @@
 		});
 	</script>
 
-	<!-- SCORE FREQUENCY -->
+	<!-- PROGRESS FREQUENCY -->
 	<script>
-		let scores_data = {{ score_frequency|safe }}
-		let ctx2 = document.getElementById('score_chart').getContext('2d');
+		let progress_data = {{ progress_frequency|safe }}
+		let ctx2 = document.getElementById('prog_chart').getContext('2d');
 		let myChart2 = new Chart(ctx2, {
-			type: 'bar',
+			type: 'doughnut',
 			data: {
-				labels: ['0', '1', '2', '3', '4', '5'],
+				labels: ['0', '1', '2', '3', '4'],
 				datasets: [{
 					label: 'Attempts',
-					data: scores_data,
+					data: progress_data,
 					backgroundColor: [
 						'rgba(255, 99, 132, 0.2)',
 						'rgba(54, 162, 235, 0.2)',
@@ -174,11 +174,6 @@
 			options: {
 				responsive: true,
    				maintainAspectRatio: true,
-				scales: {
-					y: {
-						beginAtZero: true
-					}
-				},
 				legend: {
 					display: false
 				},
@@ -190,32 +185,6 @@
 				hover: {
 					mode: 'nearest',
 					intersect: true
-				},
-				scales: {
-					xAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Score'
-						}
-					}],
-					yAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Frequency'
-						},
-						ticks: {
-							beginAtZero: true,
-							callback: function(value) {if (value % 1 === 0) {return value;}}
-						}
-					}]
 				}
 			}
 		});
@@ -223,15 +192,15 @@
 
 	<!-- SCORE FREQUENCY -->
 	<script>
-		let scores_data2 = {{ score_frequency|safe }}
-		let ctx3 = document.getElementById('new_chart').getContext('2d');
+		let scores_data = {{ score_frequency|safe }}
+		let ctx3 = document.getElementById('score_chart').getContext('2d');
 		let myChart3 = new Chart(ctx3, {
 			type: 'bar',
 			data: {
 				labels: ['0', '1', '2', '3', '4', '5'],
 				datasets: [{
 					label: 'Attempts',
-					data: scores_data2,
+					data: scores_data,
 					backgroundColor: [
 						'rgba(255, 99, 132, 0.2)',
 						'rgba(54, 162, 235, 0.2)',
