@@ -38,8 +38,8 @@ class UserController:
             db.session.add(user)
             db.session.commit()
             flash("Congratulations, you are now a registered user!")
-            user = Users.query.filter_by(username=current_user.username).first()
-            progress = Progress(user_id=user.user_id)
+            user = Users.query.filter_by(username=form.username.data).first()
+            progress = Progress(user_id=user.id)
             db.session.add(progress)
             db.session.commit()
             return redirect(url_for("login"))
@@ -114,6 +114,7 @@ class AdminController:
                 max_score=Attempt.calculate_max_score(),
                 day_frequency=json.dumps(Attempt.day_frequency()),
                 score_frequency=json.dumps(Attempt.score_frequency()),
+                progress_frequency=json.dumps(Progress.learn_progress()),
             )
         return redirect(url_for("index"))
 
@@ -139,6 +140,9 @@ class ProgressController:
 
     @staticmethod
     def lowrisk():
+        construction = True
+        if construction:
+            return render_template("construction.html", title="Under Construction")
         form = SubmitForm()
         progress = Progress.query.filter_by(user_id=current_user.id).first()
         if "low_a" in request.form:
@@ -154,15 +158,3 @@ class ProgressController:
         return render_template(
             "lowrisk.html", title="Learn - Low Risk", form=form, progress=progress
         )
-
-    # def reset_progress():
-    #     progress = Progress.query.filter_by(user_id=current_user.id).first()
-    #     progress.high_a = False
-    #     progress.high_b = False
-    #     progress.high_c = False
-    #     progress.high_d = False
-    #     progress.low_a = False
-    #     progress.low_b = False
-    #     progress.low_c = False
-    #     progress.low_d = False
-    #     return render_template("learn.html", title="Learn")

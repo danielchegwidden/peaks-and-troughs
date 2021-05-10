@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_wtf.csrf import CSRFProtect
+from dotenv import load_dotenv
 
 
 app = Flask(__name__)
@@ -15,6 +16,7 @@ bootstrap = Bootstrap(app)
 csrf = CSRFProtect(app)
 login = LoginManager(app)
 login.login_view = "login"
+load_dotenv()
 
 from app import routes, models, controllers
 

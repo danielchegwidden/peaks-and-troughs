@@ -94,3 +94,8 @@ $ flask db upgrade
 ```
 $ export FLASK_ENV=development
 ```
+9. Coverage of Testing
+```
+$ coverage run --omit 'venv/*' -m tests.unittest
+$ coverage report -m
+```

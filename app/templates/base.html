@@ -38,11 +38,11 @@
 					{% endif %}
             		{% if current_user.is_anonymous %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('login') }}">{{ ('Login') }}</a>
+						<a class="nav-link" href="{{ url_for('login') }}" id='nav_login'>{{ ('Login') }}</a>
 					</li>
 					{% else %}
 					<li class="nav-item">
-						<a class="nav-link" href="{{ url_for('logout') }}">{{ ('Logout') }}</a>
+						<a class="nav-link" href="{{ url_for('logout') }}" id='nav_logout'>{{ ('Logout') }}</a>
 					</li>
 					{% endif %}
          		 </ul>
