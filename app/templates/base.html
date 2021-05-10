@@ -64,8 +64,7 @@
 		}
 	</style>
 
-	<div style="background: url(https://png.pngtree.com/thumb_back/fw800/back_our/20190625/ourmid/pngtree-individual-stocks-rise-and-fall-banner-design-image_261506.jpg)" class="page-holder bg-cover">
-
+	<div style="background-image: url('http://localhost:5000/static/images/content/10.png')" class="page-holder">
 		<div class="container py-5">
 	  		<header class="text-center text-white py-5">
 				{% if not current_user.is_anonymous %}
@@ -94,21 +93,21 @@
 
 	    <!-- footer -->
 		<section>
-			<footer class="bg-dark text-center text-white">
-				<!-- Grid container -->
-				<div class="container p-4 pb-0">
-					<!-- Section: Social media -->
-					<section class="mb-4">
-						<!-- Github -->
-						<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
-						><i class="fab fa-github"></i></a>
-						<i>Peaks and Troughs</i>
-					</section>
-					<!-- Section: Social media -->
-				</div>
-				<!-- Grid container -->
-			</footer>
-		</section>
-
+			<section>
+				<footer class="bg-dark text-center text-white">
+					<!-- Grid container -->
+					<div class="container p-2 pb-0">
+						<!-- Section: Social media -->
+						<section>
+							<!-- Github -->
+							<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
+							><i class="fab fa-github"></i></a>
+							<a>Peaks and Troughs</a>
+						</section>
+						<!-- Section: Social media -->
+					</div>
+					<!-- Grid container -->
+				</footer>
+			</section>
 
 {% endblock %}
