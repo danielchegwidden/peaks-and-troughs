@@ -14,7 +14,7 @@
                         <div class="squares" style="margin-top: 20%;">
                             <div class="icon" style="text-align: center;">
                                 {% if progress.high_a %}
-                                <p style="color: green;" >Stocks<br><i class="fas fa-check fa-fw"></i></p>
+                                <p style="color: green;">Stocks<br><i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
                                 <p style="color: orange;">Stocks<br></p>
                                 {% endif %}
@@ -94,7 +94,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_a" value="Done" id="high_a" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -128,7 +128,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_b" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_b" value="Done" id="high_b" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -162,7 +162,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_c" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_c" value="Done" id="high_c" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -196,7 +196,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_d" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_d" value="Done" id="high_d" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
