@@ -1,46 +1,20 @@
 {% extends "base.html" %}
 
 {% block app_content %}
-<script>
-    function toUsers(){
-        let Users = document.getElementById('Users');
-		if (Users.style.display==='none'){
-			Users.style.display='block';
-		} else {
-			Users.style.display='none'
-		}
-    };
-
-    function toQuestions(){
-        let Questions = document.getElementById('Questions');
-		if (Questions.style.display==='none'){
-			Questions.style.display='block';
-		} else {
-			Questions.style.display='none'
-		}
-    };
-
-</script>
-
-	<!-- {% for a in attempts %}
-	{{ a.score }}
-	{% endfor %} -->
-	<!-- <p>{{ test_avg }}</p> -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 
 	<section>
 		<div class="container">
 			<div class="row">
 				<div class="col d-flex justify-content-center">
-					<!-- DAY FREQUENCY -->
+					<!-- TOTAL ATTEMPTS -->
 					<p>Attempts: {{ total_attempts }}</p>
 				</div>
 				<div class="col d-flex justify-content-center">
-					<!-- SCORE FREQUENCY -->
+					<!-- AVERAGE SCORE -->
 					<p>Averge: {{ avg_score }}</p>
 				</div>
 				<div class="col d-flex justify-content-center">
-					<!-- THIRD -->
+					<!-- MAX SCORE -->
 					<p>Maximum: {{ max_score }}</p>
 				</div>
 			</div>
@@ -61,215 +35,80 @@
 		</div>
 	</section>
 
-	<!-- DAY FREQUENCY -->
+	<!-- CHARTS -->
 	<script>
 		let days_data = {{ day_frequency|safe }}
-		let ctx1 = document.getElementById('day_chart').getContext('2d');
-		let myChart1 = new Chart(ctx1, {
-			type: 'bar',
-			data: {
-				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-				datasets: [{
-					label: 'Attempts',
-					data: days_data,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				responsive: true,
-   				maintainAspectRatio: true,
-				scales: {
-					y: {
-						beginAtZero: true
-					}
-				},
-				legend: {
-					display: false
-				},
-				title: {
-					display: true,
-					text: 'Daily Assessment Frequency',
-					fontColor: 'white'
-				},
-				hover: {
-					mode: 'nearest',
-					intersect: true
-				},
-				scales: {
-					xAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Month'
-						}
-					}],
-					yAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Frequency'
-						},
-						ticks: {
-							beginAtZero: true,
-							callback: function(value) {if (value % 1 === 0) {return value;}}
-						}
-					}]
-				}
-			}
-		});
-	</script>
-
-	<!-- PROGRESS FREQUENCY -->
-	<script>
 		let progress_data = {{ progress_frequency|safe }}
-		let ctx2 = document.getElementById('prog_chart').getContext('2d');
-		let myChart2 = new Chart(ctx2, {
-			type: 'doughnut',
-			data: {
-				labels: ['0', '1', '2', '3', '4'],
-				datasets: [{
-					label: 'Attempts',
-					data: progress_data,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				responsive: true,
-   				maintainAspectRatio: true,
-				legend: {
-					display: false
-				},
-				title: {
-					display: true,
-					text: 'Score Frequency',
-					fontColor: 'white'
-				},
-				hover: {
-					mode: 'nearest',
-					intersect: true
-				}
-			}
-		});
-	</script>
-
-	<!-- SCORE FREQUENCY -->
-	<script>
 		let scores_data = {{ score_frequency|safe }}
-		let ctx3 = document.getElementById('score_chart').getContext('2d');
-		let myChart3 = new Chart(ctx3, {
-			type: 'bar',
-			data: {
-				labels: ['0', '1', '2', '3', '4', '5'],
-				datasets: [{
-					label: 'Attempts',
-					data: scores_data,
-					backgroundColor: [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor: [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)'
-					],
-					borderWidth: 1
-				}]
-			},
-			options: {
-				responsive: true,
-   				maintainAspectRatio: true,
-				scales: {
-					y: {
-						beginAtZero: true
-					}
-				},
-				legend: {
-					display: false
-				},
-				title: {
-					display: true,
-					text: 'Score Frequency',
-					fontColor: 'white'
-				},
-				hover: {
-					mode: 'nearest',
-					intersect: true
-				},
-				scales: {
-					xAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Score'
-						}
-					}],
-					yAxes: [{
-						display: true,
-						gridLines: {
-							color: 'rgba(255, 255, 255, 0.2)'
-						},
-						scaleLabel: {
-							display: true,
-							labelString: 'Frequency'
-						},
-						ticks: {
-							beginAtZero: true,
-							callback: function(value) {if (value % 1 === 0) {return value;}}
-						}
-					}]
-				}
-			}
-		});
+
+		// DAY FREQUENCY
+		plotChart(
+			data=days_data,
+			chartElement='day_chart',
+			chartType='bar',
+			xLabels=['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+			yTitle='Attempts',
+			chartTitle='Daily Assessment Frequency',
+			myScales={
+                y: {beginAtZero: true},
+                xAxes: [{
+                    display: true,
+                    gridLines: {color: 'rgba(255, 255, 255, 0.2)'},
+                    scaleLabel: {display: true,labelString: 'Month'}
+                }],
+                yAxes: [{
+                    display: true,
+                    gridLines: {color: 'rgba(255, 255, 255, 0.2)'},
+                    scaleLabel: {display: true,labelString: 'Frequency'},
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value) {if (value % 1 === 0) {return value;}}
+                    }
+                }]
+            }
+		);
+
+		// PROGRESS FREQUENCY
+		plotChart(
+			data=progress_data,
+			chartElement='prog_chart',
+			chartType='doughnut',
+			xLabels=['0', '1', '2', '3', '4'],
+			yTitle='Attempts',
+			chartTitle='Score Frequency',
+			myScales=false
+		);
+
+		// SCORE FREQUENCY
+		plotChart(
+			data=scores_data,
+			chartElement='score_chart',
+			chartType='bar',
+			xLabels=['0', '1', '2', '3', '4', '5'],
+			yTitle='Attempts',
+			chartTitle='Score Frequency',
+			myScales={
+                y: {beginAtZero: true},
+                xAxes: [{
+                    display: true,
+                    gridLines: {color: 'rgba(255, 255, 255, 0.2)'},
+                    scaleLabel: {display: true,labelString: 'Month'}
+                }],
+                yAxes: [{
+                    display: true,
+                    gridLines: {color: 'rgba(255, 255, 255, 0.2)'},
+                    scaleLabel: {display: true,labelString: 'Frequency'},
+                    ticks: {
+                        beginAtZero: true,
+                        callback: function(value) {if (value % 1 === 0) {return value;}}
+                    }
+                }]
+            }
+		);
+
 	</script>
 
+	<!-- SHOW ADDITION TABLES -->
 	<section>
 		<br>
 		<div class="container text-center" style="margin-bottom: 5%;">

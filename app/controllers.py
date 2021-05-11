@@ -45,9 +45,6 @@ class UserController:
             db.session.commit()
             return redirect(url_for("login"))
         else:
-            # err = form.error
-            # for e in err:
-            #     errors[e] = e[0]
             errors = form.errors
 
         return render_template("register.html", title="Register", form=form, errors=errors)

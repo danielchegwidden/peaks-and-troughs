@@ -3,16 +3,49 @@
     margin-bottom: 0;
 }
 
-.carousel-item {
-    height: 45vh;
-    min-height: 200px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+/* BACKGROUND COLOUR */
+body, .modal-content {
+    background-color: #212529;
 }
 
-/* .Testing_style{
-    color: chartreuse;
+/* LIGHT TEXT */
+h1, h2, h3, h4, h5, h6, p, label, th {
+    color: #FFFFFF;
+}
+
+/* FEEDBACK */
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    text-align: center;
+}
+
+.squares {
+    display: flex;
+    justify-content: center;
+}
+
+.icon{
+    width: 250px;
+    height: 250px;
+    background: #212529;
+    color: white;
+    font-size: xx-large;
+    border-style: ridge;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* HGIH RISK */
+
+/* .icon{
+    width: 250px;
+    height: 200px;
+    background: #000000;
+    font-size: xx-large;
 } */

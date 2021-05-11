@@ -2,33 +2,6 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block risk_content %}
-<style>
-    .squares {
-        display: flex;
-        justify-content: center;
-    }
-
-    .icon{
-        width: 250px;
-        height: 200px;
-        background: #000000;
-        font-size: xx-large;
-    }
-
-    .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    /* .transparent {
-    position: absolute;
-    background: white;
-    opacity: 0.6;
-    text-align: center;
-    width: 250px;
-    height: 200px;
-} */
-</style>
 
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
@@ -120,14 +93,6 @@
                                         <br><br>
                                         Companies can continue to issue new stocks if they need to raise more money, which dilutes the ownership of all current shareholders due to the higher number of stocks on the market. As this is accompanied with an inflow of cash to the company, issuing new shares should not decrease the price of the stock.
                                     </p>
-                                    <!-- <form>
-                                    <a href="{{ url_for('highrisk') }}">
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">
-                                            <i class="fas fa-check fa-fw"></i>
-                                            Done
-                                        </button>
-                                    </a>
-                                    </form> -->
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
@@ -246,16 +211,9 @@
 
     <section>
         <div class="container text-center" style="margin-bottom: 5%;">
-            <!-- <form action="/assessment" method="post">
-                {{ form.hidden_tag() }}
-                <input type="submit" name="High" value="Attempt Assessment">
-            </form> -->
             <a href="{{ url_for('assessment') }}">
                 <button type="button" class="btn btn-primary btn-lg btn-outline-warning" name='highrisk'>Attempt Assessment</button>
             </a>
-            <!-- <a>
-                <button type="button" class="btn btn-primary btn-lg">Save Progress</button>
-            </a> -->
         </div>
     </section>
 
