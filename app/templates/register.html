@@ -2,10 +2,45 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-    <h1 class="text-center">{{ ('Register') }}</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+
+    <section>
+        <h1 class="text-center">{{ ('Register') }}</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <!-- {{ wtf.quick_form(form) }} -->
+                <form class="form form-horizontal" method="post" role="form">
+                    {{ form.hidden_tag() }}
+                    <!-- {{ wtf.form_errors(form) }} -->
+
+                    {{ wtf.form_field(form.username) }}
+                    {% if errors['username'] %}
+                    <p class="text-center">{{ errors['username'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.email) }}
+                    {% if errors['email'] %}
+                    <p class="text-center">{{ errors['email'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.password) }}
+                    {% if errors['password'] %}
+                    <p class="text-center">{{ errors['password'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.password2) }}
+                    {% if errors['password2'] %}
+                    <p class="text-center">{{ errors['password2'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+
+                    {{ wtf.form_field(form.submit) }}
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
+
 {% endblock %}

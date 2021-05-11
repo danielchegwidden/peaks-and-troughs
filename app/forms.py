@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, HiddenField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import Users, Questions
+import re
 
 
 class LoginForm(FlaskForm):
@@ -22,12 +23,18 @@ class RegistrationForm(FlaskForm):
     def validate_username(self, username):
         user = Users.query.filter_by(username=username.data).first()
         if user is not None:
-            raise ValidationError("Please use a different username.")
+            raise ValidationError("Please use a different username")
 
     def validate_email(self, email):
         user = Users.query.filter_by(email=email.data).first()
         if user is not None:
-            raise ValidationError("Please use a different email address.")
+            raise ValidationError("Please use a different email address")
+
+    def validate_password(self, form):
+        if not re.fullmatch(r"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$", form.data):
+            raise ValidationError(
+                "Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+            )
 
 
 class AttemptForm(FlaskForm):

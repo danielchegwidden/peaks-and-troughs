@@ -32,6 +32,7 @@ class UserController:
     @staticmethod
     def register():
         form = RegistrationForm()
+        errors = {"username": None, "email": None, "password": None, "password2": None}
         if form.validate_on_submit():
             user = Users(username=form.username.data, email=form.email.data)
             user.set_password(form.password.data)
@@ -43,7 +44,13 @@ class UserController:
             db.session.add(progress)
             db.session.commit()
             return redirect(url_for("login"))
-        return render_template("register.html", title="Register", form=form)
+        else:
+            # err = form.error
+            # for e in err:
+            #     errors[e] = e[0]
+            errors = form.errors
+
+        return render_template("register.html", title="Register", form=form, errors=errors)
 
     @staticmethod
     def learn():
