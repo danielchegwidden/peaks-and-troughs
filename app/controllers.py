@@ -51,7 +51,7 @@ class UserController:
 
     @staticmethod
     def learn():
-        return render_template("learn.html", title="Learn")
+        return render_template("learn.html", title="Learn", space=True)
 
     @staticmethod
     def attempt():
@@ -87,7 +87,8 @@ class UserController:
         return render_template(
             "feedback.html",
             title="Feedback",
-            attempts=len(Attempt.get_attempts(user_id=user.id)),
+            attempts=Attempt.get_attempts(user_id=user.id),
+            total_attempts=Attempt.calculate_num_attempts(),
             max_score=Attempt.calculate_max_score(user_id=user.id),
             avg_score=Attempt.calculate_avg_score(user_id=user.id),
             latest=latest,

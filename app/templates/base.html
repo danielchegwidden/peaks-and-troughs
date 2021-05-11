@@ -22,8 +22,6 @@
 {% endblock %}
 
 {% block navbar %}
-<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       	<div class="container">
         	<a class="navbar-brand" href="{{ url_for('index') }}">Peaks and Troughs</a>
@@ -66,7 +64,7 @@
 
 	<!-- JUMBOTRON IMAGE + TEXT -->
 	<section>
-		<div style="background-image: url('http://localhost:5000/static/images/content/10.png')" class="page-holder">
+		<div class="page-holder banner">
 			<div class="container py-5">
 				<header class="text-center text-white py-5">
 					{% if not current_user.is_anonymous %}
@@ -74,10 +72,7 @@
 					{% else %}
 					<h1 class="display-4 font-weight-bold mb-4">Welcome to Peaks and Troughs!</h1>
 					{% endif %}
-					<p class="font-italic">Here is some basic information about different types of investment.</p>
-					<!-- <p class="font-italic">Snippet By <a href="https://bootstrapious.com" class="text-white">
-						<u>Bootstrapious</u></a> -->
-					</p>
+					<p class="font-italic">Learn the basics about investing</p>
 				</header>
 			</div>
 		</div>
@@ -94,23 +89,18 @@
 		</div>
 	</section>
 
-	    <!-- footer -->
+	<!-- footer -->
+	<section>
 		<section>
-			<section>
-				<footer class="bg-dark text-center text-white">
-					<!-- Grid container -->
-					<div class="container p-2 pb-0">
-						<!-- Section: Social media -->
-						<section>
-							<!-- Github -->
-							<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
-							><i class="fab fa-github"></i></a>
-							<a>Peaks and Troughs</a>
-						</section>
-						<!-- Section: Social media -->
-					</div>
-					<!-- Grid container -->
-				</footer>
-			</section>
+			<footer class="bg-dark text-center text-white">
+				<div class="container p-2 pb-0">
+					<section>
+						<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
+						><i class="fab fa-github"></i></a>
+						<a>Peaks and Troughs</a>
+					</section>
+				</div>
+			</footer>
+		</section>
 
 {% endblock %}

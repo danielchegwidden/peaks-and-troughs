@@ -2,22 +2,30 @@
 
 {% block app_content %}
 
+	<section class="py-3" id="results">
+		<div class="container" id="table_results">
+			<table class="table table-dark table-bordered table-hover">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col" class="text-center">Total Attempts</th>
+						<th scope="col" class="text-center">Average Score</th>
+						<th scope="col" class="text-center">Maximum Score</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="text-center results">{{ total_attempts }}</td>
+						<td class="text-center results">{{ avg_score }}</td>
+						<td class="text-center results">{{ max_score }}</td>
+					</tr>
+
+				</tbody>
+			</table>
+		</div>
+	</section>
+
 	<section>
 		<div class="container">
-			<div class="row">
-				<div class="col d-flex justify-content-center">
-					<!-- TOTAL ATTEMPTS -->
-					<p>Attempts: {{ total_attempts }}</p>
-				</div>
-				<div class="col d-flex justify-content-center">
-					<!-- AVERAGE SCORE -->
-					<p>Averge: {{ avg_score }}</p>
-				</div>
-				<div class="col d-flex justify-content-center">
-					<!-- MAX SCORE -->
-					<p>Maximum: {{ max_score }}</p>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col d-flex justify-content-center">
 					<!-- DAY FREQUENCY -->
@@ -75,7 +83,7 @@
 			chartType='doughnut',
 			xLabels=['0', '1', '2', '3', '4'],
 			yTitle='Attempts',
-			chartTitle='Score Frequency',
+			chartTitle='Progression Frequency',
 			myScales=false
 		);
 

@@ -1,6 +1,14 @@
 
+.banner {
+    background-image: url('images/content/10.png');
+}
+
 .navbar {
     margin-bottom: 0;
+}
+
+.logo {
+    padding: 0%;
 }
 
 /* BACKGROUND COLOUR */
@@ -9,7 +17,7 @@ body, .modal-content {
 }
 
 /* LIGHT TEXT */
-h1, h2, h3, h4, h5, h6, p, label, th {
+h1, h2, h3, h4, h5, h6, p, label, th, li {
     color: #FFFFFF;
 }
 
@@ -22,6 +30,9 @@ table {
 
 td, th {
     text-align: center;
+}
+.results {
+    font-size: xx-large;
 }
 
 .squares {

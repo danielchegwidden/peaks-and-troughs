@@ -15,16 +15,42 @@
             <a href="{{ url_for('feedback') }}">
                 <button type="button" class="btn btn-primary btn-lg btn-outline-warning">Feedback</button>
             </a>
+            <br><br>
             {% endif %}
         </div>
     </section>
 
-    <section class="py-3">
+    <section>
         <div class="container">
-            {% if not current_user.is_anonymous %}
-            <h1 class="font-weight-light Testing_style">Hi, {{ user.username }}!</h1>
-            <p class="lead">Welcome to Peaks and Troughs, lets learn about investing</p>
-            {% endif %}
+            <div class="row">
+                <div class="col-sm">
+                    <p class="lead">
+                        Welcome to Peaks and Troughs, a place to learn the basics about investing. Our content is split into the following sections:
+                    </p>
+                    <ul>
+                        <li>High Risk Investments</li>
+                        <ul>
+                            <li>Stocks</li>
+                            <li>Derivatives</li>
+                            <li>Cryptocurrency</li>
+                            <li>Risks</li>
+                        </ul>
+                        <li>Low Risk Investments</li>
+                        <ul>
+                            <li>Bonds</li>
+                            <li>Cash</li>
+                            <li>Art</li>
+                            <li>Property</li>
+                        </ul>
+                    </ul>
+                    <p class="lead">
+                        Work through the content and attempt the assessment to see how much you have learnt.
+                    </p>
+                </div>
+                <div class="col-sm logo">
+                    <img class="img-fluid rounded logo" src="static/images/content/Peaks_and_Troughs.png" alt="Logo"/>
+                </div>
+            </div>
         </div>
     </section>
 
