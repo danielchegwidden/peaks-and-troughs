@@ -2,6 +2,37 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<script>
+    // pasword validation
+    function remindpassword(){
+        let pt = document.getElementById("password");
+        let pwdRGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i;
+        let ptResult = pwdRGEX.test(pt.value)
+        if (ptResult != true){
+          alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
+          return false;
+        }
+    };
+    // email validation
+    function emailvalidation(){
+        let eml = document.getElementById("");
+        let emlRGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+        let emlResult = emlRGEX.test(eml.value);
+        if (emlResult != true){
+          alert("Please enter a valide email address.")
+          return false;
+        }
+    }
+    // check if 2 passwords match
+    function check2pwd(){
+        let pwd1 = document.getElementById("password");
+        let pwd2 = document.getElementById("password2");
+        if (pwd1.value != pwd2.value){
+            alert("Your two passwords does not match.")
+        }
+    }
+</script>
+
     <h1 class="text-center">{{ ('Register') }}</h1>
     <div class="row justify-content-center">
         <div class="col-md-4">
