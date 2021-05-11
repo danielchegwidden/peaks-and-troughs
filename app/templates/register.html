@@ -2,41 +2,43 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
-<script>
-    // pasword validation
-    function remindpassword(){
-        let pt = document.getElementById("password");
-        let pwdRGEX = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/i;
-        let ptResult = pwdRGEX.test(pt.value)
-        if (ptResult != true){
-          alert("Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters")
-          return false;
-        }
-    };
-    // email validation
-    function emailvalidation(){
-        let eml = document.getElementById("");
-        let emlRGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-        let emlResult = emlRGEX.test(eml.value);
-        if (emlResult != true){
-          alert("Please enter a valide email address.")
-          return false;
-        }
-    }
-    // check if 2 passwords match
-    function check2pwd(){
-        let pwd1 = document.getElementById("password");
-        let pwd2 = document.getElementById("password2");
-        if (pwd1.value != pwd2.value){
-            alert("Your two passwords does not match.")
-        }
-    }
-</script>
 
-    <h1 class="text-center">{{ ('Register') }}</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            {{ wtf.quick_form(form) }}
+    <section>
+        <h1 class="text-center">{{ ('Register') }}</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <form class="form form-horizontal" method="post" role="form">
+                    {{ form.hidden_tag() }}
+
+                    {{ wtf.form_field(form.username) }}
+                    {% if errors['username'] %}
+                    <p class="text-center">{{ errors['username'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.email) }}
+                    {% if errors['email'] %}
+                    <p class="text-center">{{ errors['email'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.password) }}
+                    {% if errors['password'] %}
+                    <p class="text-center">{{ errors['password'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+                    {{ wtf.form_field(form.password2) }}
+                    {% if errors['password2'] %}
+                    <p class="text-center">{{ errors['password2'][0] }}</p>
+                    {% else %}
+                    <p class="text-center"><br></p>
+                    {% endif %}
+
+                    {{ wtf.form_field(form.submit) }}
+                </form>
+            </div>
         </div>
-    </div>
+    </section>
+
 {% endblock %}

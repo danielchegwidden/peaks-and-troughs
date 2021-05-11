@@ -26,9 +26,8 @@ def add_attempts(user_id, category, questions, answers):
 
 
 def main():
-    pass
-    # add_progress(0)
-    # add_progress(1)
+    add_progress(0)
+    add_progress(1)
     # add_attempts(0, "High", [1, 2, 3, 4, 5], ["A", "A", "A", "A", "A"])
     # add_attempts(0, "High", [1, 2, 3, 4, 5], ["A", "B", "C", "D", "A"])
     # add_attempts(0, "High", [1, 2, 3, 4, 5], ["C", "D", "B", "C", "A"])

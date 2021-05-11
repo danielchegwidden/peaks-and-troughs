@@ -2,33 +2,6 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block risk_content %}
-<style>
-    .squares {
-        display: flex;
-        justify-content: center;
-    }
-
-    .icon{
-        width: 250px;
-        height: 200px;
-        background: #000000;
-        font-size: xx-large;
-    }
-
-    .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    /* .transparent {
-    position: absolute;
-    background: white;
-    opacity: 0.6;
-    text-align: center;
-    width: 250px;
-    height: 200px;
-} */
-</style>
 
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
@@ -37,14 +10,13 @@
             <div class="row justify-content-center">
                 <!-- Stock block -->
                 <div class="col-md-6 col-lg-3 mb-5">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5" id="high_a_box">
                         <div class="squares" style="margin-top: 20%;">
-                            <div class="icon">
+                            <div class="icon" style="text-align: center;">
                                 {% if progress.high_a %}
-                                <p style="color: green;" >Stocks<i class="fas fa-check fa-fw"></i></p>
-                                <!-- <div class="transparent">&radic</div> -->
+                                <p style="color: green;">Stocks<br><i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
-                                <p style="color: orange;">Stocks</p>
+                                <p style="color: orange;">Stocks<br></p>
                                 {% endif %}
                             </div>
                         </div>
@@ -54,11 +26,11 @@
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
                         <div class="squares" style="margin-top: 20%;">
-                            <div class="icon">
+                            <div class="icon" style="text-align: center;">
                                 {% if progress.high_b %}
-                                <p style="color: green;" >Derivatives<i class="fas fa-check fa-fw"></i></p>
+                                <p style="color: green;" >Derivatives<br><i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
-                                <p style="color: orange;">Derivatives</p>
+                                <p style="color: orange;">Derivatives<br></p>
                                 {% endif %}
                             </div>
                         </div>
@@ -68,11 +40,11 @@
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
                         <div class="squares" style="margin-top: 20%;">
-                            <div class="icon">
+                            <div class="icon" style="text-align: center;">
                                 {% if progress.high_c %}
-                                <p style="color: green;">Cryptocurrency<i class="fas fa-check fa-fw"></i></p>
+                                <p style="color: green;">Cryptocurrency<br><i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
-                                <p style="color: orange;">Cryptocurrency</p>
+                                <p style="color: orange;">Cryptocurrency<br></p>
                                 {% endif %}
                             </div>
                         </div>
@@ -82,11 +54,11 @@
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
                         <div class="squares" style="margin-top: 20%;">
-                            <div class="icon">
+                            <div class="icon" style="text-align: center;">
                                 {% if progress.high_d %}
-                                <p style="color: green;">Risk<i class="fas fa-check fa-fw"></i></p>
+                                <p style="color: green;">Risks<br><i class="fas fa-check fa-fw"></i></p>
                                 {% else %}
-                                <p style="color: orange;">Risk</p>
+                                <p style="color: orange;">Risks<br></p>
                                 {% endif %}
                             </div>
                         </div>
@@ -120,17 +92,9 @@
                                         <br><br>
                                         Companies can continue to issue new stocks if they need to raise more money, which dilutes the ownership of all current shareholders due to the higher number of stocks on the market. As this is accompanied with an inflow of cash to the company, issuing new shares should not decrease the price of the stock.
                                     </p>
-                                    <!-- <form>
-                                    <a href="{{ url_for('highrisk') }}">
-                                        <button type="submit" class="btn btn-primary" data-dismiss="modal">
-                                            <i class="fas fa-check fa-fw"></i>
-                                            Done
-                                        </button>
-                                    </a>
-                                    </form> -->
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_a" value="Done" id="high_a" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -164,7 +128,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_b" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_b" value="Done" id="high_b" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -198,7 +162,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_c" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_c" value="Done" id="high_c" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -232,7 +196,7 @@
                                     </p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
-                                        <input type="submit" name="high_d" value="Done" class="btn btn-primary btn-lg btn-outline-success">
+                                        <input type="submit" name="high_d" value="Done" id="high_d" class="btn btn-primary btn-lg btn-outline-success">
                                         <input type="submit" name="" value="Close" class="btn btn-primary btn-lg btn-outline-danger">
                                     </form>
                                 </div>
@@ -246,16 +210,9 @@
 
     <section>
         <div class="container text-center" style="margin-bottom: 5%;">
-            <!-- <form action="/assessment" method="post">
-                {{ form.hidden_tag() }}
-                <input type="submit" name="High" value="Attempt Assessment">
-            </form> -->
             <a href="{{ url_for('assessment') }}">
                 <button type="button" class="btn btn-primary btn-lg btn-outline-warning" name='highrisk'>Attempt Assessment</button>
             </a>
-            <!-- <a>
-                <button type="button" class="btn btn-primary btn-lg">Save Progress</button>
-            </a> -->
         </div>
     </section>
 

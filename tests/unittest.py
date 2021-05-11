@@ -22,10 +22,10 @@ class UserModelCase(unittest.TestCase):
 
     def test_password_hashing(self):
         u1 = Users.query.get(9999)
-        u1.set_password("testmypassword")
+        u1.set_password("testmyPassword!")
         self.assertFalse(u1.check_password("notmypassword"))
-        self.assertTrue(u1.check_password("testmypassword"))
-        self.assertFalse(u1.password_hash == "testmypassword")
+        self.assertTrue(u1.check_password("testmyPassword!"))
+        self.assertFalse(u1.password_hash == "testmyPassword!")
 
     def test_is_committed(self):
         pass

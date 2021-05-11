@@ -32,6 +32,7 @@ class UserController:
     @staticmethod
     def register():
         form = RegistrationForm()
+        errors = {"username": None, "email": None, "password": None, "password2": None}
         if form.validate_on_submit():
             user = Users(username=form.username.data, email=form.email.data)
             user.set_password(form.password.data)
@@ -43,11 +44,14 @@ class UserController:
             db.session.add(progress)
             db.session.commit()
             return redirect(url_for("login"))
-        return render_template("register.html", title="Register", form=form)
+        else:
+            errors = form.errors
+
+        return render_template("register.html", title="Register", form=form, errors=errors)
 
     @staticmethod
     def learn():
-        return render_template("learn.html", title="Learn")
+        return render_template("learn.html", title="Learn", space=True)
 
     @staticmethod
     def attempt():
@@ -78,10 +82,13 @@ class UserController:
     def feedback():
         user = Users.query.filter_by(username=current_user.username).first()
         latest = Attempt.get_latest_attempt(user_id=user.id)
+        if latest.first() is None:
+            return redirect(url_for("index"))
         return render_template(
             "feedback.html",
             title="Feedback",
-            attempts=len(Attempt.get_attempts(user_id=user.id)),
+            attempts=Attempt.get_attempts(user_id=user.id),
+            total_attempts=Attempt.calculate_num_attempts(),
             max_score=Attempt.calculate_max_score(user_id=user.id),
             avg_score=Attempt.calculate_avg_score(user_id=user.id),
             latest=latest,
@@ -124,16 +131,18 @@ class ProgressController:
     def highrisk():
         form = SubmitForm()
         progress = Progress.query.filter_by(user_id=current_user.id).first()
-        if "high_a" in request.form:
-            progress.high_a = True
-        elif "high_b" in request.form:
-            progress.high_b = True
-        elif "high_c" in request.form:
-            progress.high_c = True
-        elif "high_d" in request.form:
-            progress.high_d = True
-        db.session.add(progress)
-        db.session.commit()
+        if form.validate_on_submit():
+            progress = Progress.query.filter_by(user_id=current_user.id).first()
+            if "high_a" in request.form:
+                progress.high_a = True
+            elif "high_b" in request.form:
+                progress.high_b = True
+            elif "high_c" in request.form:
+                progress.high_c = True
+            elif "high_d" in request.form:
+                progress.high_d = True
+            db.session.add(progress)
+            db.session.commit()
         return render_template(
             "highrisk.html", title="Learn - High Risk", form=form, progress=progress
         )
