@@ -18,6 +18,18 @@ function toQuestions(){
     };
 };
 
+// AJAX REQUEST FOR CONTENT
+function loadText(text, slot) {
+    let xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById(slot).innerHTML = this.responseText;
+        };
+    };
+    xhttp.open("GET", text);
+    xhttp.send();
+};
+
 // STATISTICS PLOTS
 function plotChart(data, chartElement, chartType, xLabels, yTitle, chartTitle, myScales){
     let ctx = document.getElementById(chartElement).getContext('2d');
