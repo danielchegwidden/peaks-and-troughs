@@ -3,6 +3,13 @@
 
 {% block risk_content %}
 
+    <script>
+        loadText("{{ url_for('static', filename='content/stocks.html') }}", "stocksContent");
+        loadText("{{ url_for('static', filename='content/derivatives.html') }}", "derivativesContent");
+        loadText("{{ url_for('static', filename='content/crypto.html') }}", "cryptoContent");
+        loadText("{{ url_for('static', filename='content/risks.html') }}", "risksContent");
+    </script>
+
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
@@ -81,17 +88,9 @@
                                     <!-- Stocks - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="stocksTitle">Stocks</h2>
                                     <!-- Stocks - Image-->
-                                    <img class="img-fluid rounded mb-5" src="static/images/content/stonks.png" alt="Stonks" style="margin-top: 5%;"/>
+                                    <img class="img-fluid rounded mb-5" src="static/images/stonks.png" alt="Stonks" style="margin-top: 5%;"/>
                                     <!-- Stocks - Text-->
-                                    <p class="mb-5 text-justify">
-                                        Stocks, or equities, are a type of security that represents ownership of a company. Well, a fraction of a company, which entitles the owner of the stock to a proportion of the company's assets. Stocks are often referred to as shares, as the owner has a share of the ownership of the company, proportional to their number of stocks.
-                                        <br><br>
-                                        There are two main types of stocks, common and preferred. Common stock are, as the name suggests, the most common and what most people own. They convey an ownership of the company and allow for voting in company meetings. Preferred stock do not convey any voting rights, but if the company collapses and is liquidated, they get paid out their share of ownership before common stock is. A benefit of most companies is limited liability, that is, if a company does fail, the shareholders are not personally liable.
-                                        <br><br>
-                                        People invest in stocks to make money in two main ways. The first is through dividends, which are part of the profits of the company that they pay out to the owners of stocks. This is up to the company and there is no requirement to do so. The second way is through the company becoming more valuable, and the price of the stocks increasing. This leads to a profit when the stock is sold to another investor, however any profits will be subject to Capital Gains Tax if the price did increase.
-                                        <br><br>
-                                        Companies can continue to issue new stocks if they need to raise more money, which dilutes the ownership of all current shareholders due to the higher number of stocks on the market. As this is accompanied with an inflow of cash to the company, issuing new shares should not decrease the price of the stock.
-                                    </p>
+                                    <p class="mb-5 text-justify" id="stocksContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_a" value="Done" id="high_a" class="btn btn-primary btn-lg btn-outline-success">
@@ -115,17 +114,9 @@
                                     <!-- Derivatives - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="derivativesTitle">Derivatives</h2>
                                     <!-- Derivatives - Image-->
-                                    <img class="img-fluid rounded mb-5" src="static/images/content/derivatives.png" alt="Derivatives" style="margin-top: 5%;"/>
+                                    <img class="img-fluid rounded mb-5" src="static/images/derivatives.png" alt="Derivatives" style="margin-top: 5%;"/>
                                     <!-- Derivatives - Text-->
-                                    <p class="mb-5 text-justify">
-                                        Derivatives are securities whose value relies upon the value of another asset, whether a single asset or a group. This means that the price of the derivative changes as the price of the underlying asset fluctuates. Common underlying assets for derivatives are stocks, bonds, commodities, interest rates, and market indexes. A derivative can essentially be seen as a gamble on the underlying asset, without directly having exposure to said asset.
-                                        <br><br>
-                                        Derivatives were a major contributor to the 2008 financial crisis due to their largely unregulated nature, as they are traded between two parties, and there is a risk that one side of the trade might default. Mortgage-backed securities are a good example of where investors bet on the stability of the housing market, with the underlying security being home loan mortgages. Another contributor to the financial crisis were banks selling derivatives where the underlying asset were other derivatives.
-                                        <br><br>
-                                        Derivatives have many legitimate uses apart from crashing the financial markets. They are often used to hedge positions, that is, if I have exposure to an asset price increasing, I buy a derivative to bet the asset price decreases so I minimise my risk exposure to that asset. This is common for currencies, where international companies that do business across the globe in local currencies use derivatives to hedge their risk that the local currency changes.
-                                        <br><br>
-                                        Common types of derivatives are futures (buying and receiving an asset in the future), forwards (similar to futures but only traded between people not on an exchange), swaps (exchange one type of cash flow for another), and options (an agreement to potentially buy an asset in the future).
-                                    </p>
+                                    <p class="mb-5 text-justify" id="derivativesContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_b" value="Done" id="high_b" class="btn btn-primary btn-lg btn-outline-success">
@@ -149,17 +140,9 @@
                                     <!-- Cryptocurrency - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cryptocurrencyTitle">Cryptocurrency</h2>
                                     <!-- Cryptocurrency - Image-->
-                                    <img class="img-fluid rounded mb-5" src="static/images/content/cryptocurrency.png" alt="Cryptocurrency" style="margin-top: 5%;"/>
+                                    <img class="img-fluid rounded mb-5" src="static/images/cryptocurrency.png" alt="Cryptocurrency" style="margin-top: 5%;"/>
                                     <!-- Cryptocurrency - Text-->
-                                    <p class="mb-5 text-justify">
-                                        Cryptocurrencies are a type of digital currency that are generated from code. They use a blockchain to keep an immutable record of all of the past transactions, which is called a distributed ledger. Cryptocurrencies were originally created to be an alternative to fiat currency (the cash that is in your wallet), however the volatile nature of their value has stopped that from happening. This can be easiest seen with the most well-known cryptocurrency, Bitcoin, which was created in 2009 and continues to have price fluctuations.
-                                        <br><br>
-                                        Another main cryptocurrency, Ethereum, contains more information on its blockchain, which can be used to execute smart contracts. Ethereum is currently the second largest cryptocurrency behind Bitcoin, and is the foundation for the latest craze, Non-Fungible Tokens or NFT. NFT's are embedded in the Ethereum blockchain and are seen as the digital equivalent to art, where the token you buy is the 'original'. Check out the <a href="https://foundation.app/NyanCat/nyan-cat-219" target="_blank">Nyan Cat</a> as an example of an NFT.
-                                        <br><br>
-                                        As cryptocurrencies are based in cryptography and mathematics, they require increasingly difficult problems to be solved to validate new transactions on the blockchain. The miners that do this validation are turning to high-end computers and specialised equipment to be the first to solve each new puzzle, and be rewarded with the cryptocurrency for doing so. A major environmental concern is that the mining activities of cryptocurrencies are a significant contributor to climate change due to the electricity used to power the process.
-                                        <br><br>
-                                        The use of cryptocurrencies has been turbulent. The original miners were generating thousands of Bitcoins and the price was next to nothing. The first commercial transaction was 10,000 Bitcoin for 2 pizza's, coins that would be worth hundreds of millions today. Then there are the stories of lost wallets, the devices that store cryptocurrencies, where thousands of coins are stashed behind passwords no one can remember. Who knows where the future of Bitcoin and cryptocurrencies will go, some say to zero, others to the moon.
-                                    </p>
+                                    <p class="mb-5 text-justify" id="cryptoContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_c" value="Done" id="high_c" class="btn btn-primary btn-lg btn-outline-success">
@@ -183,17 +166,9 @@
                                     <!-- Risk - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="risksTitle">Risks</h2>
                                     <!-- Risk - Image-->
-                                    <img class="img-fluid rounded mb-5" src="static/images/content/risks.png" alt="Risks" style="margin-top: 5%;"/>
+                                    <img class="img-fluid rounded mb-5" src="static/images/risks.png" alt="Risks" style="margin-top: 5%;"/>
                                     <!-- Risk - Text-->
-                                    <p class="mb-5 text-justify">
-                                        Any conversation about the risks of investing has to start with Bernie Madoff, who ran the largest Ponzi scheme ever. He took money from investors and then simply left it in the bank and used it to fund his lavish lifestyle whilst telling them they were getting decent returns. When those investors wanted their profits, he used the money from other investors to pay them out, and so on, and so on. He was brought down when the market fell in 2008 and too many people wanted their money.
-                                        <br><br>
-                                        There are a range of other investment risks. Market risk is where the value of the entire market decreases. This can be due to economic developments such as a recession or environmental factors such as natural disasters. Liquidity risk is where you cannot cash out your investment when you want, leading to greater exposure than you intend. This is often seen in more illiquid investments such as real estate.
-                                        <br><br>
-                                        Concentration risk is where you put too many of your eggs in one basket. This is common for new investors who don't have the amount of capital to invest that can be spread across many different investments, and are forced to start with just one basket. Inflation risk is where the cost of living is increasing faster than your investments. This often happens by just leaving money in the bank as savings.
-                                        <br><br>
-                                        There are many other risks that may impact your decision to invest or not invest. The best way to avoid these risks is to do your research, understand the investment and the risk it poses, and find something that you are comfortable taking on, knowing the downside. Plus if something seems to good to be true, it probably is.
-                                    </p>
+                                    <p class="mb-5 text-justify" id="risksContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="high_d" value="Done" id="high_d" class="btn btn-primary btn-lg btn-outline-success">
