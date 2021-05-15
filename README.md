@@ -1,7 +1,9 @@
 # Peaks and Troughs
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-<img src="./app/static/images/logo.png" alt="Logo" style="text-align: center">
+<p>
+    <img src="./app/static/images/logo.png" alt="Logo">
+</p>
 
 ## Learn the basics about investing
 <hr>
