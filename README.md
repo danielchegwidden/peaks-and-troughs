@@ -1,11 +1,10 @@
 # Peaks and Troughs
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-![Peaks and Troughs](./app/static/images/logo.png)
+<img src="./app/static/images/logo.png" alt="Logo" class="center">
 
 ## Learn the basics about investing
 <hr>
-
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 Welcome to Peaks and Troughs! A place where you can learn the basics about investing. Work through the four sections of Stocks, Derivatives, Cryptocurrency, and the Risks of investing, before testing your knowledge with our assessment. You can see your feedback after the assessmsent to review how much your learnt, and can attempt as many times as you want. The assessment contains five multiple choice questions, so choose your answers wisely.
 
@@ -90,6 +89,6 @@ TOTAL                  532    114    79%
 ## Development
 The development of Peaks and Troughs followed an agile approach, utilising the Issues and Projects sections of GitHub to identify where work was required and who was responsible for delivering it. Each change was created on a personal development branch and a Pull Request was raised that had to be reviewed by the other developer prior to it being merged into the ```main``` branch. This process was complimented by regular meetings with the client to show progress and get feedback on features.
 
-A [STYLE.md](STYLE.md) file has been created to specifiy the style that has been used throughout the application, both on the code side and on the design side. Any new additions will need to follow this guide. A ```.env``` file has been created as well to set local environment variables.
+A [STYLE.md](STYLE.md) file has been created to specifiy the style that has been used throughout the application, both on the code side and on the design side. Any new additions will need to follow this guide. A ```.env``` file has been created as well to set local environment variables. Pre-commit hooks were used to ensure that the code was of a consistent quality before being merged into the ```main``` branch.
 
 The content for the relevant sections is stored in the static directory and AJAX is used to populate the application. This allows for additions to be easily tracked and managed separate to the page that displays them.

@@ -6,10 +6,9 @@
     {{ super() }}
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
 
-	<!-- Bootstrap core JS-->
+	<!-- Bootstrap JS and Chart JS-->
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Third party plugin JS-->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -90,16 +89,15 @@
 
 	<!-- footer -->
 	<section>
-		<section>
-			<footer class="bg-dark text-center text-white">
-				<div class="container p-2 pb-0">
-					<section>
-						<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
-						><i class="fab fa-github"></i></a>
-						<a>Peaks and Troughs</a>
-					</section>
-				</div>
-			</footer>
-		</section>
+		<footer class="bg-dark text-center text-white">
+			<div class="container p-2 pb-0">
+				<section>
+					<a class="btn btn-outline-light btn-floating m-1" href="https://github.com/danielchegwidden/peaks-and-troughs" role="button"
+					><i class="fab fa-github"></i></a>
+					<a>Peaks and Troughs</a>
+				</section>
+			</div>
+		</footer>
+	</section>
 
 {% endblock %}

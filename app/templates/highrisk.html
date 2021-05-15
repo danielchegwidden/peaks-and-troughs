@@ -3,6 +3,7 @@
 
 {% block risk_content %}
 
+    <!-- AJAX TO POPULATE CONTENT -->
     <script>
         loadText("{{ url_for('static', filename='content/stocks.html') }}", "stocksContent");
         loadText("{{ url_for('static', filename='content/derivatives.html') }}", "derivativesContent");
@@ -10,12 +11,12 @@
         loadText("{{ url_for('static', filename='content/risks.html') }}", "risksContent");
     </script>
 
-    <!-- Portfolio Section-->
+    <!-- PORTFOLIO SECTION -->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
-            <!-- Portfolio Grid Items-->
             <div class="row justify-content-center">
-                <!-- Stock block -->
+
+                <!-- STOCK BLOCK -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5" id="high_a_box">
                         <div class="squares" style="margin-top: 20%;">
@@ -29,7 +30,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- derivatives block -->
+
+                <!-- DERIVATIVES BLOCK -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
                         <div class="squares" style="margin-top: 20%;">
@@ -43,7 +45,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- cryptocurrency block -->
+
+                <!-- CRYPTO BLOCK -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
                         <div class="squares" style="margin-top: 20%;">
@@ -57,7 +60,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Risk block-->
+
+                <!-- RISK BLOCK-->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
                         <div class="squares" style="margin-top: 20%;">
@@ -75,9 +79,10 @@
         </div>
     </section>
 
+    <!-- POPUP CONTENT -->
     <section>
-        <!-- popup content -->
-        <!-- Stock content -->
+
+        <!-- STOCKS CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -85,11 +90,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Stocks - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="stocksTitle">Stocks</h2>
-                                    <!-- Stocks - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/stonks.png" alt="Stonks" style="margin-top: 5%;"/>
-                                    <!-- Stocks - Text-->
                                     <p class="mb-5 text-justify" id="stocksContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
@@ -103,7 +105,8 @@
                 </div>
             </div>
         </div>
-        <!-- Derivatives content -->
+
+        <!-- DERIVATIVES CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -111,11 +114,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Derivatives - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="derivativesTitle">Derivatives</h2>
-                                    <!-- Derivatives - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/derivatives.png" alt="Derivatives" style="margin-top: 5%;"/>
-                                    <!-- Derivatives - Text-->
                                     <p class="mb-5 text-justify" id="derivativesContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
@@ -129,7 +129,8 @@
                 </div>
             </div>
         </div>
-        <!-- Cryptocurrency -->
+
+        <!-- CRYPTO CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -137,11 +138,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Cryptocurrency - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cryptocurrencyTitle">Cryptocurrency</h2>
-                                    <!-- Cryptocurrency - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/cryptocurrency.png" alt="Cryptocurrency" style="margin-top: 5%;"/>
-                                    <!-- Cryptocurrency - Text-->
                                     <p class="mb-5 text-justify" id="cryptoContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
@@ -155,7 +153,8 @@
                 </div>
             </div>
         </div>
-        <!-- Risk content -->
+
+        <!-- RISK CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -163,11 +162,8 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Risk - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="risksTitle">Risks</h2>
-                                    <!-- Risk - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/risks.png" alt="Risks" style="margin-top: 5%;"/>
-                                    <!-- Risk - Text-->
                                     <p class="mb-5 text-justify" id="risksContent"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
@@ -183,6 +179,7 @@
         </div>
     </section>
 
+    <!-- ASSESSMENT LINK -->
     <section>
         <div class="container text-center" style="margin-bottom: 5%;">
             <a href="{{ url_for('assessment') }}">

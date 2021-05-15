@@ -3,12 +3,10 @@
 
 {% block risk_content %}
 
-    <!-- Portfolio Section-->
+    <!-- PORTFOLIO SECTION-->
     <section class="page-section portfolio" id="portfolio">
         <div class="container">
-            <!-- Portfolio Grid Items-->
             <div class="row justify-content-center">
-                <!-- Bonds block -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
                         <div class="squares" style="margin-top: 20%;">
@@ -22,7 +20,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Cash block -->
+
+                <!-- CASH BLOCK -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
                         <div class="squares" style="margin-top: 20%;">
@@ -36,7 +35,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Art block -->
+
+                <!-- ART BLOCK -->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal7">
                         <div class="squares" style="margin-top: 20%;">
@@ -50,7 +50,8 @@
                         </div>
                     </div>
                 </div>
-                <!-- Property block-->
+
+                <!-- PROPERTY BLOCK-->
                 <div class="col-md-6 col-lg-3 mb-5">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal8">
                         <div class="squares" style="margin-top: 20%;">
@@ -68,9 +69,10 @@
         </div>
     </section>
 
+    <!-- POPUP CONTENT -->
     <section>
-        <!-- popup content -->
-        <!-- Bonds content -->
+
+        <!-- BONDS CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -78,14 +80,9 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Bonds - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="bondsTitle">Bonds</h2>
-                                    <!-- Bonds - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/stonks.png" alt="Stonks" style="margin-top: 5%;"/>
-                                    <!-- Bonds - Text-->
-                                    <p class="mb-5 text-justify">
-
-                                    </p>
+                                    <p class="mb-5 text-justify"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="low_a" value="Done" class="btn btn-primary btn-lg btn-outline-success">
@@ -98,7 +95,8 @@
                 </div>
             </div>
         </div>
-        <!-- Cash content -->
+
+        <!-- CASH CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -106,14 +104,9 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Cash - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cashTitle">Cash</h2>
-                                    <!-- Cash - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/derivatives.png" alt="Derivatives" style="margin-top: 5%;"/>
-                                    <!-- Cash - Text-->
-                                    <p class="mb-5 text-justify">
-
-                                    </p>
+                                    <p class="mb-5 text-justify"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="low_b" value="Done" class="btn btn-primary btn-lg btn-outline-success">
@@ -126,7 +119,8 @@
                 </div>
             </div>
         </div>
-        <!-- Art -->
+
+        <!-- ART CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -134,14 +128,9 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Art - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="cryptocurrencyTitle">Art</h2>
-                                    <!-- Art - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/cryptocurrency.png" alt="Cryptocurrency" style="margin-top: 5%;"/>
-                                    <!-- Art - Text-->
-                                    <p class="mb-5 text-justify">
-
-                                    </p>
+                                    <p class="mb-5 text-justify"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="low_c" value="Done" class="btn btn-primary btn-lg btn-outline-success">
@@ -154,7 +143,8 @@
                 </div>
             </div>
         </div>
-        <!-- Property content -->
+
+        <!-- PROPERTY CONTENT -->
         <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -162,14 +152,9 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-lg-10">
-                                    <!-- Property - Title-->
                                     <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0" id="risksTitle">Property</h2>
-                                    <!-- Property - Image-->
                                     <img class="img-fluid rounded mb-5" src="static/images/content/risks.png" alt="Risks" style="margin-top: 5%;"/>
-                                    <!-- Property - Text-->
-                                    <p class="mb-5 text-justify">
-
-                                    </p>
+                                    <p class="mb-5 text-justify"></p>
                                     <form action="" method="post">
                                         {{ form.hidden_tag() }}
                                         <input type="submit" name="low_d" value="Done" class="btn btn-primary btn-lg btn-outline-success">
@@ -184,6 +169,7 @@
         </div>
     </section>
 
+    <!-- ASSESSMENT LINK -->
     <section>
         <div class="container text-center" style="margin-bottom: 5%;">
             <a href="{{ url_for('assessment') }}">
