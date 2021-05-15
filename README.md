@@ -1,7 +1,7 @@
 # Peaks and Troughs
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-<img src="./app/static/images/logo.png" alt="Logo" class="center">
+<img src="./app/static/images/logo.png" alt="Logo" style="text-align: center">
 
 ## Learn the basics about investing
 <hr>
@@ -63,12 +63,12 @@ For admin users, you will also have access to the statistics page where you can 
 ## Testing
 Testing has been completed using the [coverage.py](https://coverage.readthedocs.io/en/coverage-5.5/) package (which in turn uses Python unittest) for unit tests and the [Selenium](https://www.selenium.dev) package for system tests.
 
-To run the unit tests, run the following whilst having your virtual environment active from the top level of the application (this should be run using the venv virtual environment depending on your conda setup).
+To run the unit tests, run the following whilst having your virtual environment active from the top level of the application.
 ```
 $ coverage run -m tests.unittest
 $ coverage report -m
 ```
-This will run the unit tests and display the coverage report. The unit tests aim to have coverage of as much of the application as possible, with a focus on the ```models.py``` file, with the ```routes.py``` and ```controllers.py``` being tested in the system tests. To run the system test, ensure that you have Mozilla Firefox installed and run the following.
+This will run the unit tests and display the coverage report. The unit tests aim to have coverage of as much of the application as possible, with a focus on the ```models.py``` file, with the ```routes.py``` and ```controllers.py``` being tested in the system tests. To run the system test, ensure that you have Mozilla Firefox installed and run the following (using the venv virtual environment).
 ```
 $ python -m tests.systemtest
 ```
