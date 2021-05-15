@@ -31,10 +31,12 @@ table {
 td, th {
     text-align: center;
 }
+
 .results {
     font-size: xx-large;
 }
 
+/* LEARNING CONTENT */
 .squares {
     display: flex;
     justify-content: center;
@@ -51,12 +53,3 @@ td, th {
     align-items: center;
     justify-content: center;
 }
-
-/* HGIH RISK */
-
-/* .icon{
-    width: 250px;
-    height: 200px;
-    background: #000000;
-    font-size: xx-large;
-} */
