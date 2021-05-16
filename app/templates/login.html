@@ -2,6 +2,7 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+
     <section>
         <div class="container">
             <h1 class="text-center">{{ ('Sign In') }}</h1>
@@ -14,4 +15,5 @@
             <p class="text-center">{{ ('New User?') }} <a href="{{ url_for('register') }}">{{ ('Click to Register!') }}</a></p>
         </div>
     </section>
+
 {% endblock %}

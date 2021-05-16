@@ -15,12 +15,6 @@ def load_user(id):
 
 
 class Users(UserMixin, BaseModel):
-    """
-    Table to store users
-
-    Follow these to remove users from the database:
-    https://flask-sqlalchemy.palletsprojects.com/en/2.x/queries/
-    """
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -39,14 +33,8 @@ class Users(UserMixin, BaseModel):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-    # def is_committed(self):
-    #     return self.username is not None
-
 
 class Progress(BaseModel):
-    """
-    Table to store learning progress
-    """
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), index=True)
@@ -63,7 +51,7 @@ class Progress(BaseModel):
         return "{}".format(self.id)
 
     def learn_progress(user_id=False):
-        progress = Progress.query.filter_by(user_id=user_id)
+        progress = Progress.query.all()  # filter_by(user_id=user_id)
         progress_map = {x: 0 for x in range(5)}
         progress_scores = [Progress.get_progress(p) for p in progress]
         for prog in progress_scores:
@@ -79,9 +67,6 @@ class Progress(BaseModel):
 
 
 class Attempt(BaseModel):
-    """
-    Table to store assessment attempts
-    """
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), index=True)
@@ -96,7 +81,7 @@ class Attempt(BaseModel):
     question_4_result = db.Column(db.Boolean())
     question_5_id = db.Column(db.Integer, db.ForeignKey("questions.question_id"))
     question_5_result = db.Column(db.Boolean())
-    timestamp = db.Column(db.DateTime, default=datetime.now)
+    timestamp = db.Column(db.DateTime, default=datetime.now())
     score = db.Column(db.Integer, default=0)
 
     def __repr__(self):
@@ -147,19 +132,29 @@ class Attempt(BaseModel):
         return sum([1 for _ in attempts])
 
     def calculate_avg_score(user_id=False):
-        avg_score = (
-            Attempt.query.with_entities(func.avg(Attempt.score).label("average"))
-            .filter(Attempt.user_id == user_id)
-            .all()[0][0]
-        )
+        if user_id:
+            avg_score = (
+                Attempt.query.with_entities(func.avg(Attempt.score).label("average"))
+                .filter(Attempt.user_id == user_id)
+                .all()[0][0]
+            )
+        else:
+            avg_score = Attempt.query.with_entities(func.avg(Attempt.score).label("average")).all()[
+                0
+            ][0]
         return avg_score if avg_score is not None else 0.0
 
     def calculate_max_score(user_id=False):
-        max_score = (
-            Attempt.query.with_entities(func.max(Attempt.score).label("maximum"))
-            .filter(Attempt.user_id == user_id)
-            .all()[0][0]
-        )
+        if user_id:
+            max_score = (
+                Attempt.query.with_entities(func.max(Attempt.score).label("maximum"))
+                .filter(Attempt.user_id == user_id)
+                .all()[0][0]
+            )
+        else:
+            max_score = Attempt.query.with_entities(func.max(Attempt.score).label("maximum")).all()[
+                0
+            ][0]
         return max_score if max_score is not None else 0
 
     def get_latest_attempt(user_id=False):
@@ -189,9 +184,6 @@ class Attempt(BaseModel):
 
 
 class Questions(BaseModel):
-    """
-    Table to store questions and answers
-    """
 
     question_id = db.Column(db.Integer, primary_key=True)
     question_text = db.Column(db.String(256))

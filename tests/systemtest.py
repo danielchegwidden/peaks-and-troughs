@@ -21,7 +21,7 @@ class AccessSystemTest(unittest.TestCase):
         else:
             db.init_app(app)
             db.create_all()
-            u1 = Users(id=9999, username="FirstSysTest", email="test-s1@peaksandtroughs.com")
+            u1 = Users(id=8888, username="FirstSysTest", email="test-s1@peaksandtroughs.com")
             u1.set_password("systemTest1!")
             db.session.add(u1)
             db.session.commit()
@@ -36,7 +36,7 @@ class AccessSystemTest(unittest.TestCase):
 
     def test_register_and_login(self):
         # Check user is not in the database
-        u = Users.query.get(9999)
+        u = Users.query.get(8888)
         self.assertEqual(u.username, "FirstSysTest", msg="user does not exist in database")
 
         self.driver.get("http://localhost:5000/register")
@@ -69,7 +69,7 @@ class AccessSystemTest(unittest.TestCase):
         self.assertEqual(nav_logout.get_attribute("innerHTML"), "Logout", msg="user not logged in")
 
     def test_login(self):
-        u = Users.query.get(9999)
+        u = Users.query.get(8888)
         self.driver.get("http://localhost:5000/login")
         self.driver.implicitly_wait(5)
 
@@ -87,7 +87,7 @@ class AccessSystemTest(unittest.TestCase):
         self.assertEqual(nav_logout.get_attribute("innerHTML"), "Logout", msg="user not logged in")
 
     def test_failed_login(self):
-        u = Users.query.get(9999)
+        u = Users.query.get(8888)
         self.driver.get("http://localhost:5000/login")
         self.driver.implicitly_wait(5)
 
@@ -119,8 +119,8 @@ class NavigationSystemTest(unittest.TestCase):
         else:
             db.init_app(app)
             db.create_all()
-            u1 = Users(id=9999, username=uname, email="test-s1@peaksandtroughs.com")
-            progress = Progress(user_id=9999)
+            u1 = Users(id=8887, username=uname, email="test-s1@peaksandtroughs.com")
+            progress = Progress(user_id=8887)
             u1.set_password(pwd)
             db.session.add(u1)
             db.session.add(progress)
@@ -143,7 +143,7 @@ class NavigationSystemTest(unittest.TestCase):
             db.drop_all()
 
     def test_learn_progress(self):
-        u = Users.query.get(9999)
+        u = Users.query.get(8887)
         self.driver.get("http://localhost:5000/learn")
         self.driver.implicitly_wait(5)
 
@@ -171,7 +171,7 @@ class NavigationSystemTest(unittest.TestCase):
         self.assertTrue(p2.high_a)  # NOT CORRECT RESULT
 
     def test_access_feedback_locked(self):
-        u = Users.query.get(9999)
+        u = Users.query.get(8887)
         self.driver.get("http://localhost:5000/feedback")
         self.driver.implicitly_wait(5)
 
@@ -187,7 +187,7 @@ class NavigationSystemTest(unittest.TestCase):
         )
 
     def test_assessment_and_feedback(self):
-        u = Users.query.get(9999)
+        u = Users.query.get(8887)
         self.driver.get("http://localhost:5000/assessment")
         self.driver.implicitly_wait(5)
 

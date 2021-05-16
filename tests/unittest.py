@@ -27,14 +27,6 @@ class UserModelCase(unittest.TestCase):
         self.assertTrue(u1.check_password("testmyPassword!"))
         self.assertFalse(u1.password_hash == "testmyPassword!")
 
-    def test_is_committed(self):
-        pass
-        # u3 = Users(id=9997, username="ThirdTest", email="test3@peaksandtroughs.com")
-        # self.assertFalse(u3.is_committed())
-        # db.session.add(u3)
-        # db.session.commit()
-        # self.assertTrue(u3.is_committed())
-
     def test_users_repr(self):
         self.assertTrue(str(Users.query.get(9999)) == "FirstTest")
 
@@ -94,7 +86,6 @@ class AttemptModelCase(unittest.TestCase):
         app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(basedir, "test.db")
         self.app = app.test_client()
         db.create_all()
-        user1 = Users(id=9999, username="FirstTest", email="test1@peaksandtroughs.com")
         questions1 = Questions(
             question_text="Test Question 1",
             answer_1="Answer A",
@@ -103,7 +94,6 @@ class AttemptModelCase(unittest.TestCase):
             answer_4="Answer D",
             correct_answer="D",
         )
-        db.session.add(user1)
         db.session.add(questions1)
         db.session.commit()
 
@@ -114,7 +104,7 @@ class AttemptModelCase(unittest.TestCase):
     def test_get_attempts(self):
         self.assertFalse(Attempt.get_attempts())
         a1 = Attempt(
-            user_id=9999,
+            user_id=9998,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -125,13 +115,13 @@ class AttemptModelCase(unittest.TestCase):
         db.session.add(a1)
         db.session.commit()
         self.assertTrue(Attempt.get_attempts())
-        self.assertTrue(Attempt.get_attempts(user_id=9999))
+        self.assertTrue(Attempt.get_attempts(user_id=9998))
 
     def test_calculate_num_attempts(self):
         self.assertFalse(Attempt.calculate_num_attempts())
 
         a2 = Attempt(
-            user_id=9999,
+            user_id=9997,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -142,10 +132,10 @@ class AttemptModelCase(unittest.TestCase):
         db.session.add(a2)
         db.session.commit()
         self.assertTrue(Attempt.calculate_num_attempts())
-        self.assertTrue(Attempt.calculate_num_attempts(user_id=9999) == 1)
+        self.assertTrue(Attempt.calculate_num_attempts(user_id=9997) == 1)
 
         a3 = Attempt(
-            user_id=9999,
+            user_id=9997,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -155,13 +145,13 @@ class AttemptModelCase(unittest.TestCase):
         )
         db.session.add(a3)
         db.session.commit()
-        self.assertTrue(Attempt.calculate_num_attempts(user_id=9999) == 2)
+        self.assertTrue(Attempt.calculate_num_attempts(user_id=9997) == 2)
 
     def test_calculate_avg_score(self):
         self.assertFalse(Attempt.calculate_avg_score())
 
         a4 = Attempt(
-            user_id=9999,
+            user_id=9996,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -175,13 +165,13 @@ class AttemptModelCase(unittest.TestCase):
         a4.post_score()
         db.session.add(a4)
         db.session.commit()
-        self.assertTrue(Attempt.calculate_avg_score(user_id=9999) == 1)
+        self.assertTrue(Attempt.calculate_avg_score(user_id=9996) == 1)
 
     def test_calculate_max_score(self):
         self.assertFalse(Attempt.calculate_max_score())
 
         a5 = Attempt(
-            user_id=9999,
+            user_id=9995,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -195,13 +185,13 @@ class AttemptModelCase(unittest.TestCase):
         a5.post_score()
         db.session.add(a5)
         db.session.commit()
-        self.assertTrue(Attempt.calculate_max_score(user_id=9999) == 1)
+        self.assertTrue(Attempt.calculate_max_score(user_id=9995) == 1)
 
     def test_get_latest_attempt(self):
         self.assertTrue(Attempt.get_latest_attempt())
 
         a6 = Attempt(
-            user_id=9999,
+            user_id=9994,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -211,14 +201,14 @@ class AttemptModelCase(unittest.TestCase):
         )
         db.session.add(a6)
         db.session.commit()
-        self.assertTrue(Attempt.get_latest_attempt(user_id=9999)[0].user_id == 9999)
-        self.assertTrue(Attempt.get_latest_attempt(user_id=9999)[0].timestamp < datetime.now())
+        self.assertTrue(Attempt.get_latest_attempt(user_id=9994)[0].user_id == 9994)
+        self.assertTrue(Attempt.get_latest_attempt(user_id=9994)[0].timestamp < datetime.now())
 
     def test_day_frequency(self):
         self.assertTrue(sum(Attempt.day_frequency()) == 0)
 
         a7 = Attempt(
-            user_id=9999,
+            user_id=9993,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -229,17 +219,17 @@ class AttemptModelCase(unittest.TestCase):
         db.session.add(a7)
         db.session.commit()
         self.assertTrue(sum(Attempt.day_frequency()) == 1)
-        self.assertTrue(sum(Attempt.day_frequency(user_id=9999)) == 1)
+        self.assertTrue(sum(Attempt.day_frequency(user_id=9993)) == 1)
 
         day = datetime.now().weekday()
         self.assertTrue(Attempt.day_frequency()[day] == 1)
-        self.assertTrue(Attempt.day_frequency(user_id=9999)[day] == 1)
+        self.assertTrue(Attempt.day_frequency(user_id=9993)[day] == 1)
 
     def test_score_frequency(self):
         self.assertTrue(sum(Attempt.score_frequency()) == 0)
 
         a8 = Attempt(
-            user_id=9999,
+            user_id=9992,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -251,12 +241,12 @@ class AttemptModelCase(unittest.TestCase):
         db.session.commit()
         self.assertTrue(sum(Attempt.score_frequency()) == 1)
         self.assertTrue(Attempt.score_frequency()[0] == 1)
-        self.assertTrue(sum(Attempt.score_frequency(user_id=9999)) == 1)
-        self.assertTrue(Attempt.score_frequency(user_id=9999)[0] == 1)
+        self.assertTrue(sum(Attempt.score_frequency(user_id=9992)) == 1)
+        self.assertTrue(Attempt.score_frequency(user_id=9992)[0] == 1)
 
     def test_get_my_questions(self):
         a9 = Attempt(
-            user_id=9999,
+            user_id=9991,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -272,7 +262,7 @@ class AttemptModelCase(unittest.TestCase):
 
     def test_attempt_repr(self):
         a10 = Attempt(
-            user_id=9999,
+            user_id=9990,
             category="High",
             question_1_id=1,
             question_2_id=1,
@@ -282,7 +272,7 @@ class AttemptModelCase(unittest.TestCase):
         )
         db.session.add(a10)
         db.session.commit()
-        self.assertTrue(str(Attempt.query.filter_by(user_id=9999).first()) == "1")
+        self.assertTrue(str(Attempt.query.filter_by(user_id=9990).first()) == "12")
 
 
 class QuestionsModelCase(unittest.TestCase):

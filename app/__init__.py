@@ -21,14 +21,12 @@ load_dotenv()
 from app import routes, models, controllers
 
 from app.models import Users, Progress, Attempt, Questions
-from tests import test_accounts, initial_questions, initial_data
+from app import data_loader
 
-DEVELOP = True
+DEVELOP = False
 if DEVELOP:
     Users.query.delete()
     Progress.query.delete()
     Attempt.query.delete()
     Questions.query.delete()
-    test_accounts.main()
-    initial_questions.main()
-    initial_data.main()
+    data_loader.main()
