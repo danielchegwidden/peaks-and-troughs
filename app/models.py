@@ -128,7 +128,7 @@ class Attempt(BaseModel):
         return Attempt.query.all()
 
     def calculate_num_attempts(user_id=False):
-        attempts = Attempt.get_attempts(user_id)
+        attempts = Attempt.get_attempts(user_id=user_id)
         return sum([1 for _ in attempts])
 
     def calculate_avg_score(user_id=False):
@@ -142,7 +142,7 @@ class Attempt(BaseModel):
             avg_score = Attempt.query.with_entities(func.avg(Attempt.score).label("average")).all()[
                 0
             ][0]
-        return avg_score if avg_score is not None else 0.0
+        return round(avg_score, 2) if avg_score is not None else 0.0
 
     def calculate_max_score(user_id=False):
         if user_id:

@@ -57,8 +57,8 @@ class UserController:
     def attempt():
         form = AttemptForm()
         user = Users.query.filter_by(username=current_user.username).first()
-        questions = [1, 2, 3, 4, 5]  # REMEMBER TO REMOVE
-        category = "High"  # REMEMBER TO REMOVE
+        questions = [1, 2, 3, 4, 5]  # DEFAULT
+        category = "High"  # DEFAULT
         if form.validate_on_submit():
             attempt = Attempt(user_id=current_user.id)
             answers = [
@@ -88,7 +88,7 @@ class UserController:
             "feedback.html",
             title="Feedback",
             attempts=Attempt.get_attempts(user_id=user.id),
-            total_attempts=Attempt.calculate_num_attempts(),
+            total_attempts=Attempt.calculate_num_attempts(user_id=user.id),
             max_score=Attempt.calculate_max_score(user_id=user.id),
             avg_score=Attempt.calculate_avg_score(user_id=user.id),
             latest=latest,
