@@ -1,0 +1,977 @@
+commit c6616e7d3938c843a7cffb6a18016fc9ef36d7b9
+Merge: 46a52c4 40e77e5
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun May 16 15:17:54 2021 +0800
+
+    Merge branch 'dev-dc'
+
+commit 46a52c4ddfb45df08d97743597c414ca4fdff144
+Merge: 5f5a87b 582adb0
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sun May 16 14:53:21 2021 +0800
+
+    Merge pull request #59 from danielchegwidden/dev-dc
+
+    The Final Push
+
+commit 40e77e58b2167dafbdd7330c34dc17b1539730c4
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun May 16 12:29:37 2021 +0800
+
+    final checks
+
+commit 582adb013c937153cf1fba801ce0898a0b4f188b
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 15 17:26:06 2021 +0800
+
+    logo
+
+commit acd6e8d3a14291341c7f5484640d29660ce399a0
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 15 17:25:33 2021 +0800
+
+    logo
+
+commit 95fe45339c171dd3fb30284948ede6531fa0e13b
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 15 17:24:24 2021 +0800
+
+    logo
+
+commit 2c342c94c65523e79358e6cf04bacdad96b7ce84
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 15 17:21:58 2021 +0800
+
+    more readme and fixing html
+
+commit c0bd240cf704add6bce217e87077fe0106cc50ee
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 15 16:56:38 2021 +0800
+
+    readme and fix tests
+
+commit 5f5a87bf65805e641d918ae1b59bb056f6a29ace
+Merge: 9ededf7 e4c87a3
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Fri May 14 20:02:36 2021 +0800
+
+    Merge pull request #57 from danielchegwidden/dev-dc
+
+    Ajax Update
+
+commit e4c87a317e1498ae212ae2cc30c915d1e1724040
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri May 14 09:46:56 2021 +0800
+
+    fix images
+
+commit 918374da343ddff4d2124683dbbdc524803747af
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri May 14 09:42:38 2021 +0800
+
+    ajax request for content
+
+commit 9ededf7d7ebcb38d4aeeabc122142d770db28f52
+Merge: 5d5222a 436f574
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Tue May 11 22:22:37 2021 +0800
+
+    Merge pull request #56 from danielchegwidden/dev-dc
+
+    Cleaning and Testing
+
+commit 436f574ece1d403c9736d670cfd52116612f4bff
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 11 21:16:50 2021 +0800
+
+    system testing
+
+commit 95f2d2d0ca4b66cf47c215a0357a2120bf2ad37f
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 11 17:28:55 2021 +0800
+
+    index page
+
+commit bfbfe887864f6fac15fc7509f44a6160e001ad4d
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 11 15:41:12 2021 +0800
+
+    registration errors, cs and js
+
+commit 0ce80081e69ae3d317328f7ee7148f0525bfffbf
+Merge: 7c09c37 5d5222a
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 11 10:50:02 2021 +0800
+
+    registration validation
+
+commit 5d5222a32142dc092ba6c0e0c9d4c514e557fc40
+Merge: fef9ca6 d8f8144
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Tue May 11 09:30:28 2021 +0800
+
+    Merge pull request #55 from danielchegwidden/dev-af
+
+    Dev af
+
+commit d8f81447bbe6259dc979f67047d3f2682a4af390
+Merge: 23a1e75 fef9ca6
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 22:07:05 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit fef9ca684dbd9e4f4baea08a9c272a9069f06677
+Merge: dfc4628 89d2765
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon May 10 22:02:45 2021 +0800
+
+    Merge pull request #54 from danielchegwidden/dev-dc
+
+    Testing
+
+commit 23a1e758a363a1566e1e7116f509c418c69b57d3
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 22:02:20 2021 +0800
+
+    added validation, not sure how to get the element
+
+commit eb0a3483daa9c7b0a8bc627723d42e9791136b46
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 20:53:49 2021 +0800
+
+    fix the header picture
+
+commit d7995ae07e01cabadf18ea3c696beebbddaf5a75
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 20:06:46 2021 +0800
+
+    Deleted the pic
+
+commit 1bb59a5d3f3e955c6a6d105a99df1989119a985d
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 16:09:18 2021 +0800
+
+    header img
+
+commit d867e41c2c71f454764aa0753b6c75a99a89d5f9
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 15:22:59 2021 +0800
+
+    change the footer and background color of the blocks in feedback page
+
+commit 065a79a1bc833bda22863ad66e85e0025e386579
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 12:02:35 2021 +0800
+
+    Added a pic to learn page
+
+commit 41611a0c4fae53d3941c2e52e9df4141ac5bccae
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 10 11:42:20 2021 +0800
+
+    added footer to base.html, content needs to be decided
+
+commit 7c09c37019328abbe7d1ec2f59d6b72b052ba06e
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun May 9 22:44:08 2021 +0800
+
+    continue system testing
+
+commit 89d276562590bbee7ab0228922fe6ba9a00d99df
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun May 9 14:23:43 2021 +0800
+
+    starting system tests
+
+commit 38ce9a19d99e2d556f15449196feb26748993bd0
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 8 21:24:44 2021 +0800
+
+    unit testing
+
+commit 4f1b8725d73481334af92241d06ae2a5fa2f368d
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 8 18:32:47 2021 +0800
+
+    continue testing
+
+commit 9554b7a2086de8a35ae0fe7742fe16743478038b
+Merge: b06432a dfc4628
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 8 14:45:45 2021 +0800
+
+    Merge branch 'main' into dev-dc
+
+commit b06432aceeb46a0676889ead5118142dc3c76149
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 8 14:45:20 2021 +0800
+
+    unit testing
+
+commit dfc462830f728da17e1e298bdf137ec9d632da30
+Merge: a1da09b fb926a7
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Sat May 8 14:44:55 2021 +0800
+
+    Merge pull request #53 from danielchegwidden/dev-af
+
+    improvements of JS and looks
+
+commit fb926a759b6e6a13daceded9a5e56cd25fc06dc9
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Thu May 6 17:26:34 2021 +0800
+
+    Add ticks to the progress
+
+commit aec24e916a0505832b00cfc8316203b43bbee2c7
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Thu May 6 16:54:46 2021 +0800
+
+    ignore
+
+commit 581666b27f5d14b154abe36c8543c1eb4d99c475
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Thu May 6 16:47:52 2021 +0800
+
+    doughnut
+
+commit 2fc7291da07d46e2e6b0c30a02b68c238cee0bd1
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Thu May 6 16:42:52 2021 +0800
+
+    improve JS in feedback and stats page
+
+commit a1da09b8fc88c8b944f732c8c1497e98d221b5d4
+Merge: 5c4874b fd22fc7
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Wed May 5 14:23:21 2021 +0800
+
+    Merge pull request #51 from danielchegwidden/dev-dc
+
+    Database Initialisation
+
+commit fd22fc7055ac070b9dc3f5844f44f310d58aedf5
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed May 5 14:18:53 2021 +0800
+
+    fix controllers and models
+
+commit 5a519c74b54723c2de9b0e494bb6bb10f32e914b
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed May 5 00:52:55 2021 +0800
+
+    dark theme
+
+commit bc892792e8800ebdea75afcf2784c969525776df
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 4 23:21:04 2021 +0800
+
+    update ignore
+
+commit 0c1a922d5fbb21a8a8c31d1b072e6a57c60ebe25
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 4 23:20:33 2021 +0800
+
+    database initilisation
+
+commit 5c4874bcdbda9e1976ed3baac57b2384035cacf3
+Merge: d6e11a2 f2a893a
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Tue May 4 22:09:44 2021 +0800
+
+    Merge pull request #50 from danielchegwidden/dev-dc
+
+    Testing and Statistics
+
+commit f2a893a5e5aa3a04080b4652fdf86528b3631aa5
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 4 21:14:43 2021 +0800
+
+    statistics
+
+commit 5db093b01841a3ee2626a2ffdf940e7e1a49f458
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue May 4 18:52:58 2021 +0800
+
+    began testing and fixed feedback controller
+
+commit d6e11a29e6ede57baf95e50bb869aff7c29323eb
+Merge: 5c52b53 823a5ab
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Tue May 4 16:54:49 2021 +0800
+
+    Merge pull request #49 from danielchegwidden/dev-af
+
+    feedback page, high and low blocks
+
+commit 823a5abbb6495e30e9c6ab7f67a4bbdbd4103da3
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Tue May 4 16:12:10 2021 +0800
+
+    font size of feedback score
+
+commit db42f39e6821256118deb3ac7dcf97c5751aba25
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Tue May 4 16:08:58 2021 +0800
+
+    change bottoms for high & low risks
+
+commit ecabe9b754c88b7164597a7d0a1043ac12ebbf8d
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Tue May 4 15:24:07 2021 +0800
+
+    feedback score block change
+
+commit 29c85d8c73b2c8cfd507abc547fd535499b88dce
+Merge: 271a803 5c52b53
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Tue May 4 13:42:23 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit 5c52b53a458c47d3ea455458c95232fee94a82e9
+Merge: ca607ee 5d5590c
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Tue May 4 13:41:09 2021 +0800
+
+    Merge pull request #48 from danielchegwidden/dev-dc
+
+    Testing
+
+commit 271a8037b0521cc937fc39e883c5d8c717e52c2d
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 3 21:36:13 2021 +0800
+
+    feedback page
+
+commit 5d5590cfa773ac5dcfcc2159cc96cc868a32d85c
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon May 3 17:51:03 2021 +0800
+
+    testing
+
+commit 79c9244f1c6b0080e858316c79790e2d77b00650
+Merge: c6a9e8b ca607ee
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 3 16:30:36 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit c6a9e8bfc834395a5cfec6758a2e256c3c31a474
+Author: amandafyfy <amandafyfy@gmail.com>
+Date:   Mon May 3 16:25:59 2021 +0800
+
+    feedback changes
+
+commit ca607eecaa4b1b4221ed1a7ce06fa965c1390b9a
+Merge: cb7876b 385d213
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon May 3 16:17:50 2021 +0800
+
+    Merge pull request #47 from danielchegwidden/dev-dc
+
+    feedback data for current user
+
+commit 385d2134af659bb087c563bc5d679a8e09e58201
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon May 3 15:39:55 2021 +0800
+
+    feedback data for current user
+
+commit cb7876bfde9c8738993118a96837169bb8f5e6ec
+Merge: 9d1fede 0c4e14e
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Mon May 3 14:12:58 2021 +0800
+
+    Merge pull request #45 from danielchegwidden/dev-af
+
+    empty choice and text position
+
+commit 0c4e14ea80f2e1dda87e115142d939897c6b7a4a
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat May 1 22:11:23 2021 +0800
+
+    center text
+
+commit acf604ccc3f7e07af261d377a3b912d300fe383c
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat May 1 18:32:18 2021 +0800
+
+    empty choice added
+
+commit 9d1fedef844d40a76b876f80da6c1b14bf14ae2f
+Merge: 77049fb c031f61
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sat May 1 13:28:19 2021 +0800
+
+    Merge pull request #44 from danielchegwidden/dev-dc
+
+    Controllers and Models
+
+commit c031f61efb033ca333b8cb67e9cd3d156c5f3504
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat May 1 12:16:36 2021 +0800
+
+    progress in model
+
+commit 1bd5145bd1e11dc15254ae97b37bf57eef638617
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 30 16:56:18 2021 +0800
+
+    user login
+
+commit 309803dfb7da8d91dd465f51233e06e0f4c8b56e
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 30 16:31:46 2021 +0800
+
+    database and controllers
+
+commit f58eac3afa6ac789c57337a0409e6d12715ea74a
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 30 16:31:12 2021 +0800
+
+    database and controllers
+
+commit 77049fbb48f5449dce900277d6a4d9b7df8ff132
+Merge: 5f5b4c0 57661fb
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Fri Apr 30 08:58:30 2021 +0800
+
+    Merge pull request #40 from danielchegwidden/dev-dc
+
+    High Risk Content and Questions
+
+commit 57661fb7d21ac17a995d64dc64c2a918c232c978
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Thu Apr 29 23:06:57 2021 +0800
+
+    high risk content and questions
+
+commit 5f5b4c0ace3b621f65df041e29af39bad979de3c
+Merge: 467293a d0c008f
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Thu Apr 29 09:57:52 2021 +0800
+
+    Merge pull request #39 from danielchegwidden/dev-af
+
+    Content for stocks
+
+commit d0c008f355b750bdea752d954bcdd684bbae18b2
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Thu Apr 29 09:39:08 2021 +0800
+
+    content for stocks
+
+commit a51c2e9e1f9f1b430adb2ef327660413cb3ecd2c
+Merge: 1c206ee 467293a
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Thu Apr 29 09:12:15 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit 1c206ee12306c502e2f370403691670ca740e8e4
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Thu Apr 29 09:10:00 2021 +0800
+
+    definition of stocks
+
+commit 467293aee2d729ae0a2a58d084fee2bb4414d6dd
+Merge: 9bcf027 f46c01a
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Thu Apr 29 09:01:15 2021 +0800
+
+    Merge pull request #38 from danielchegwidden/dev-dc
+
+    Derivatives and Cryptocurrency
+
+commit f46c01a95452124185b4ef6c2d278988be872d0a
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed Apr 28 23:54:32 2021 +0800
+
+    derivatives and crypto
+
+commit 5726ae326bb865016267887adc1e71d57d56ed6f
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed Apr 28 21:27:56 2021 +0800
+
+    fix models
+
+commit c9cf793568541094658e6176b3cdc066bf780eab
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed Apr 28 11:13:34 2021 +0800
+
+    crypto content and high risk images
+
+commit 9bcf027cb0af578731e7fef83de0092fc570db0f
+Merge: 33ba612 76f0a00
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Wed Apr 28 09:12:08 2021 +0800
+
+    Merge pull request #37 from danielchegwidden/dev-dc
+
+    Updated minutes and content
+
+commit 76f0a00cbcca0d2ca8f03ada296285a45fde196e
+Merge: 81a2bfb 33ba612
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 27 23:01:30 2021 +0800
+
+    Merge branch 'main' into dev-dc
+
+commit 81a2bfb5d09b9d16fe52fb1f1c0f11c4ee01e7d7
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 27 23:01:21 2021 +0800
+
+    added documentation
+
+commit 33ba612cb0ebde966a9cc1e2a8bd54f06814c586
+Merge: 621581f a60640e
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Tue Apr 27 22:38:21 2021 +0800
+
+    Merge pull request #36 from danielchegwidden/dev-af
+
+    learning page cleaning
+
+commit a60640e80fe12be3c3a7701ad6119cdc04150ae9
+Merge: c6cde3a 621581f
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Tue Apr 27 21:53:27 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit c6cde3a14b3407c4219a923c1caa5248141c8a4e
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Tue Apr 27 21:50:56 2021 +0800
+
+    Merge branch 'dev-jumbo' of http://github.com/danielchegwidden/peaks-and-troughs into main
+
+commit 621581f5542c20b037fb04a9a7835f218fecf217
+Merge: bca7faf 8b4a1a3
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Tue Apr 27 20:36:42 2021 +0800
+
+    Merge pull request #34 from danielchegwidden/dev-af
+
+    Learn page design
+
+commit 8b4a1a355c04cb5cd0da0a9174bb995b30f3115c
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Tue Apr 27 17:56:31 2021 +0800
+
+    Learn page design
+
+commit bca7faf9039ce359ecacdb356d67d3b06cda9ff6
+Merge: 0cad2a0 7d81e72
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon Apr 26 22:21:19 2021 +0800
+
+    Merge pull request #33 from danielchegwidden/dev-dc
+
+    Routes and Models
+
+commit 7d81e72071330401fe20272b67273fdd6bfdb4f7
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 20:34:45 2021 +0800
+
+    added test question
+
+commit bc2f258741e8296c24d21f5345c1c94a31404368
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 20:25:52 2021 +0800
+
+    updated routes and models
+
+commit 40484b63cfdbd83531c26ed365e68918ab39caf3
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 20:25:34 2021 +0800
+
+    client meeting 3 minutes
+
+commit c5d0940f7dd91a3e93b9681f85a877f518326065
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 18:18:54 2021 +0800
+
+    reset database
+
+commit bbd1be0d5068577fdd3e1e4bf0c3129014a0aa94
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 15:42:02 2021 +0800
+
+    updated models
+
+commit 9b682e634ab1ffe88386b956c70f972de2a1e020
+Merge: 4695261 0cad2a0
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 15:23:18 2021 +0800
+
+    Merge branch 'main' into dev-dc
+
+commit 0cad2a0c2994e0067cab24c70fa6acbc385b0f68
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 15:22:42 2021 +0800
+
+    update agendas and minutes
+
+commit 4695261bd162960bd50709cfdc6071b57c9d25bb
+Merge: 551c461 51a8b2f
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 26 14:25:35 2021 +0800
+
+    Merge branch 'main' into dev-dc
+
+commit 51a8b2f8db3c9de206adc1a8a662c06746ad161e
+Merge: 2d599d4 d4f6078
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Mon Apr 26 14:24:59 2021 +0800
+
+    Merge pull request #32 from danielchegwidden/dev-af
+
+    Add blocks in learning page
+
+commit d4f6078e51423c9130fe54fb80e3afb19f2b76ee
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Mon Apr 26 00:24:52 2021 +0800
+
+    need testing, the font awsome is a probelem as it contains the onhover feature, please test it on your own computer see if it works
+
+commit 551c461e24e747d02280fe14b3dff632ff443f41
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 23 11:41:27 2021 +0800
+
+    added conda environment.yml file
+
+commit ff64568d3e66c3710c14a498d73737a15e4895af
+Merge: 016d978 2d599d4
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Fri Apr 23 10:45:29 2021 +0800
+
+    Merge branch 'main' into dev-af
+
+commit 2d599d4a43c717306a4b95dc47ba291d8c80bc3e
+Merge: 39948e9 0dab3ba
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Fri Apr 23 10:34:03 2021 +0800
+
+    Merge pull request #30 from danielchegwidden/dev-dc
+
+    Administrative Details
+
+commit 0dab3ba5eef36d7454ac3e4af1bb6070a88eaa83
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 23 09:35:39 2021 +0800
+
+    adding debug mode
+
+commit f4489711b270a7c64175dcbe347123f9763430cb
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Wed Apr 21 22:51:54 2021 +0800
+
+    style guide
+
+commit b3444254b75081de150851a7c7c968e1112a2aaa
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 20 10:40:41 2021 +0800
+
+    added test-admin details to README
+
+commit 39948e9d98ddcbc038735ed5c2e2e9a5d3fe0e2a
+Merge: 818b178 e6c83bf
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Tue Apr 20 10:35:35 2021 +0800
+
+    Merge pull request #28 from danielchegwidden/dev-jumbo
+
+commit e6c83bfad7d57e600315f39524a66bebb0beaace
+Merge: d9743c3 818b178
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 20 10:10:14 2021 +0800
+
+    merge dev-jumbo with most recent main changes
+
+commit d9743c32f4e78ad68bb8e0c5182db7c985f54020
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Tue Apr 20 00:01:52 2021 +0800
+
+    add functionalities for content
+
+commit 818b1788ddda473bb4a883f95a0421f2655e0472
+Merge: 8cdfaca 6d72b65
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon Apr 19 16:45:57 2021 +0800
+
+    Merge pull request #24 from danielchegwidden/dev-dc
+
+    Client Meeting 2 Minutes and Git Guide
+
+commit 6d72b65c3d7aa87d5e4f8932763ed24999747fc4
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 19 16:31:26 2021 +0800
+
+    routes and models update
+
+commit 1da9a41b43e23f484719c755e43eba7760c6949f
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun Apr 18 00:18:09 2021 +0800
+
+    git steps for updating local branches
+
+commit 056fb25cac8c7071325389455df6dfdadab1f347
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sun Apr 18 00:14:45 2021 +0800
+
+    client meeting 2 minutes
+
+commit 8cdfacae5b53ed9f9143fcd5a52fea98c4d6567a
+Merge: 718d3f4 90df817
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sat Apr 17 21:43:37 2021 +0800
+
+    Merge pull request #23 from danielchegwidden/dev-dc
+
+    Fix Carousel and Update Route
+
+commit 90df817aa7459ea6536f8dd8b12ec64dcc428a08
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 21:41:08 2021 +0800
+
+    change carousel to image
+
+commit bce85adb0f0cfe33bd1bd0f471651b5a7769daa8
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 19:07:54 2021 +0800
+
+    center form and clean some html elements for logging in
+
+commit 210b89b39b2ed2cd85bb4fbecb88a1ff579779a7
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 17:25:31 2021 +0800
+
+    navigation and content tabs
+
+commit 718d3f455e486fe8abdf0797df7bcd59f6aeed21
+Merge: 3f321d3 4641f45
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sat Apr 17 16:26:43 2021 +0800
+
+    Merge pull request #22 from danielchegwidden/dev-dc
+
+    Users and Requirements
+
+commit 3f321d32a405e71b5ef994c88f3e112fb3787b62
+Merge: 719c6d6 0d3da44
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sat Apr 17 16:25:09 2021 +0800
+
+    Merge pull request #16 from danielchegwidden/dev-jumbo
+
+    Added Carousel to Jumbotron
+
+commit 4641f4599744e02391d84ea7a7c3d2fc9f6cd2b4
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 16:01:52 2021 +0800
+
+    added requirements.txt
+
+commit bc07698cd661ba363572701dac1bdc3866664f02
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 15:50:38 2021 +0800
+
+    added test user
+
+commit 016d9787eb118dba2ea32323175b06b0e214768c
+Merge: 7af5144 0d3da44
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat Apr 17 15:44:45 2021 +0800
+
+    Merge branch 'dev-jumbo' of http://github.com/danielchegwidden/peaks-and-troughs into dev-af
+
+commit 719c6d6cc08cd1b8044bfa3b638508d5e89648d2
+Merge: 6af45a2 50d9eff
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Sat Apr 17 15:23:16 2021 +0800
+
+    Merge pull request #15 from danielchegwidden/dev-dc
+
+    Client Meeting 2 Agenda
+
+commit 50d9eff6ac397ca0fafec7870b15fb6f90da327d
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 15:14:19 2021 +0800
+
+    client meeting 2 agenda
+
+commit 0d3da44ea68a0b7bbc4d5ee881df6526d045f0ac
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 17 15:11:18 2021 +0800
+
+    update bootstrap
+
+commit 7af514401ecf9dc9f70d91a1a4420a0fb8dfeb8d
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat Apr 17 13:54:00 2021 +0800
+
+    Some content about bonds.
+
+commit 9e03312ccd3c3ff94fb6dcd21eb39d8a62d503ba
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat Apr 17 13:47:40 2021 +0800
+
+    Some content about bonds.
+
+commit d0f7841d00b6dd16e80368f30725fb605b68ee1a
+Author: Amanda Feng <amandafyfy@gmail.com>
+Date:   Sat Apr 17 11:21:06 2021 +0800
+
+    Couldn't figure out why it doesn't work, plaease have a look, thanks
+
+commit 6af45a2d03de729664227615cd23b95ad126b7b7
+Merge: c90f796 0bac3ff
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Tue Apr 13 18:28:31 2021 +0800
+
+    Merge pull request #14 from danielchegwidden/dev-dc
+
+    Flask Tutorial and Static CSS
+
+commit 0bac3fff8429c383cd2ab125a154e8b976a43e30
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 13 18:21:55 2021 +0800
+
+    flask-bootstrap and static css
+
+commit 618661d3875ea5848130485b932e48c5cc230f89
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 13 17:40:46 2021 +0800
+
+    flask part 11 - facelift with bootstrap
+
+commit 04396cbbf5d920621de7425cfe9dae19180a0f65
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Tue Apr 13 16:02:49 2021 +0800
+
+    flask tutorial part 5 - user logins
+
+commit c90f796abe67b322168b3252bd32a078209fff44
+Merge: 0696cc7 b44a463
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Tue Apr 13 10:21:04 2021 +0800
+
+    Merge pull request #11 from danielchegwidden/dev-dc
+
+    Flask (4) and Other Templates
+
+commit b44a463ef0746cc20b85acda57aaf829c744372c
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 21:56:06 2021 +0800
+
+    Flask part 4 including flask shell
+
+commit 12570e7e6db688d9868b5f090b04271d8ecb7469
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 21:18:59 2021 +0800
+
+    Flask update to Part 3
+
+commit a89f20ccfb5c81e11d6eecc83217123e62ccea1d
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 21:18:24 2021 +0800
+
+    html page template shells
+
+commit 3203de9da13ebc3a77d856d5cf84d4fce7cf466b
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 21:14:20 2021 +0800
+
+    content files
+
+commit 0696cc771a48c8bebf2724787f3a02591dc089fc
+Merge: d6444c8 5e61541
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon Apr 12 16:19:28 2021 +0800
+
+    Merge pull request #10 from danielchegwidden/dev-dc
+
+    Developer Meeting 2 and basic flask app
+
+commit 5e615415c67a76f420295e52bcd237cd77390fe4
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 16:17:03 2021 +0800
+
+    developer meeting 2 and basic flask app
+
+commit d6444c80c000c26d1f84040a4829e38550459534
+Merge: cf8e1ed f172008
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Mon Apr 12 15:58:40 2021 +0800
+
+    Merge pull request #9 from danielchegwidden/dev-dc
+
+    Developer Meeting 2 Agenda
+
+commit f172008281e8b44b522e210703635afa9c00fcb8
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 12 14:58:24 2021 +0800
+
+    developer meeting 2 agenda
+
+commit cf8e1ed010ac394d4e0aa17be60ddb0bce237c5c
+Merge: f585687 d13ac2d
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Sat Apr 10 21:01:22 2021 +0800
+
+    Merge pull request #8 from danielchegwidden/dev-dc
+
+    Client mMeeting 1 Minutes
+
+commit d13ac2db1e8776f12c25fbb00221203759630fee
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Sat Apr 10 20:57:29 2021 +0800
+
+    client meeting 1 minutes
+
+commit f58568758e2047153d4b2a4e381dd998be17a375
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Fri Apr 9 23:33:06 2021 +0800
+
+    client meeting 1 agenda
+
+commit 014dffb98e60d27cb73b28302bfdb60d53e55555
+Merge: 95faa7b 41c7a6e
+Author: amandafyfy <69751797+amandafyfy@users.noreply.github.com>
+Date:   Thu Apr 8 12:31:52 2021 +0800
+
+    Merge pull request #2 from danielchegwidden/dev-dc
+
+    Developer Meeting 1 Minutes
+
+commit 41c7a6e0cc9cb6298cf8f8228f1d3a2aca897081
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Thu Apr 8 12:26:04 2021 +0800
+
+    developer meeting 1 minutes
+
+commit 95faa7bdae5483ab8547591b593f7dfc47d74b95
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 5 19:05:01 2021 +0800
+
+    developer meeting 1 agenda
+
+commit c749e919875a295ea0e0130af0e05312f28e4dde
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 5 18:40:25 2021 +0800
+
+    first shield
+
+commit d9a37a28ae8ff409bf9703167ee4f5191a62eba2
+Author: Daniel Chegwidden <daniel.chegwidden.datascience@gmail.com>
+Date:   Mon Apr 5 18:35:22 2021 +0800
+
+    initial setup
+
+commit 18538fd3e971c1d0dc19c72bdf0691fae5bd5574
+Author: danielchegwidden <69413854+danielchegwidden@users.noreply.github.com>
+Date:   Mon Apr 5 18:04:41 2021 +0800
+
+    Initial commit
