@@ -1,6 +1,5 @@
-from flask import flash
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, HiddenField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo
 from app.models import Users, Questions
 import re
@@ -38,7 +37,7 @@ class RegistrationForm(FlaskForm):
 
 
 class AttemptForm(FlaskForm):
-    questions = [1, 2, 3, 4, 5]  # REMEMBER TO REMOVE
+    questions = [1, 2, 3, 4, 5]  # DEFAULT
     question_1 = Questions.query.get(questions[0])
     answer_1 = SelectField(
         u"Question 1: " + question_1.question_text,

@@ -57,7 +57,7 @@ def add_attempts(user_id, category, questions, answers, day):
 
 def test_admin():
     create_user(
-        id=0,
+        id=1,
         username="test-admin",
         email="test-admin@peaksandtroughs.com",
         password="Test3210",
@@ -67,9 +67,9 @@ def test_admin():
 
 def test_users():
     create_user(
-        id=99, username="test-user", email="test-user@peaksandtroughs.com", password="Test0123"
+        id=2, username="test-user", email="test-user@peaksandtroughs.com", password="Test0123"
     )
-    for new in range(1, 11):
+    for new in range(3, 13):
         create_user(
             id=new,
             username="test-user-" + str(new),
@@ -144,26 +144,26 @@ def initial_questions():
 
 
 def initial_attempts():
-    add_progress(1, False, False, False, False)
-    add_attempts(1, "High", [1, 2, 3, 4, 5], ["A", "A", "A", "A", "A"], 1)
-    add_progress(2, True, False, False, False)
-    add_attempts(2, "High", [1, 2, 3, 4, 5], ["B", "D", "A", "C", "B"], 2)
-    add_progress(3, True, True, False, False)
-    add_attempts(3, "High", [1, 2, 3, 4, 5], ["A", "B", "C", "D", "A"], 3)
-    add_progress(4, True, True, True, False)
-    add_attempts(4, "High", [1, 2, 3, 4, 5], ["C", "A", "B", "A", "D"], 4)
-    add_progress(5, True, True, True, True)
-    add_attempts(5, "High", [1, 2, 3, 4, 5], ["A", "C", "A", "B", "D"], 5)
-    add_progress(6, False, False, False, True)
-    add_attempts(6, "High", [1, 2, 3, 4, 5], ["D", "A", "C", "A", "B"], 6)
-    add_progress(7, False, False, True, True)
-    add_attempts(7, "High", [1, 2, 3, 4, 5], ["A", "D", "A", "C", "A"], 1)
-    add_progress(8, False, True, True, True)
-    add_attempts(8, "High", [1, 2, 3, 4, 5], ["B", "D", "C", "A", "C"], 2)
-    add_progress(9, True, True, True, True)
-    add_attempts(9, "High", [1, 2, 3, 4, 5], ["A", "B", "A", "D", "A"], 3)
-    add_progress(10, False, True, True, False)
-    add_attempts(10, "High", [1, 2, 3, 4, 5], ["D", "D", "B", "A", "C"], 4)
+    add_progress(3, False, False, False, False)
+    add_attempts(3, "High", [1, 2, 3, 4, 5], ["A", "A", "A", "A", "A"], 1)
+    add_progress(4, True, False, False, False)
+    add_attempts(4, "High", [1, 2, 3, 4, 5], ["B", "D", "A", "C", "B"], 2)
+    add_progress(5, True, True, False, False)
+    add_attempts(5, "High", [1, 2, 3, 4, 5], ["A", "B", "C", "D", "A"], 3)
+    add_progress(6, True, True, True, False)
+    add_attempts(6, "High", [1, 2, 3, 4, 5], ["C", "A", "B", "A", "D"], 4)
+    add_progress(7, True, True, True, True)
+    add_attempts(7, "High", [1, 2, 3, 4, 5], ["A", "C", "A", "B", "D"], 5)
+    add_progress(8, False, False, False, True)
+    add_attempts(8, "High", [1, 2, 3, 4, 5], ["D", "A", "C", "A", "B"], 6)
+    add_progress(9, False, False, True, True)
+    add_attempts(9, "High", [1, 2, 3, 4, 5], ["A", "D", "A", "C", "A"], 1)
+    add_progress(10, False, True, True, True)
+    add_attempts(10, "High", [1, 2, 3, 4, 5], ["B", "D", "C", "A", "C"], 2)
+    add_progress(11, True, True, True, True)
+    add_attempts(11, "High", [1, 2, 3, 4, 5], ["A", "B", "A", "D", "A"], 3)
+    add_progress(12, False, True, True, False)
+    add_attempts(12, "High", [1, 2, 3, 4, 5], ["D", "D", "B", "A", "C"], 4)
 
 
 def main():

@@ -18,8 +18,6 @@ login = LoginManager(app)
 login.login_view = "login"
 load_dotenv()
 
-from app import routes, models, controllers
-
 from app.models import Users, Progress, Attempt, Questions
 from app import data_loader
 
@@ -30,3 +28,5 @@ if DEVELOP:
     Attempt.query.delete()
     Questions.query.delete()
     data_loader.main()
+
+from app import routes, models, controllers
